@@ -1,0 +1,25 @@
+/**
+  |============================
+  | include css partials with
+  | default @import url()
+  |============================
+*/
+
+@import url(./css/header.css);
+/* ================================================================ */
+:root {
+  --accent-color: #9bb537;
+  --primary-text-color: #050505;
+  --secondary-text-color: #ffffff;
+  --primary-text-color-08: rgba(5, 5, 5, 0.8);
+  --primary-text-color-05: rgba(5, 5, 5, 0.5);
+  --primary-text-color-03: rgba(5, 5, 5, 0.3);
+  --primary-text-color-02: rgba(5, 5, 5, 0.2);
+  --dark-th-text-color-08: rgba(255, 255, 255, 0.8);
+  --dark-th-text-color-05: rgba(255, 255, 255, 0.5);
+  --dark-th-text-color-03: rgba(255, 255, 255, 0.3);
+  --light-text-color: #f8f8f8;
+  --switch-bg-off-color: #cecdcd;
+  --light-background-color: #f8f8f8;
+  --dark-background-color: #161616;
+}
