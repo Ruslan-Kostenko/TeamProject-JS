@@ -142,18 +142,6 @@ img {
     margin: 0 auto;
     outline: 1px solid blue;
   }
-
-  /* .categories-popular {
-    width: 176px;
-
-    padding: 0;
-  }
-
-  .filter-cards {
-    width: 496px;
-
-    padding: 0;
-  } */
 }
 
 /* Desktop */
@@ -168,25 +156,13 @@ img {
     padding: 0 100px;
   }
 
-  /* .categories-popular {
-    width: 235px;
-    padding: 0;
-  }
-
-  .filter-cards {
-    width: 782px;
-    padding: 0;
-  } */
-
   .container.categories,
   .container.popular {
     width: 235px;
-    padding: 0;
   }
 
   .container.filter,
   .container.cards {
     width: 782px;
-    padding: 0;
   }
 }
