@@ -1,11 +1,5 @@
-/**
-  |============================
-  | include css partials with
-  | default @import url()
-  |============================
-*/
-
 @import url(./css/header.css);
+@import url(./css/hero.css);
 /* ================================================================ */
 :root {
   --accent-color: #9bb537;
@@ -15,11 +9,118 @@
   --primary-text-color-05: rgba(5, 5, 5, 0.5);
   --primary-text-color-03: rgba(5, 5, 5, 0.3);
   --primary-text-color-02: rgba(5, 5, 5, 0.2);
-  --dark-th-text-color-08: rgba(255, 255, 255, 0.8);
-  --dark-th-text-color-05: rgba(255, 255, 255, 0.5);
-  --dark-th-text-color-03: rgba(255, 255, 255, 0.3);
+  --dark-theme-text-color-08: rgba(255, 255, 255, 0.8);
+  --dark-theme-text-color-05: rgba(255, 255, 255, 0.5);
+  --dark-theme-text-color-03: rgba(255, 255, 255, 0.3);
   --light-text-color: #f8f8f8;
   --switch-bg-off-color: #cecdcd;
   --light-background-color: #f8f8f8;
   --dark-background-color: #161616;
+
+  --animation-set: 400ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* body.scroll-hidden {
+  overflow: hidden;
+} */
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  margin: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Inter', sans-serif;
+
+  background-color: var(--light-background-color);
+  color: var(--primary-main-color);
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+a {
+  display: block;
+  color: currentColor;
+  text-decoration: none;
+}
+
+button {
+  cursor: pointer;
+}
+
+img {
+  display: block;
+}
+
+section {
+  margin: 0 auto;
+}
+
+.container {
+  margin: 0 auto;
+
+  outline: 2px solid green;
+  outline-style: dashed;
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  border: 0;
+  padding: 0;
+
+  white-space: nowrap;
+  clip-path: inset(100%);
+  clip: rect(0 0 0 0);
+  overflow: hidden;
+}
+
+/* Mobile */
+@media screen and (max-width: 374px) {
+  .container {
+    max-width: 374px;
+    padding: 0 8px;
+  }
+}
+
+@media screen and (min-width: 375px) {
+  .container {
+    max-width: 375px;
+    padding: 0 20px;
+  }
+}
+
+/* Tablet */
+@media screen and (min-width: 768px) {
+  .container {
+    max-width: 768px;
+    padding-left: 32px;
+    padding-right: 32px;
+  }
+}
+
+/* Desktop */
+@media screen and (min-width: 1280px) {
+  .container {
+    max-width: 1280px;
+    padding-left: 100px;
+    padding-right: 100px;
+  }
 }
