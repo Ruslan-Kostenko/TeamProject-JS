@@ -36,8 +36,6 @@ h1,
 h2,
 h3,
 h4,
-h5,
-h6,
 p {
   margin: 0;
 }
@@ -75,15 +73,14 @@ img {
   display: block;
 }
 
-section {
-  margin: 0 auto;
-}
+/* section.thumb {
+  margin: 0 auto 0 auto;
+} */
 
 .container {
-  margin: 0 auto;
-
-  outline: 2px solid green;
-  outline-style: dashed;
+  max-width: 1280px;
+  margin: auto;
+  outline: 1px solid green;
 }
 
 .visually-hidden {
@@ -110,7 +107,7 @@ section {
 
 @media screen and (min-width: 375px) {
   .container {
-    max-width: 375px;
+    width: 375px;
     padding: 0 20px;
   }
 }
@@ -118,64 +115,76 @@ section {
 /* Tablet */
 @media screen and (min-width: 768px) {
   .container {
-    max-width: 768px;
+    width: 768px;
     padding-left: 32px;
     padding-right: 32px;
   }
 
-  .categories,
-  .popular {
-    padding: 0 0 0 32px;
+  .container.categories,
+  .container.popular {
+    width: 176px;
+    padding: 0;
   }
 
-  .filter,
-  .cards {
-    padding: 0 32px 0 0;
+  .container.filter,
+  .container.cards {
+    width: 496px;
+    padding: 0;
   }
 
-  .desktop-flex {
+  .tablet-desktop {
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
+    width: 768px;
+    padding: 0 32px;
+    margin: 0 auto;
+    /* outline: 2px solid blue; */
   }
 
-  .categories-popular {
-    width: 208px;
-    /* padding: 0 0 0 32px; */
-    margin-right: 32px;
+  /* .categories-popular {
+    width: 176px;
+
+    padding: 0;
   }
 
   .filter-cards {
-    width: 528px;
-    /* padding: 0 32px 0 0; */
-  }
+    width: 496px;
+
+    padding: 0;
+  } */
 }
 
 /* Desktop */
 @media screen and (min-width: 1280px) {
   .container {
-    max-width: 1280px;
-    padding-left: 100px;
-    padding-right: 100px;
+    width: 1280px;
+    padding: 0 100px;
   }
 
-  .categories-popular {
-    width: 335px;
-    /* padding: 0 0 0 32px; */
-    margin-right: 64px;
+  .tablet-desktop {
+    width: 1280px;
+    padding: 0 100px;
+  }
+
+  /* .categories-popular {
+    width: 235px;
+    padding: 0;
   }
 
   .filter-cards {
-    width: 881px;
-    /* padding: 0 32px 0 0; */
+    width: 782px;
+    padding: 0;
+  } */
+
+  .container.categories,
+  .container.popular {
+    width: 235px;
+    padding: 0;
   }
 
-  .categories,
-  .popular {
-    padding: 0 0 0 100px;
-  }
-
-  .filter,
-  .cards {
-    padding: 0 100px 0 0;
+  .container.filter,
+  .container.cards {
+    width: 782px;
+    padding: 0;
   }
 }
