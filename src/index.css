@@ -1,5 +1,13 @@
 @import url(./css/header.css);
 @import url(./css/hero.css);
+@import url(./css/categories.css);
+@import url(./css/popular.css);
+@import url(./css/filter.css);
+@import url(./css/cards.css);
+/* Favorite page */
+@import url(./css/favorite/header-favorite.css);
+@import url(./css/favorite/hero-favorite.css);
+@import url(./css/favorite/popular-recipe.css);
 /* ================================================================ */
 :root {
   --accent-color: #9bb537;
