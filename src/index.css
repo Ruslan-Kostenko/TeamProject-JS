@@ -63,7 +63,7 @@ ul {
 
 a {
   display: block;
-  color: currentColor;
+  /* color: currentColor; */
   text-decoration: none;
 }
 
