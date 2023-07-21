@@ -122,6 +122,32 @@ section {
     padding-left: 32px;
     padding-right: 32px;
   }
+
+  .categories,
+  .popular {
+    padding: 0 0 0 32px;
+  }
+
+  .filter,
+  .cards {
+    padding: 0 32px 0 0;
+  }
+
+  .desktop-flex {
+    display: flex;
+    justify-content: center;
+  }
+
+  .categories-popular {
+    width: 208px;
+    /* padding: 0 0 0 32px; */
+    margin-right: 32px;
+  }
+
+  .filter-cards {
+    width: 528px;
+    /* padding: 0 32px 0 0; */
+  }
 }
 
 /* Desktop */
@@ -130,5 +156,26 @@ section {
     max-width: 1280px;
     padding-left: 100px;
     padding-right: 100px;
+  }
+
+  .categories-popular {
+    width: 335px;
+    /* padding: 0 0 0 32px; */
+    margin-right: 64px;
+  }
+
+  .filter-cards {
+    width: 881px;
+    /* padding: 0 32px 0 0; */
+  }
+
+  .categories,
+  .popular {
+    padding: 0 0 0 100px;
+  }
+
+  .filter,
+  .cards {
+    padding: 0 100px 0 0;
   }
 }

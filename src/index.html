@@ -24,14 +24,20 @@
     <main>
       <!-- Hero -->
       <include src="./partials/hero.html"></include>
-      <!-- Categories -->
-      <include src="./partials/categories.html"></include>
-      <!-- Popular -->
-      <include src="./partials/popular.html"></include>
-      <!-- Filter -->
-      <include src="./partials/filter.html"></include>
-      <!-- Cards -->
-      <include src="./partials/cards.html"></include>
+      <div class="desktop-flex">
+        <div class="categories-popular">
+          <!-- Categories -->
+          <include src="./partials/categories.html"></include>
+          <!-- Popular -->
+          <include src="./partials/popular.html"></include>
+        </div>
+        <div class="filter-cards">
+          <!-- Filter -->
+          <include src="./partials/filter.html"></include>
+          <!-- Cards -->
+          <include src="./partials/cards.html"></include>
+        </div>
+      </div>
     </main>
 
     <script type="module" src="./index.js"></script>
