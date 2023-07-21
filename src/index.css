@@ -1,3 +1,5 @@
+@import '../node_modules/modern-normalize/modern-normalize.css';
+
 @import url(./css/header.css);
 @import url(./css/hero.css);
 @import url(./css/categories.css);
@@ -73,9 +75,9 @@ img {
   display: block;
 }
 
-/* section.thumb {
-  margin: 0 auto 0 auto;
-} */
+.hidden {
+  display: none;
+}
 
 .container {
   max-width: 1280px;
@@ -100,7 +102,7 @@ img {
 /* Mobile */
 @media screen and (max-width: 374px) {
   .container {
-    max-width: 374px;
+    width: 100vw;
     padding: 0 8px;
   }
 }
@@ -138,7 +140,7 @@ img {
     width: 768px;
     padding: 0 32px;
     margin: 0 auto;
-    /* outline: 2px solid blue; */
+    outline: 1px solid blue;
   }
 
   /* .categories-popular {
