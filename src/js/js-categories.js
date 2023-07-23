@@ -30,4 +30,4 @@ function getAllRecept() {
   });
 }
 
-catBtnEl.addEventListener('click');
+
