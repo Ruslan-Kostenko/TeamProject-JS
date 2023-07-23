@@ -1,9 +1,12 @@
+.categories{
+    padding-bottom:40px;
+}
 .cat-list{
     height: 195px;
     display: flex;
     flex-direction: column;
     gap:18px;
-    margin-bottom:40px;
+    
     
     overflow-y: scroll;
   /* Убираем стандартный бегунок скролла */
@@ -65,13 +68,15 @@
       }
       @media screen and (min-width:768px){
       
-    
+        .categories{
+            padding-bottom: 64px;
+        }
         .cat-btn{
             margin-bottom:30px;
             padding:14px 28px;
         }
         .cat-list{
-            margin-bottom: 64px;
+            
             gap:24px;
             
             
