@@ -1,0 +1,6 @@
+/* @import '../../node_modules/swiper/swiper.min.css'; */
+
+.swiper {
+    width: 600px;
+    height: 300px;
+  }
