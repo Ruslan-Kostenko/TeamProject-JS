@@ -1,0 +1,147 @@
+.card_list {
+  display: flex;
+  flex-direction: column;
+  row-gap: 24px;
+  margin-bottom: 40px;
+}
+
+@media screen and (min-width: 768px) {
+  .card_list {
+    flex-wrap: wrap;
+    flex-direction: row;
+    gap: 16px;
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .card_list {
+    row-gap: 20px;
+    column-gap: 16px;
+  }
+}
+
+.card_item {
+  border-radius: 15px;
+  position: relative;
+  display: flex;
+  align-items: flex-end;
+  height: 335px;
+  width: 335px;
+  color: #f8f8f8;
+  background: linear-gradient(
+    1deg,
+    rgba(5, 5, 5, 0.6) 0%,
+    rgba(5, 5, 5, 0) 100%
+  );
+}
+
+@media screen and (min-width: 768px) {
+  .card_item {
+    height: 264px;
+    width: 240px;
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .card_item {
+    height: 287px;
+    width: 250px;
+  }
+}
+
+.card_img {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  border-radius: 15px;
+  object-fit: cover;
+}
+
+.card_fav {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0;
+  background: none;
+  border: none;
+
+  right: 16px;
+  top: 16px;
+}
+
+.card_heart {
+  fill: #f8f8f8;
+  transition: fill 0.3s;
+  cursor: pointer;
+  width: 22px;
+  height: 22px;
+}
+
+.card_heart:hover {
+  fill: #fc0000;
+}
+
+.recipe_desc {
+  position: relative;
+  padding: 16px;
+}
+
+.recipe_desc_title {
+  font-size: 14px;
+  font-weight: 600;
+  line-height: calc(18 / 14);
+  text-transform: uppercase;
+  margin-bottom: 8px;
+}
+
+.recipe_desc_overview {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+  color: #f8f8f8;
+  text-overflow: ellipsis;
+  whitespace: nowrap;
+  font-family: Inter;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 16px;
+  margin-bottom: 16px;
+}
+
+.card_rating {
+  display: none;
+}
+
+.recipe_desc_btn {
+  padding: 8px 14px;
+  justify-content: center;
+  align-items: center;
+  border-radius: 8px;
+  background: #9bb537;
+  border: none;
+  color: #f8f8f8;
+  margin-left: auto;
+}
+
+.card_info {
+  display: flex;
+  justify-content: space-between;
+}
+
+@media screen and (min-width: 768px) {
+  .card_info {
+    width: 208px;
+    height: 31px;
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .card_info {
+    width: 218px;
+    height: 31px;
+  }
+}
