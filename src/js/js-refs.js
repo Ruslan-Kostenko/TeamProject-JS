@@ -6,4 +6,9 @@ export const refs = {
   // CATEGORIES&POPULAR
   ulPopEl: document.querySelector('.pop-list'),
   ulCatEl: document.querySelector('.cat-list'),
+
+  //MODALS WINDOWS
+  openButtonEl: document.querySelector('.shopping-link'),
+  closeButtonEl: document.querySelector('.order-now-modal__close-btn'),
+  backdropEl: document.querySelector('.js-backdrop'),
 };
