@@ -1,0 +1,115 @@
+.pop-item{
+    display: flex;
+    gap:16px;
+    height: 67px;
+}
+.pop-img{
+    width:64px;
+    height:64px;
+}
+
+
+
+.pop-header{
+    margin-bottom: 20px;
+    color: #050505;
+    font-family: Inter;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 1.33;
+    text-transform: uppercase;
+}
+.pop-list{
+    display: flex;
+    flex-direction: column;
+    gap:27px;
+    margin-bottom: 43px;
+}
+
+.pop-info>p{
+    
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    /* Оставьте остальные свойства без изменений */
+    max-width: 252px;
+    height: 30px;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 1.33;
+    color: rgba(5, 5, 5, 0.80);
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.pop-info>h3{
+    margin-bottom: 8px;
+    color: #050505;
+    font-family: Inter;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 1.28;
+    text-transform: uppercase;
+    display:-webkit-box;
+    
+    overflow: hidden;
+  /* white-space: nowrap; */
+  text-overflow: ellipsis;
+  word-break: break-word;
+  -webkit-line-clamp: 1; /* Максимальное количество строк */
+  -webkit-box-orient: vertical;
+    
+}
+
+@media screen and (min-width:768px){
+  
+
+.pop-item{
+    gap:8px;
+    
+}
+.pop-info>p{
+    width:120px;
+    height: 41px;
+    font-size: 10px;
+    line-height: 1.4;
+    -webkit-line-clamp: 3;
+}
+.pop-info>h3{
+    display:-webkit-box;
+    width:120px;
+    overflow: hidden;
+  /* white-space: nowrap; */
+  text-overflow: ellipsis;
+  word-break: break-word;
+  -webkit-line-clamp: 1; /* Максимальное количество строк */
+  -webkit-box-orient: vertical;
+}
+.pop-header{
+    margin-bottom: 32px;
+}
+.pop-img{
+    width:48px;
+    height:48px;
+}
+    
+}
+@media screen and (min-width:1280px){
+    
+    .pop-info>p{
+        width:155px;
+        
+        
+        line-height: 1.4;
+    }
+    .pop-img{
+        width:64px;
+        height:64px;
+    }
+    .pop-item{
+        gap:16px;
+    }
+}
