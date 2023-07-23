@@ -1,12 +1,12 @@
 .btn-up {
-  position: fixed; /* фиксированная позиция */
+  position: fixed;
   background-color: var(--accent-color);
-  right: 10px; /* расстояние от правого края */
-  bottom: 0px; /* расстояние от нижнего края */
-  border-top-left-radius: 10px; /* скругление верхнего левого угла */
-  border-top-right-radius: 10px; /* скругление верхнего правого угла */
-  cursor: pointer; /* форма курсора */
-  display: flex; /* не отображать элемент */
+  right: 10px;
+  bottom: 0px;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  cursor: pointer;
+  display: flex;
   align-items: center;
   justify-content: center;
   transition: opacity 0.3s ease-in-out;
