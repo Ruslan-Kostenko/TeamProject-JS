@@ -110,9 +110,18 @@ textarea {
   font-size: 14px;
   border: none;
   border-radius: 15px;
-  background: #9bb537;
+  background: var(--accent-color);
   color: white;
   cursor: pointer;
+}
+
+.order-now-modal-close__img path {
+  stroke: #050505;
+  transition: stroke var(--animation-set);
+}
+
+.order-now-modal-close__img:hover path {
+  stroke: var(--accent-color);
 }
 
 @media screen and (max-width: 320px) {

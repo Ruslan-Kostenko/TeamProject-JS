@@ -7,7 +7,7 @@
 							width="20"
 							height="20"
 							viewBox="0 0 20 20"
-							fill="#000"
+							fill="none"
 							xmlns="http://www.w3.org/2000/svg"
 						>
 							<path
@@ -28,25 +28,26 @@
 					</button>
 
 					<div class="order-now-form-wrap">
-						<form class="order-now-modal-form">
-							<label>
-								<span>Name</span>
-								<input class="order-now-modal-form__input" type="text" value="" />
-							</label>
-							<label>
-								<span>Phone number</span>
-								<input class="order-now-modal-form__input" type="text" value="" />
-							</label>
-							<label>
-								<span>Email</span>
-								<input class="order-now-modal-form__input" type="email" value="" />
-							</label>
-							<label>
-								<span>Comment</span>
-								<textarea name="comment"></textarea>
-							</label>
-							<button type="submit">Send</button>
-						</form>
+		<form class="order-now-modal-form">
+  <label>
+    <span>Name</span>
+    <input class="order-now-modal-form__input" type="text" value="" required/>
+  </label>
+  <label>
+    <span>Phone number</span>
+    <input class="order-now-modal-form__input" type="tel" value="" placeholder="+380 73 0000000" pattern="(\+380\d{9})|(0\d{9})" required/>
+  </label>
+  <label>
+    <span>Email</span>
+    <input class="order-now-modal-form__input" type="email" value="" required/>
+  </label>
+  <label>
+    <span>Comment</span>
+    <textarea name="comment"></textarea>
+  </label>
+  <button type="submit">Send</button>
+</form>
+
 					</div>
 				</div>
 			</div>
