@@ -1,4 +1,4 @@
-import './js/js-refs';
+// import './js/js-refs';
 import './js/scroll-to-up';
 
 import './js/hero';
