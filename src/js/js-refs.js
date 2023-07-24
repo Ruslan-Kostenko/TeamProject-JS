@@ -8,7 +8,9 @@ export const refs = {
   ulCatEl: document.querySelector('.cat-list'),
 
   //MODALS WINDOWS
+  modalOrderNowForm: document.querySelector('.order-now-modal-form'),
   openButtonEl: document.querySelector('.shopping-link'),
+  openButtonHeroEl: document.querySelector('.hero-btn'),
   closeButtonEl: document.querySelector('.order-now-modal__close-btn'),
   backdropEl: document.querySelector('.js-backdrop'),
 };
