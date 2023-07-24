@@ -1,51 +1,63 @@
 <section>
   <div class="container filter">
-    <div class="filters">
-      <form>
-        <label class="search_label label_desc">
-          Search
-          <input
-            class="search_input"
-            type="text"
-            name="Search"
-            placeholder="Enter Text"
-            autofocus
-          />
-        </label>
-      </form>
-      <div class="time">
-        <label class="time_label label_desc"> Time </label>
-        <select class="time_select" id="time" name="time">
-          <option class="time_option" value="10" selected>10 min</option>
-          <option class="time_option" value="20">20 min</option>
-          <option class="time_option" value="30">30 min</option>
-          <option class="time_option" value="40">40 min</option>
-        </select>
+    <div class="box">
+      <div class="filters">
+        <div class="search">
+          <form>
+            <label class="search_label label_desc">
+              <span class="label_span"> Search </span>
+            </label>
+            <input
+              class="search_input"
+              type="text"
+              name="Search"
+              placeholder="Enter Text"
+              autofocus
+              autocomplete="off"
+            />
+          </form>
+        </div>
+        <div class="time">
+          <label class="time_label label_desc"> Time </label>
+          <select class="time_select" id="time" name="time">
+            <option class="time_option" value="10" selected>10 min</option>
+            <option class="time_option" value="20">20 min</option>
+            <option class="time_option" value="30">30 min</option>
+            <option class="time_option" value="40">40 min</option>
+          </select>
+        </div>
+        <div class="area">
+          <label class="area_label label_desc"> Area </label>
+          <select class="area_select" id="area" name="area">
+            <option class="area_option" value="France" selected>France</option>
+            <option class="area_option" value="Spanish">Spanish</option>
+            <option class="area_option" value="Italian">Italian</option>
+            <option class="area_option" value="English">English</option>
+            <option class="area_option" value="Norwegian">Norwegian</option>
+            <option class="area_option" value="Ukrainian">Ukrainian</option>
+          </select>
+        </div>
+        <div class="ingredients">
+          <label class="ingredients_label label_desc"> Ingredients </label>
+          <select
+            class="ingredients_select"
+            id="ingredients"
+            name="ingredients"
+          >
+            <option class="ingredients_option" value="Cabbage" selected>
+              Cabbage
+            </option>
+            <option class="ingredients_option" value="Cucumber">
+              Cucumber
+            </option>
+            <option class="ingredients_option" value="Tomato">Tomato</option>
+            <option class="ingredients_option" value="Corn">Corn</option>
+            <option class="ingredients_option" value="Radish">Radish</option>
+            <option class="ingredients_option" value="Parsley">Parsley</option>
+          </select>
+        </div>
       </div>
-      <div class="area">
-        <label class="area_label label_desc"> Area </label>
-        <select class="area_select" id="area" name="area">
-          <option class="area_option" value="France" selected>France</option>
-          <option class="area_option" value="Spanish">Spanish</option>
-          <option class="area_option" value="Italian">Italian</option>
-          <option class="area_option" value="English">English</option>
-          <option class="area_option" value="Norwegian">Norwegian</option>
-          <option class="area_option" value="Ukrainian">Ukrainian</option>
-        </select>
-      </div>
-      <div class="ingredients">
-        <label class="ingredients_label label_desc"> Ingredients </label>
-        <select class="ingredients_select" id="ingredients" name="ingredients">
-          <option class="ingredients_option" value="Cabbage" selected>
-            Cabbage
-          </option>
-          <option class="ingredients_option" value="Cucumber">Cucumber</option>
-          <option class="ingredients_option" value="Tomato">Tomato</option>
-          <option class="ingredients_option" value="Corn">Corn</option>
-          <option class="ingredients_option" value="Radish">Radish</option>
-          <option class="ingredients_option" value="Parsley">Parsley</option>
-        </select>
-      </div>
+      <button class="clear_button">Reset the filter</button>
     </div>
   </div>
 </section>

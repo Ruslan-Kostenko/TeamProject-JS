@@ -1,18 +1,47 @@
 .filters {
   display: flex;
   flex-wrap: wrap;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 14px;
 }
+
+@media screen and (min-width: 768px) {
+  .filters {
+    gap: 16px;
+  }
+}
+
+@media screen and (min-width: 1280px) {
+}
+
+/* ---------------- SEARCHE */
 
 .search_label {
   display: flex;
-  flex-direction: column;
-  gap: 8px;
+  gap: 30px;
 }
 
+.search {
+  max-width: 335px;
+}
+
+@media screen and (min-width: 768px) {
+  .search {
+    width: 278px;
+  }
+}
+
+/* .search_svg {
+  position: absolute;
+  bot: 30;
+} */
+
 .search_input {
-  display: flex;
-  min-width: 335px;
-  height: 46px;
+  position: relative;
+  display: inline-block;
+  width: 100%;
+  height: 48px;
   padding: 14px 122px 14px 18px;
   align-items: flex-start;
   gap: 32px;
@@ -20,6 +49,7 @@
   border: 1px solid rgba(5, 5, 5, 0.2);
   color: rgba(5, 5, 5, 0.5);
   outline: none;
+  width: 100%;
 }
 
 .search_input::placeholder {
@@ -30,6 +60,12 @@
   font-weight: 500;
   line-height: 1.28;
 }
+
+.search_label {
+  margin-bottom: 100px;
+}
+
+/* ---------------- LABEL DESC */
 
 .label_desc {
   display: inline-block;
@@ -42,21 +78,46 @@
   margin-bottom: 8px;
 }
 
-.time {
-  display: flex;
-  flex-direction: column;
-}
+/* ---------------- TIME */
 
 .time_select {
   display: flex;
   padding: 14px 18px;
   justify-content: center;
   align-items: center;
+  height: 48px;
   gap: 59px;
   border-radius: 15px;
   border: 1px solid rgba(5, 5, 5, 0.2);
-  margin-bottom: 14px;
   outline: none;
+  width: 160px;
+
+  color: rgba(5, 5, 5, 0.5);
+  font-family: Inter;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 1.28;
+}
+
+@media screen and (max-width: 375px) {
+  .time {
+    width: 335px;
+  }
+  .time_select {
+    width: 100%;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .time {
+    width: 125px;
+  }
+  .time_select {
+    width: 100%;
+    font-size: 16px;
+    line-height: 1.25;
+  }
 }
 
 .time_select option {
@@ -68,7 +129,63 @@
   line-height: 1.28;
 }
 
+/* ---------------- AREA */
+
+.area_select {
+  display: flex;
+  padding: 14px 18px;
+  justify-content: center;
+  height: 48px;
+  align-items: center;
+  gap: 59px;
+  border-radius: 15px;
+  border: 1px solid rgba(5, 5, 5, 0.2);
+  width: 160px;
+  cursor: pointer;
+  outline: none;
+
+  color: rgba(5, 5, 5, 0.5);
+  font-family: Inter;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 1.28;
+}
+
+@media screen and (max-width: 375px) {
+  .area {
+    width: 335px;
+  }
+  .area_select {
+    width: 100%;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .area {
+    width: 141px;
+  }
+  .area_select {
+    width: 100%;
+    font-size: 16px;
+    line-height: 1.25;
+  }
+}
+
+.area_select option {
+  cursor: pointer;
+  color: rgba(5, 5, 5, 0.3);
+  font-family: Inter;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 1.28;
+}
+
+/* ---------------- INGREDIENTS */
+
 .ingredients_select {
+  height: 48px;
   display: flex;
   padding: 14px 18px;
   justify-content: center;
@@ -76,8 +193,35 @@
   gap: 59px;
   border-radius: 15px;
   border: 1px solid rgba(5, 5, 5, 0.2);
-  margin-bottom: 14px;
+  width: 188px;
   outline: none;
+
+  color: rgba(5, 5, 5, 0.5);
+  font-family: Inter;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 1.28;
+}
+
+@media screen and (max-width: 375px) {
+  .ingredients {
+    width: 335px;
+  }
+  .ingredients_select {
+    width: 100%;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .ingredients {
+    width: 188px;
+  }
+  .ingredients_select {
+    width: 100%;
+    font-size: 16px;
+    line-height: 1.25;
+  }
 }
 
 .ingredients_select option {
@@ -89,25 +233,21 @@
   line-height: 1.28;
 }
 
-.area_select {
+/* ------------- clear button  */
+
+.clear_button {
   display: flex;
-  padding: 14px 18px;
-  justify-content: center;
   align-items: center;
-  gap: 59px;
-  border-radius: 15px;
-  border: 1px solid rgba(5, 5, 5, 0.2);
+  border: none;
+  background: none;
+  margin-left: auto;
+  color: rgba(5, 5, 5, 0.5);
+  font-size: 12px;
   margin-bottom: 14px;
-  cursor: pointer;
-  outline: none;
+  font-family: Inter;
+  line-height: 1.33;
 }
 
-.area_select option {
-  cursor: pointer;
-  color: rgba(5, 5, 5, 0.3);
-  font-family: Inter;
-  font-size: 14px;
-  font-style: normal;
-  font-weight: 500;
-  line-height: 1.28;
+.clear_button:hover {
+  text-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
 }
