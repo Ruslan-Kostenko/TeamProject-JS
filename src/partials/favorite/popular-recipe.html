@@ -1,0 +1,33 @@
+<!-- Кнопки фільтру -->
+<div class="container">
+  <div id="category-filter-container"></div>
+</div>
+
+<!-- Галерея з улюбленими рецептами -->
+<div class="container">
+  <ul class="recipe-list" id="recipe-list">
+    <li class="recipe-list-item">
+      <img class="recipe-card-img" src="#" alt="" />
+      <button class="on-favorite-button" type="button">icon</button>
+      <h3 class="recipe-card-title"></h3>
+      <p class="recipe-card-descr"></p>
+      <div>
+        <p class="recipe-card-rating"></p>
+        <button class="see-recipe-button" type="button">See recipe</button>
+      </div>
+    </li>
+  </ul>
+  <!-- Повідомлення про відсутність улюблених рецептів -->
+  <div class="empty-favorites" id="empty-favorites" style="display: none">
+    <img
+      class="no-cards-img"
+      src="./images/favorite-images/no-card-img.png"
+      alt="Empty Favorites"
+    />
+    <p class="no-cards-text">
+      It appears that you haven't added any recipes to your favorites yet. To
+      get started, you can add recipes that you like to your favorites for
+      easier access in the future.
+    </p>
+  </div>
+</div>
