@@ -8,9 +8,8 @@ import {pagination} from "./pagination";
 
 const currentPage = pagination.getCurrentPage();
 
-<<<<<<< Updated upstream
-let limit = 0;
-=======
+
+
 let setLimit = 0;
 function setLimitValue() {
   if (window.innerWidth < 768) {
@@ -33,19 +32,6 @@ console.log(getCurrentPage())
 console.log(pagination)
 
 
-
->>>>>>> Stashed changes
-
-function setLimitValue() {
-  if (window.innerWidth < 768) {
-    limit = 6;
-  } else if (window.innerWidth < 1280) {
-    limit = 8;
-  } else {
-    limit = 9;
-  }
-}
-setLimitValue() ;
 
 fetchCatItem().then(data => {
   ulCatEl.innerHTML = makeCatItem(data);
@@ -114,7 +100,7 @@ function makeCardMark(info){
   </p>
   <div class="card_info">
     <p class="card_rating">Rating: ${g.rating}</p>
-    <button class="recipe_desc_btn">See recipe</button>
+    <button value=${g._id} class="recipe_desc_btn">See recipe</button>
   </div>
 </div>
 </li>`
@@ -137,13 +123,10 @@ function fetchAllRecept(page,limit) {
     return resp.json();
   });
 }
-<<<<<<< Updated upstream
-function fetchReceptByCategory(catName){
-  return fetch(`${BASE_URL}recipes?${}z&category=${catName}`).then(resp=>{
-=======
+
 function fetchReceptByCategory(catName,currentPage,setLimit){
   return fetch(`${BASE_URL}recipes?page=${currentPage}&limit=${setLimit}&category=${catName}`).then(resp=>{
->>>>>>> Stashed changes
+
     if(!resp.ok){
       throw new Error(resp.statusText);
     }
