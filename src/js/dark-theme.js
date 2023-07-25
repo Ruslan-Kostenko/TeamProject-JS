@@ -1,8 +1,12 @@
 document.addEventListener('DOMContentLoaded', () => {
   const allBodyTheme = document.body;
-  const themeSwitcher = document.querySelector('.switcher-toggle.desktop');
+  const themeSwitcher = document.querySelector(
+    '.switcher-toggle.desktop-theme'
+  );
 
-  const mobileThemeSwitcher = document.querySelector('.switcher-toggle.mobile');
+  const mobileThemeSwitcher = document.querySelector(
+    '.switcher-toggle.mobile-theme'
+  );
   //   const desktopHeader = document.querySelector('.head-theme');
 
   const handleThemeSwitcher = () => {
