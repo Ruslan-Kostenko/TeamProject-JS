@@ -32,7 +32,7 @@ body.dark-theme {
   stroke: var(--secondary-text-color);
 }
 
-.dark-theme .hero-primary-text,
+.dark-theme .hero-title,
 .dark-theme .hero-text,
 .dark-theme .hero-btn {
   color: var(--secondary-text-color);
