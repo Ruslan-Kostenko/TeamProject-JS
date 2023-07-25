@@ -69,7 +69,7 @@ const makeCardMark = function (recipes) {
   </p>
   <div class="card_info">
     <p class="card_rating">Rating: ${recipe.rating}</p>
-    <button class="recipe_desc_btn">See recipe</button>
+    <button value=${recipe._id} class="recipe_desc_btn">See recipe</button>
   </div>
 </div>
 </li>`
