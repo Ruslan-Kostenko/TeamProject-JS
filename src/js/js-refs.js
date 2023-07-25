@@ -13,4 +13,7 @@ export const refs = {
   openButtonHeroEl: document.querySelector('.hero-btn'),
   closeButtonEl: document.querySelector('.order-now-modal__close-btn'),
   backdropEl: document.querySelector('.js-backdrop'),
+  openModalBtn: document.querySelector('[data-modal-open]'),
+  closeModalBtn: document.querySelector('[data-modal-close]'),
+  modal: document.querySelector('[data-modal]'),
 };

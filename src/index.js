@@ -8,3 +8,4 @@ import './js/favorites-page';
 
 import './js/header-mobile-menu';
 import './js/modal-order-now';
+import './js/rating-popup';
