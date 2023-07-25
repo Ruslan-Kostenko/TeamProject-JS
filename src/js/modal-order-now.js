@@ -1,10 +1,16 @@
 import { refs } from './js-refs';
 
+if (refs.openButtonHeroEl) {
+  refs.openButtonHeroEl.addEventListener('click', onModalOpen);
+}
+
 refs.openButtonEl.addEventListener('click', onModalOpen);
 
 refs.closeButtonEl.addEventListener('click', onModalRemove);
 
 refs.backdropEl.addEventListener('click', onBackdropClick);
+
+refs.modalOrderNowForm.addEventListener('submit', onSubmitForm);
 
 function onModalOpen() {
   window.addEventListener('keydown', onEscKeyPress);
@@ -26,4 +32,25 @@ function onEscKeyPress(event) {
   if (event.code === 'Escape') {
     onModalRemove();
   }
+}
+
+function onSubmitForm(e) {
+  e.preventDefault();
+
+  const formData = extractFormData(refs.modalOrderNowForm);
+  console.log(formData);
+
+  refs.modalOrderNowForm.reset();
+}
+
+function extractFormData(form) {
+  const formData = {};
+  const inputsEl = form.elements;
+
+  formData.name = inputsEl.name.value;
+  formData.phone = inputsEl.phone.value;
+  formData.email = inputsEl.email.value;
+  formData.comment = inputsEl.comment.value;
+
+  return formData;
 }
