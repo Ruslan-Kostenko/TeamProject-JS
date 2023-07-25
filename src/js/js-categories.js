@@ -8,8 +8,18 @@ import {pagination} from "./pagination";
 
 const currentPage = pagination.getCurrentPage();
 
+let limit = 0;
 
-
+function setLimitValue() {
+  if (window.innerWidth < 768) {
+    limit = 6;
+  } else if (window.innerWidth < 1280) {
+    limit = 8;
+  } else {
+    limit = 9;
+  }
+}
+setLimitValue() ;
 
 fetchCatItem().then(data => {
   ulCatEl.innerHTML = makeCatItem(data);
@@ -76,7 +86,7 @@ function makeCardMark(info){
   ${g.description}
   </p>
   <div class="card_info">
-    <p class="card_rating">Rating placeholder</p>
+    <p class="card_rating">Rating: ${g.rating}</p>
     <button class="recipe_desc_btn">See recipe</button>
   </div>
 </div>
@@ -101,7 +111,7 @@ function fetchAllRecept(page,limit) {
   });
 }
 function fetchReceptByCategory(catName){
-  return fetch(`${BASE_URL}recipes?limit=9&category=${catName}`).then(resp=>{
+  return fetch(`${BASE_URL}recipes?${}z&category=${catName}`).then(resp=>{
     if(!resp.ok){
       throw new Error(resp.statusText);
     }
