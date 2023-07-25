@@ -31,15 +31,22 @@
 		<form class="order-now-modal-form">
   <label>
     <span>Name</span>
-    <input class="order-now-modal-form__input" type="text" value="" required/>
+    <input class="order-now-modal-form__input" type="text" name="name" placeholder="enter your name" required/>
   </label>
   <label>
     <span>Phone number</span>
-    <input class="order-now-modal-form__input" type="tel" value="" placeholder="+380 73 0000000" pattern="(\+380\d{9})|(0\d{9})" required/>
+<input class="order-now-modal-form__input"
+       type="tel"
+       name="phone"
+       placeholder="+38(XXX)-XXX-XX-XX"
+        pattern="\+38\d{10}"
+       required/>
+
+
   </label>
   <label>
     <span>Email</span>
-    <input class="order-now-modal-form__input" type="email" value="" required/>
+    <input class="order-now-modal-form__input" type="email" name="email" placeholder="enter your email" required/>
   </label>
   <label>
     <span>Comment</span>
