@@ -10,6 +10,6 @@ import './js/filter';
 import './js/hero';
 import './js/js-categories';
 import './js/js-popular';
-import './js/favorites-page';
+
 
 import './js/modal-order-now';
