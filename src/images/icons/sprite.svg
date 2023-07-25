@@ -10,5 +10,8 @@
 <symbol id="icon-x" viewBox="0 0 32 32">
 <path fill="none" stroke="#f8f8f8" style="stroke: var(--color1, #f8f8f8)" stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="4" stroke-width="2" d="M24 8l-16 16M8 8l16 16"></path>
 </symbol>
+<symbol id="icon-search" viewBox="0 0 18 18">
+<path style="fill: var(--color1, #fff)" opacity="0.5" d="M16.283 15.218l-2.783-2.76c0.925-1.145 1.485-2.619 1.485-4.223 0-3.728-3.022-6.75-6.75-6.75s-6.75 3.022-6.75 6.75c0 3.728 3.022 6.75 6.75 6.75 1.604 0 3.078-0.56 4.236-1.495l-0.013 0.010 2.76 2.76c0.136 0.137 0.324 0.222 0.532 0.222s0.397-0.085 0.532-0.222l0-0c0.13-0.135 0.21-0.318 0.21-0.521s-0.080-0.386-0.211-0.521l0 0zM8.25 13.5c-2.899 0-5.25-2.351-5.25-5.25s2.351-5.25 5.25-5.25v0c2.899 0 5.25 2.351 5.25 5.25s-2.351 5.25-5.25 5.25v0z"></path>
+</symbol>
 </defs>
 </svg>

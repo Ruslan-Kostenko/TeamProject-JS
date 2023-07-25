@@ -7,12 +7,10 @@ document.addEventListener('DOMContentLoaded', () => {
   const mobileThemeSwitcher = document.querySelector(
     '.switcher-toggle.mobile-theme'
   );
-  //   const desktopHeader = document.querySelector('.head-theme');
 
   const handleThemeSwitcher = () => {
     if (themeSwitcher.checked) {
       allBodyTheme.classList.add('dark-theme');
-      //   desktopHeader.classList.add('dark-theme');
       localStorage.setItem('theme-point', 'dark');
     } else {
       allBodyTheme.classList.remove('dark-theme');
@@ -23,7 +21,6 @@ document.addEventListener('DOMContentLoaded', () => {
   const handleMobileThemeSwitcher = () => {
     if (mobileThemeSwitcher.checked) {
       allBodyTheme.classList.add('dark-theme');
-      //   desktopHeader.classList.add('dark-theme');
       localStorage.setItem('theme-point', 'dark');
     } else {
       allBodyTheme.classList.remove('dark-theme');
@@ -45,7 +42,6 @@ document.addEventListener('DOMContentLoaded', () => {
   };
 
   themeSwitcher.addEventListener('change', handleThemeSwitcher);
-  // themeFavSwitcher.addEventListener('change', handleFavThemeSwitcher);
   mobileThemeSwitcher.addEventListener('change', handleMobileThemeSwitcher);
 
   handleSetTheme();
