@@ -1,4 +1,3 @@
-'use strict';
 import { debounce } from 'lodash';
 
 const UlCardEl = document.querySelector('.card_list');
