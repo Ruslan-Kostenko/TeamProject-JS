@@ -1,3 +1,7 @@
+body.show-modal-order-now {
+  overflow: hidden;
+}
+
 body.show-modal-order-now .order-now-modal {
   transform: scale(1);
 }
@@ -96,6 +100,12 @@ textarea {
   border: 1px solid rgba(5, 5, 5, 0.2);
 }
 
+/* Стилі для зміни кольору бордера при фокусі */
+.order-now-modal-form__input:focus,
+.order-now-modal-form textarea:focus {
+  outline-color: var(--accent-color);
+}
+
 .order-now-modal-form textarea {
   margin-bottom: 40px;
   padding: 15px;
@@ -135,10 +145,7 @@ textarea {
 }
 @media screen and (min-width: 767px) {
   .order-now-modal {
-    max-width: none;
-    max-height: none;
-    width: 440px;
-    height: 632px;
+    max-width: 440px;
     padding: 40px;
   }
   .order-now-modal-form input,
@@ -154,4 +161,4 @@ textarea {
     width: 24px;
     height: 24px;
   }
-} /*# sourceMappingURL=style.css.map */
+}
