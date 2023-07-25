@@ -85,42 +85,44 @@
 // fetchDataFromBackend();
 
 // Отримання збережених даних з локального сховища
-    const savedRecipes = localStorage.getItem('selectedRecipes');
+const savedRecipes = localStorage.getItem('selectedRecipes');
 
-    // Перевірка, чи є дані в local storage або чи порожній масив улюблених рецептів
-    if (!savedRecipes || JSON.parse(savedRecipes).length === 0) {
-      // Приховуємо список рецептів
-      document.getElementById('recipe-list').classList.add('hide');
-      // Показуємо повідомлення про порожній список улюблених рецептів
-      document.getElementById('empty-favorites').style.display = 'flex';
-    } else {
-      // Якщо є улюблені рецепти, то показуємо список рецептів
-      document.getElementById('recipe-list').classList.remove('hide');
-      document.getElementById('empty-favorites').style.display = 'none';
+// Перевірка, чи є дані в local storage або чи порожній масив улюблених рецептів
+if (!savedRecipes || JSON.parse(savedRecipes).length === 0) {
+  // Приховуємо список рецептів
+  document.getElementById('recipe-list').classList.add('hide');
+  // Показуємо повідомлення про порожній список улюблених рецептів
+  document.getElementById('empty-favorites').style.display = 'flex';
+} else {
+  // Якщо є улюблені рецепти, то показуємо список рецептів
+  document.getElementById('recipe-list').classList.remove('hide');
+  document.getElementById('empty-favorites').style.display = 'none';
 
-      // Парсимо рядок JSON у JavaScript об'єкт
-      const favoriteRecipes = JSON.parse(savedRecipes);
+  // Парсимо рядок JSON у JavaScript об'єкт
+  const favoriteRecipes = JSON.parse(savedRecipes);
 
-      // Отримання унікальних категорій з об'єктів рецептів
-      const uniqueCategories = [
-        ...new Set(favoriteRecipes.map(recipe => recipe.category)),
-      ];
+  // Отримання унікальних категорій з об'єктів рецептів
+  const uniqueCategories = [
+    ...new Set(favoriteRecipes.map(recipe => recipe.category)),
+  ];
 
-      // Отримання контейнера для блоку з кнопками фільтрів
-      const categoryFilterContainer = document.getElementById('category-filter-container');
+  // Отримання контейнера для блоку з кнопками фільтрів
+  const categoryFilterContainer = document.getElementById(
+    'category-filter-container'
+  );
 
-      // Функція для оновлення списку рецептів з урахуванням фільтру
-      function updateRecipeList(selectedCategory) {
-        const filteredRecipes = selectedCategory
-          ? favoriteRecipes.filter(recipe => recipe.category === selectedCategory)
-          : favoriteRecipes;
+  // Функція для оновлення списку рецептів з урахуванням фільтру
+  function updateRecipeList(selectedCategory) {
+    const filteredRecipes = selectedCategory
+      ? favoriteRecipes.filter(recipe => recipe.category === selectedCategory)
+      : favoriteRecipes;
 
-        const recipeList = document.getElementById('recipe-list');
-        const recipeCards = filteredRecipes.map(recipe => {
-          return `
+    const recipeList = document.getElementById('recipe-list');
+    const recipeCards = filteredRecipes.map(recipe => {
+      return `
             <li class="recipe-list-item">
               <img class="recipe-card-img" src="${recipe.preview}" alt="${recipe.title}" />
-              <button class="on-favorite-button" data-recipe-id="${recipe._id}" type="button">іконка</button>
+              <button class="on-favorite-button" data-recipe-id="${recipe._id}" type="button">icon</button>
               <h3 class="recipe-card-title">${recipe.title}</h3>
               <p class="recipe-card-descr">${recipe.description}</p>
               <div>
@@ -129,69 +131,76 @@
               </div>
             </li>
           `;
-        });
+    });
 
-        // Додавання згенерованих карток до списку
-        recipeList.innerHTML = recipeCards.join('');
-      }
+    // Додавання згенерованих карток до списку
+    recipeList.innerHTML = recipeCards.join('');
+  }
 
-      // Функція для обробки кліку на кнопці "All categories"
-      function handleAllCategoriesClick() {
-        // Видаляємо клас "active" у всіх кнопок фільтрування
-        const categoryFilterButtons = document.getElementsByClassName('category-filter-button');
-        for (const button of categoryFilterButtons) {
-          button.classList.remove('active');
-        }
-
-        // Оновлюємо список рецептів без фільтрування
-        updateRecipeList();
-      }
-
-      // Функція для відмалювання кнопок фільтрів
-      function renderCategoryFilters() {
-        // Додаємо кнопку "All categories"
-        const allCategoriesButton = document.createElement('button');
-        allCategoriesButton.classList.add('category-filter-button');
-        allCategoriesButton.textContent = 'All categories';
-        allCategoriesButton.addEventListener('click', handleAllCategoriesClick);
-        categoryFilterContainer.appendChild(allCategoriesButton);
-
-        // Додаємо інші кнопки фільтрів
-        const filtersHTML = uniqueCategories.map(
-          category => `
-          <button class="category-filter-button" data-category="${category}">${category}</button>
-        `
-        ).join('');
-
-        categoryFilterContainer.innerHTML += filtersHTML;
-      }
-
-      // Виклик функції для відмалювання початкових кнопок фільтрів
-      renderCategoryFilters();
-
-      // Обробник події при кліку на кнопку фільтру
-      function handleCategoryFilterClick(event) {
-        // Видаляємо клас "active" у всіх кнопок фільтрування
-        const categoryFilterButtons = document.getElementsByClassName('category-filter-button');
-        for (const button of categoryFilterButtons) {
-          button.classList.remove('active');
-        }
-
-        // Додаємо клас "active" до клікнутої кнопки фільтрування
-        const selectedCategory = event.target.dataset.category;
-        event.target.classList.add('active');
-
-        // Оновлюємо список рецептів з урахуванням фільтру
-        updateRecipeList(selectedCategory);
-      }
-
-      // Додаємо обробник подій до кожної кнопки фільтрування
-      const categoryFilterButtons = document.getElementsByClassName('category-filter-button');
-      for (const button of categoryFilterButtons) {
-        button.addEventListener('click', handleCategoryFilterClick);
-      }
-
-      // Виклик функції для оновлення списку рецептів (при завантаженні сторінки)
-      updateRecipeList();
+  // Функція для обробки кліку на кнопці "All categories"
+  function handleAllCategoriesClick() {
+    // Видаляємо клас "active" у всіх кнопок фільтрування
+    const categoryFilterButtons = document.getElementsByClassName(
+      'category-filter-button'
+    );
+    for (const button of categoryFilterButtons) {
+      button.classList.remove('active');
     }
 
+    // Оновлюємо список рецептів без фільтрування
+    updateRecipeList();
+  }
+
+  // Функція для відмалювання кнопок фільтрів
+  function renderCategoryFilters() {
+    // Додаємо кнопку "All categories"
+    const allCategoriesButton = document.createElement('button');
+    allCategoriesButton.classList.add('category-filter-button');
+    allCategoriesButton.textContent = 'All categories';
+    allCategoriesButton.addEventListener('click', handleAllCategoriesClick);
+    categoryFilterContainer.appendChild(allCategoriesButton);
+
+    // Додаємо інші кнопки фільтрів
+    const filtersHTML = uniqueCategories
+      .map(
+        category => `
+          <button class="category-filter-button" data-category="${category}">${category}</button>
+        `
+      )
+      .join('');
+
+    categoryFilterContainer.innerHTML += filtersHTML;
+  }
+
+  // Виклик функції для відмалювання початкових кнопок фільтрів
+  renderCategoryFilters();
+
+  // Обробник події при кліку на кнопку фільтру
+  function handleCategoryFilterClick(event) {
+    // Видаляємо клас "active" у всіх кнопок фільтрування
+    const categoryFilterButtons = document.getElementsByClassName(
+      'category-filter-button'
+    );
+    for (const button of categoryFilterButtons) {
+      button.classList.remove('active');
+    }
+
+    // Додаємо клас "active" до клікнутої кнопки фільтрування
+    const selectedCategory = event.target.dataset.category;
+    event.target.classList.add('active');
+
+    // Оновлюємо список рецептів з урахуванням фільтру
+    updateRecipeList(selectedCategory);
+  }
+
+  // Додаємо обробник подій до кожної кнопки фільтрування
+  const categoryFilterButtons = document.getElementsByClassName(
+    'category-filter-button'
+  );
+  for (const button of categoryFilterButtons) {
+    button.addEventListener('click', handleCategoryFilterClick);
+  }
+
+  // Виклик функції для оновлення списку рецептів (при завантаженні сторінки)
+  updateRecipeList();
+}
