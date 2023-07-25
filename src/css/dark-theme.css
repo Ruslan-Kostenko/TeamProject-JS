@@ -33,6 +33,7 @@ body.dark-theme {
 }
 
 .dark-theme .hero-primary-text,
-.dark-theme .hero-text {
+.dark-theme .hero-text,
+.dark-theme .hero-btn {
   color: var(--secondary-text-color);
 }
