@@ -1,4 +1,5 @@
 // import './js/js-refs';
+import './js/dark-theme';
 import './js/scroll-to-up';
 
 import './js/hero';
