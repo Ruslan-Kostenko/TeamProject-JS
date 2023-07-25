@@ -1,3 +1,7 @@
+body.show-modal-order-now {
+  overflow: hidden;
+}
+
 body.show-modal-order-now .order-now-modal {
   transform: scale(1);
 }
