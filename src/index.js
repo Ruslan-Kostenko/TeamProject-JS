@@ -2,9 +2,9 @@
 import './js/dark-theme';
 import './js/scroll-to-up';
 import './js/header-mobile-menu';
+import './js/filter';
 // import './js/popular-recipe';
 // import './js/modal-order-now';
-import './js/filter';
 // import './js/header-mobile-menu';
 
 import './js/hero';
