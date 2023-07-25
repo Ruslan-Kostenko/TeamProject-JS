@@ -1,4 +1,4 @@
-import { debounce } from 'lodash';
+// import { debounce } from 'lodash';
 
 const UlCardEl = document.querySelector('.card_list');
 const claerBtn = document.querySelector('.clear_button');
