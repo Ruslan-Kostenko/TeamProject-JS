@@ -1,5 +1,8 @@
 // import './js/js-refs';
 import './js/scroll-to-up';
+import './js/modal-order-now';
+import './js/popular-recipe';
+import './js/header-mobile-menu';
 
 import './js/hero';
 import './js/js-popular';
