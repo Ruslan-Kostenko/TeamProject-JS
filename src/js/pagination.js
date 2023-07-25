@@ -30,4 +30,5 @@ const options = {
 };
 
 const pagination = new Pagination(container, options);
+
 export { pagination };

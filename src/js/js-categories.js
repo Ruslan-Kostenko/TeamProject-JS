@@ -8,7 +8,33 @@ import {pagination} from "./pagination";
 
 const currentPage = pagination.getCurrentPage();
 
+<<<<<<< Updated upstream
 let limit = 0;
+=======
+let setLimit = 0;
+function setLimitValue() {
+  if (window.innerWidth < 768) {
+    setLimit = 6;
+  } else if (window.innerWidth < 1280) {
+    setLimit = 8;
+  } else {
+    setLimit = 9;
+  }
+}
+setLimitValue();
+console.log(setLimit)
+
+function getCurrentPage() {
+  return pagination._currentPage;
+}
+console.log(getCurrentPage())
+
+
+console.log(pagination)
+
+
+
+>>>>>>> Stashed changes
 
 function setLimitValue() {
   if (window.innerWidth < 768) {
@@ -27,8 +53,9 @@ fetchCatItem().then(data => {
   console.error("Произошла ошибка:", error);
 });
 
-fetchAllRecept(currentPage,9).then(data=>{
+fetchAllRecept(currentPage,setLimit).then(data=>{
   UlCardEl.innerHTML = makeCardMark(data);
+  pagination._options.totalItems = data.totalPages * 9;
 }).catch(error=>{
   console.error("Произошла ошибка:", error);
 })
@@ -110,8 +137,13 @@ function fetchAllRecept(page,limit) {
     return resp.json();
   });
 }
+<<<<<<< Updated upstream
 function fetchReceptByCategory(catName){
   return fetch(`${BASE_URL}recipes?${}z&category=${catName}`).then(resp=>{
+=======
+function fetchReceptByCategory(catName,currentPage,setLimit){
+  return fetch(`${BASE_URL}recipes?page=${currentPage}&limit=${setLimit}&category=${catName}`).then(resp=>{
+>>>>>>> Stashed changes
     if(!resp.ok){
       throw new Error(resp.statusText);
     }
@@ -131,13 +163,13 @@ ulCatEl.addEventListener('click',(event)=>{
   event.target.classList.add('is-active');
   lastClickedBtn = event.target;
   const catName= event.target.textContent;
-  fetchReceptByCategory(catName).then(data=>{
+  fetchReceptByCategory(catName,currentPage,setLimit).then(data=>{
     UlCardEl.innerHTML = makeCardMark(data);
   });
 });
 
 catBtnEl.addEventListener('click',(evt)=>{
-  fetchAllRecept().then(data=>{
+  fetchAllRecept(currentPage,setLimit).then(data=>{
     removeAllActive();
     catBtnEl.classList.add('is-active');
     UlCardEl.innerHTML = makeCardMark(data);
