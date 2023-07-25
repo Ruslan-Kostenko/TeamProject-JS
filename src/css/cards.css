@@ -26,7 +26,6 @@
   display: flex;
   align-items: flex-end;
   height: 335px;
-  width: 335px;
   color: #f8f8f8;
   background: linear-gradient(
     1deg,
@@ -66,21 +65,19 @@
   padding: 0;
   background: none;
   border: none;
-
   right: 16px;
   top: 16px;
 }
 
 .card_heart {
-  fill: #f8f8f8;
-  transition: fill 0.3s;
+  fill: transparent;
+  stroke: #f8f8f8;
   cursor: pointer;
-  width: 22px;
-  height: 22px;
+  transition: fill 0.3s;
 }
 
 .card_heart:hover {
-  fill: #fc0000;
+  fill: #f8f8f8;
 }
 
 .recipe_desc {
