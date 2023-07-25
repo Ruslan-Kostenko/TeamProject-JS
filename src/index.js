@@ -7,3 +7,4 @@ import './js/hero';
 import './js/js-popular';
 import './js/js-categories';
 import './js/favorites-page';
+import './js/pagination'

@@ -15,7 +15,7 @@
 
 .pop-header{
     margin-bottom: 20px;
-    color: #050505;
+    color: var(--primary-text-color);
     font-family: Inter;
     font-size: 18px;
     font-style: normal;
@@ -49,7 +49,7 @@
 
 .pop-info>h3{
     margin-bottom: 8px;
-    color: #050505;
+    color: var(--primary-text-color);
     font-family: Inter;
     font-size: 14px;
     font-style: normal;
