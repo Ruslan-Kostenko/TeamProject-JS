@@ -140,8 +140,9 @@ if (!savedRecipes || JSON.parse(savedRecipes).length === 0) {
     recipeList.innerHTML = recipeCards.join('');
 
     // Додаємо обробник подій до кнопок "fav-on-favorite-button" (видалення зі списку)
-    const onFavoriteButtons =
-      document.getElementsByClassName('fav-on-favorite-button');
+    const onFavoriteButtons = document.getElementsByClassName(
+      'fav-on-favorite-button'
+    );
     for (const button of onFavoriteButtons) {
       button.addEventListener('click', handleOnFavoriteButtonClick);
     }
