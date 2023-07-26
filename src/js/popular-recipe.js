@@ -165,14 +165,16 @@ function onFavouriteBtnClick() {
 }
 const seeRecipe = document.querySelector('.recipe_desc_btn');
 
-
 seeRecipe.addEventListener('click', onClickRecipeDescrBtn);
+
 function onClickRecipeDescrBtn() {
+    // Toggle the display of the modal and backdrop
+    const popUpRecipe = document.querySelector('.pop-up-recipe');
+    const backdropPopupRecipe = document.querySelector('.backdrop-popup-recipe');
 
     // Toggle the visibility of the modal and backdrop using classes
-    popUpRecipe.classList.add('show-modal');
-    backdropPopupRecipe.classList.add('show-modal');
+    popUpRecipe.style.display = 'block';
+    backdropPopupRecipe.style.display = 'block';
 }
-
 
 fetchRecipeData();
