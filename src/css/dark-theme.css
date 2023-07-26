@@ -1,0 +1,193 @@
+/* :root {
+  --accent-color: #9bb537;
+  --primary-text-color: #050505;
+  --secondary-text-color: #ffffff;
+  --primary-text-color-08: rgba(5, 5, 5, 0.8);
+  --primary-text-color-05: rgba(5, 5, 5, 0.5);
+  --primary-text-color-03: rgba(5, 5, 5, 0.3);
+  --primary-text-color-02: rgba(5, 5, 5, 0.2);
+  --dark-theme-text-color-08: rgba(255, 255, 255, 0.8);
+  --dark-theme-text-color-05: rgba(255, 255, 255, 0.5);
+  --dark-theme-text-color-03: rgba(255, 255, 255, 0.3);
+  --dark-theme-text-color-02: rgba(255, 255, 255, 0.2);
+  --light-text-color: #f8f8f8;
+  --switch-bg-off-color: #cecdcd;
+  --light-background-color: #f8f8f8;
+  --dark-background-color: #161616;
+
+  --animation-set: 400ms cubic-bezier(0.4, 0, 0.2, 1);
+  --cubic: cubic-bezier(0.4, 0, 0.2, 1);
+} */
+
+/* ---- HEADER ---- */
+
+body.dark-theme {
+  background-color: var(--dark-background-color);
+  color: var(--secondary-text-color);
+}
+
+.dark-theme .mobile-container {
+  background-color: var(--primary-text-color);
+}
+
+.dark-theme .shopping-icon,
+.dark-theme .burger-icon {
+  stroke: var(--secondary-text-color);
+}
+
+/* ---- HERO ---- */
+
+.dark-theme .hero-title,
+.dark-theme .hero-text,
+.dark-theme .hero-btn {
+  color: var(--secondary-text-color);
+}
+
+.dark-theme span.swiper-pagination-bullet {
+  background-color: var(--secondary-text-color);
+}
+
+.dark-theme span.swiper-pagination-bullet-active {
+  background-color: var(--accent-color);
+}
+
+/* ---- CATEGORIES ---- */
+
+.dark-theme .cat-opt {
+  color: var(--dark-theme-text-color-03);
+}
+
+.dark-theme .cat-btn {
+  color: var(--dark-theme-text-color-05);
+  border-color: var(--dark-theme-text-color-02);
+}
+
+.dark-theme .cat-list::-webkit-scrollbar-track {
+  background-color: var(--dark-background-color);
+}
+
+.dark-theme .cat-list::-webkit-scrollbar-thumb {
+  background-color: var(--dark-theme-text-color-02);
+}
+
+.dark-theme .cat-list::-webkit-scrollbar-thumb:hover {
+  background-color: var(--accent-color);
+}
+
+/* ---- POPULAR RECIPE ---- */
+
+.dark-theme .pop-header {
+  color: var(--secondary-text-color);
+}
+
+.dark-theme .pop-info > h3 {
+  color: var(--secondary-text-color);
+}
+
+.dark-theme .pop-info > p {
+  color: var(--dark-theme-text-color-08);
+}
+
+/* ---- FILTER ---- */
+
+.dark-theme .search_input {
+  background-color: transparent;
+  color: var(--dark-theme-text-color-08);
+  border-color: var(--dark-theme-text-color-02);
+}
+
+.dark-theme .search_input::placeholder {
+  color: var(--dark-theme-text-color-05);
+}
+
+.dark-theme .svg-search {
+  /* fill: var(--dark-theme-text-color-05); */
+  stroke: var(--dark-theme-text-color-05);
+}
+
+.dark-theme .search_input:focus + .svg-search {
+  stroke: var(--accent-color);
+}
+
+.dark-theme .clear_button {
+  color: var(--dark-theme-text-color-05);
+}
+
+.dark-theme .reset_icon {
+  fill: var(--light-text-color);
+}
+
+.dark-theme .clear_button:hover {
+  color: var(--accent-color);
+}
+
+.dark-theme .label_desc {
+  color: var(--dark-theme-text-color-05);
+}
+
+.dark-theme .time_select {
+  color: var(--dark-theme-text-color-05);
+  border-color: var(--dark-theme-text-color-02);
+}
+
+.dark-theme .time_select option {
+  color: var(--dark-theme-text-color-03);
+  background-color: var(--dark-background-color);
+}
+
+.dark-theme .area_select {
+  color: var(--dark-theme-text-color-05);
+  border-color: var(--dark-theme-text-color-02);
+}
+
+.dark-theme .area_select option {
+  color: var(--dark-theme-text-color-03);
+  background-color: var(--dark-background-color);
+}
+
+.dark-theme .ingredients_select {
+  color: var(--dark-theme-text-color-05);
+  border-color: var(--dark-theme-text-color-02);
+}
+
+.dark-theme .ingredients_select option {
+  color: var(--dark-theme-text-color-03);
+  background-color: var(--dark-background-color);
+}
+
+/* ---- FAVORITES-PAGE ---- */
+
+.dark-theme .no-cards-text {
+  color: var(--secondary-text-color);
+}
+
+/* ---- MODAL ORDER NOW ---- */
+
+.dark-theme .order-now-modal-close__img path {
+  stroke: var(--secondary-text-color);
+  transition: stroke var(--animation-set);
+}
+
+.dark-theme .order-now-modal {
+  background-color: var(--primary-text-color);
+}
+
+/* .dark-theme .order-now-modal__title {
+  color: var(--secondary-text-color);
+} */
+
+.dark-theme .order-now-modal-form input,
+.dark-theme .order-now-modal-form textarea {
+  background-color: transparent;
+  border-color: var(--dark-theme-text-color-02);
+  color: var(--dark-theme-text-color-08);
+}
+
+.dark-theme .order-now-modal-form span {
+  color: var(--dark-theme-text-color-05);
+}
+
+.dark-theme .order-now-modal-form input::placeholder,
+.dark-theme .order-now-modal-form textarea::placeholder {
+  color: var(--dark-theme-text-color-02);
+}

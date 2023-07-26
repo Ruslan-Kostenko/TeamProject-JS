@@ -17,6 +17,10 @@
 
 /* ---------------- SEARCHE */
 
+.search_form {
+  position: relative;
+}
+
 .search_label {
   display: flex;
   gap: 30px;
@@ -32,21 +36,17 @@
   }
 }
 
-/* .search_svg {
-  position: absolute;
-  bot: 30;
-} */
-
 .search_input {
   position: relative;
   display: inline-block;
   width: 100%;
   height: 48px;
-  padding: 14px 122px 14px 18px;
+  padding: 14px 14px 14px 48px;
   align-items: flex-start;
   gap: 32px;
   border-radius: 15px;
   border: 1px solid rgba(5, 5, 5, 0.2);
+  background-color: transparent;
   color: rgba(5, 5, 5, 0.5);
   outline: none;
   width: 100%;
@@ -85,13 +85,13 @@
   padding: 14px 18px;
   justify-content: center;
   align-items: center;
-  height: 48px;
   gap: 59px;
   border-radius: 15px;
   border: 1px solid rgba(5, 5, 5, 0.2);
   outline: none;
   width: 160px;
 
+  background-color: transparent;
   color: rgba(5, 5, 5, 0.5);
   font-family: Inter;
   font-size: 14px;
@@ -135,7 +135,6 @@
   display: flex;
   padding: 14px 18px;
   justify-content: center;
-  height: 48px;
   align-items: center;
   gap: 59px;
   border-radius: 15px;
@@ -144,6 +143,7 @@
   cursor: pointer;
   outline: none;
 
+  background-color: transparent;
   color: rgba(5, 5, 5, 0.5);
   font-family: Inter;
   font-size: 14px;
@@ -185,7 +185,6 @@
 /* ---------------- INGREDIENTS */
 
 .ingredients_select {
-  height: 48px;
   display: flex;
   padding: 14px 18px;
   justify-content: center;
@@ -196,6 +195,7 @@
   width: 188px;
   outline: none;
 
+  background-color: transparent;
   color: rgba(5, 5, 5, 0.5);
   font-family: Inter;
   font-size: 14px;
@@ -226,6 +226,9 @@
 
 .ingredients_select option {
   color: rgba(5, 5, 5, 0.3);
+  border-radius: 15px;
+  border: 1px solid rgba(5, 5, 5, 0.2);
+  width: 188px;
   font-family: Inter;
   font-size: 14px;
   font-style: normal;
@@ -235,12 +238,16 @@
 
 /* ------------- clear button  */
 
+.reset_box {
+  display: flex;
+  justify-content: flex-end;
+}
+
 .clear_button {
   display: flex;
   align-items: center;
   border: none;
   background: none;
-  margin-left: auto;
   color: rgba(5, 5, 5, 0.5);
   font-size: 12px;
   margin-bottom: 14px;
@@ -250,4 +257,27 @@
 
 .clear_button:hover {
   text-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+}
+
+.svg-search {
+  display: inline-block;
+  stroke: #050505;
+  fill-opacity: 0.2;
+  fill: #2a2a2a;
+  position: absolute;
+  left: 18px;
+  top: 70%;
+  transform: translateY(-50%);
+}
+
+.search_input:focus {
+  border-color: var(--accent-color);
+}
+
+.search_input:focus + .svg-search {
+  stroke: var(--accent-color);
+}
+
+.search_input:focus + .label_span {
+  color: var(--accent-color);
 }

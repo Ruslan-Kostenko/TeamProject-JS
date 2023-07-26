@@ -1,3 +1,7 @@
+body.show-modal-order-now {
+  overflow: hidden;
+}
+
 body.show-modal-order-now .order-now-modal {
   transform: scale(1);
 }
@@ -17,8 +21,8 @@ body.show-modal-order-now .order-now-backdrop {
   justify-content: center;
   width: 100vw;
   height: 100vh;
-  padding-top: 30px;
-  padding-bottom: 30px;
+  /* padding-top: 30px; */
+  /* padding-bottom: 30px; */
   background-color: rgba(46, 47, 66, 0.4);
   z-index: 100;
   opacity: 0;
@@ -89,17 +93,27 @@ body.show-modal-order-now .order-now-backdrop {
   height: 43px;
 }
 
+.order-now-modal-form input::placeholder,
+.order-now-modal-form textarea::placeholder {
+  color: var(--primary-text-color-02);
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 1.25; /* 125% */
+}
+
 .order-now-modal-form input,
-textarea {
+.order-now-modal-form textarea {
+  outline: none;
   width: 295px;
   border-radius: 15px;
   border: 1px solid rgba(5, 5, 5, 0.2);
 }
 
 /* Стилі для зміни кольору бордера при фокусі */
-.order-now-modal-form__input:focus,
+.order-now-modal-form input:focus,
 .order-now-modal-form textarea:focus {
-  outline-color: var(--accent-color);
+  border-color: var(--accent-color);
 }
 
 .order-now-modal-form textarea {
@@ -135,17 +149,17 @@ textarea {
     width: calc(100% - 30px);
   }
   .order-now-modal-form input,
-  textarea {
+  .order-now-modal-form textarea {
     width: 100%;
   }
 }
-@media screen and (min-width: 767px) {
+@media screen and (min-width: 768px) {
   .order-now-modal {
     max-width: 440px;
     padding: 40px;
   }
   .order-now-modal-form input,
-  textarea {
+  .order-now-modal-form textarea {
     width: 360px;
     border-radius: 15px;
     border: 1px solid rgba(5, 5, 5, 0.2);

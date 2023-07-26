@@ -110,7 +110,16 @@
 }
 
 .card_rating {
-  display: none;
+  display: flex;
+  align-items: center;
+  width: 18px;
+
+  color: #f8f8f8;
+  font-family: Inter;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 1.28;
 }
 
 .recipe_desc_btn {
@@ -121,7 +130,7 @@
   background: #9bb537;
   border: none;
   color: #f8f8f8;
-  margin-left: auto;
+  /* margin-left: auto; */
 }
 
 .card_info {
