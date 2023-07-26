@@ -1,13 +1,22 @@
 const catBtnEl = document.querySelector('.cat-btn');
 const ulCatEl = document.querySelector('.cat-list');
 const BASE_URL = 'https://tasty-treats-backend.p.goit.global/api/';
-const UlCardEl = document.querySelector('.card_list');
-const catOptEl = document.querySelector('.cat-opt');
-import { pagination } from './pagination';
+const UlCardEl =document.querySelector('.card_list');
+const catOptEl= document.querySelector('.cat-opt');
+const searchInput = document.querySelector('.search_input')
+const time = document.querySelector('.time_select')
 
-const currentPage = pagination.getCurrentPage();
+const area = document.querySelector('.area_select') 
 
+const ingredients = document.querySelector('.ingredients_select') 
+
+
+
+
+let currentPage = 1;
 let setLimit = 0;
+
+
 function setLimitValue() {
   if (window.innerWidth < 768) {
     setLimit = 6;
@@ -18,40 +27,65 @@ function setLimitValue() {
   }
 }
 setLimitValue();
-console.log(setLimit);
 
-function getCurrentPage() {
-  return pagination._currentPage;
-}
-console.log(getCurrentPage());
 
-console.log(pagination);
 
-fetchCatItem()
-  .then(data => {
-    ulCatEl.innerHTML = makeCatItem(data);
+let lastClickedBtn = null;
+ulCatEl.addEventListener('click',(event)=>{
+  if (!event.target.classList.contains('cat-opt')) {
+    return;
+  }if (lastClickedBtn) {
+    lastClickedBtn.classList.remove('is-active');
+  }
+  // searchInput.value = '';
+  // time.selectedIndex = 0;
+  // area.selectedIndex = 0;
+  // ingredients.selectedIndex = 0;
+  catBtnEl.classList.remove('is-active');
+  event.target.classList.add('is-active');
+  lastClickedBtn = event.target;
+  const catName= event.target.textContent;
+  currentPage = 1;
+  fetchReceptByCategory(catName,currentPage,setLimit).then(data=>{
+     UlCardEl.innerHTML = makeCardMark(data);
+    return data.totalPages
+  }).then(data=>{
+    paginListEl.innerHTML = '';
+    creatPaginMarkup(data)
   })
-  .catch(error => {
-    console.error('Произошла ошибка:', error);
-  });
+});
 
-fetchAllRecept(currentPage, setLimit)
-  .then(data => {
-    UlCardEl.innerHTML = makeCardMark(data);
-    pagination._options.totalItems = data.totalPages * 9;
-  })
-  .catch(error => {
-    console.error('Произошла ошибка:', error);
-  });
 
-function removeAllActive() {
-  const allCatOptEl = document.querySelectorAll('.cat-opt');
-  allCatOptEl.forEach(catOpt => {
-    catOpt.classList.remove('is-active');
-    console.log(catOpt);
-  });
+
+
+
+fetchCatItem().then(data => {
+  ulCatEl.innerHTML = makeCatItem(data);
+}).catch(error=>{
+  console.error("Произошла ошибка:", error);
+});
+
+fetchAllRecept(currentPage,setLimit).then(data=>{
+  UlCardEl.innerHTML = makeCardMark(data);
+  return data.totalPages})
+  .then(data=>{
+    paginListEl.innerHTML = '';
+    creatPaginMarkup(data)
+  }).catch(error=>{
+  console.error("Произошла ошибка:", error);
+})
+
+
+
+function removeAllActive(){
+ const allCatOptEl = document.querySelectorAll('.cat-opt');
+ allCatOptEl.forEach(catOpt=>{
+  catOpt.classList.remove('is-active');
+  
+ });
+
 }
-function addActive(a) {
+function addActive(a){
   return a.classList.add('isActive');
 }
 function makeCatItem(arr) {
@@ -61,13 +95,12 @@ function makeCatItem(arr) {
         `<li class="cat-item"><button class="cat-opt" value="${b._id}">${b.name}</button></li>`
     )
     .join('');
-}
+};
 
-function makeCardMark(info) {
-  return info.results
-    .map(
-      g =>
-        `<li class="card_item">
+function makeCardMark(info){
+  
+  return info.results.map((g)=>
+`<li class="card_item">
 <img src="${g.thumb}" alt="${g.title}" class="card_img" />
 <button class="card_fav">
   <svg
@@ -100,8 +133,7 @@ function makeCardMark(info) {
   </div>
 </div>
 </li>`
-    )
-    .join('');
+).join('');
 }
 
 function fetchCatItem() {
@@ -112,7 +144,7 @@ function fetchCatItem() {
     return resp.json();
   });
 }
-function fetchAllRecept(page, limit) {
+function fetchAllRecept(page,limit) {
   return fetch(`${BASE_URL}recipes?page=${page}&limit=${limit}`).then(resp => {
     if (!resp.ok) {
       throw new Error(resp.statusText);
@@ -121,38 +153,88 @@ function fetchAllRecept(page, limit) {
   });
 }
 
-function fetchReceptByCategory(catName, currentPage, setLimit) {
-  return fetch(
-    `${BASE_URL}recipes?page=${currentPage}&limit=${setLimit}&category=${catName}`
-  ).then(resp => {
-    if (!resp.ok) {
+function fetchReceptByCategory(catName,currentPage,setLimit){
+  return fetch(`${BASE_URL}recipes?page=${currentPage}&limit=${setLimit}&category=${catName}`).then(resp=>{
+
+    if(!resp.ok){
       throw new Error(resp.statusText);
     }
     return resp.json();
   });
 }
 
-let lastClickedBtn = null;
-ulCatEl.addEventListener('click', event => {
-  if (!event.target.classList.contains('cat-opt')) {
-    return;
-  }
-  if (lastClickedBtn) {
-    lastClickedBtn.classList.remove('is-active');
-  }
-  catBtnEl.classList.remove('is-active');
-  event.target.classList.add('is-active');
-  lastClickedBtn = event.target;
-  const catName = event.target.textContent;
-  fetchReceptByCategory(catName, currentPage, setLimit).then(data => {
-    UlCardEl.innerHTML = makeCardMark(data);
-  });
-});
 
-catBtnEl.addEventListener('click', evt => {
-  fetchAllRecept(currentPage, setLimit).then(data => {
+
+
+
+catBtnEl.addEventListener('click',(evt)=>{
+  searchInput.value = '';
+  time.selectedIndex = 0;
+  area.selectedIndex = 0;
+  ingredients.selectedIndex = 0;
+  fetchAllRecept(currentPage,setLimit).then(data=>{
     removeAllActive();
+    searchInput.value = '';
     catBtnEl.classList.add('is-active');
     UlCardEl.innerHTML = makeCardMark(data);
+    return data.totalPages
+  }).then(data=>{
+    paginListEl.innerHTML = '';
+    creatPaginMarkup(data)
+  })
+  
+}
+)
+
+
+
+
+
+
+
+
+
+
+  const paginListEl = document.querySelector('.pagination__list');
+
+
+  // function getTotalPages(currentPage,setLimit){
+  // return fetchAllRecept(currentPage,setLimit).then(data=>{
+  //   return data.totalPages;
+    
+  // })
+// }
+// getTotalPages(currentPage,setLimit).then(data=>{
+//   creatPaginMarkup(data);
+// })
+  function creatPaginMarkup(totalPages){
+      for (let i = 0; i < totalPages; i+1){
+          const paginItem = displayPaginationBtn(i+=1);
+          paginListEl.appendChild(paginItem);
+      }
+  }
+
+  function displayPaginationBtn(page){    
+      const paginItemEl = document.createElement('li');
+      paginItemEl.classList.add('pagination__item');
+      paginItemEl.innerText = page;
+      return paginItemEl;
+  }
+
+  
+
+paginListEl.addEventListener('click',(evt)=>{
+  if (!evt.target.classList.contains('pagination__item')) {
+    return;
+  }
+  
+  currentPage = evt.target.textContent;
+  fetchAllRecept(currentPage,setLimit).then(data=>{
+    UlCardEl.innerHTML = makeCardMark(data);
+    
+  }).catch(error=>{
+    console.error("Произошла ошибка:", error);
+  
   });
-});
+
+})
