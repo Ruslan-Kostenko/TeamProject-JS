@@ -1,12 +1,6 @@
-.backdrop.open {
-  display: block;
-}
 
-.pop-up-recipe.open {
-  display: block;
-}
-.backdrop {
- 
+.backdrop-popup-recipe {
+ /* display: none; */
   position: fixed;
   top: 0;
   left: 0;
@@ -19,21 +13,25 @@
   overflow-y: auto; 
   z-index: 9999;
 }
+.show-modal {
+  display: block;
+}
 .pop-up-recipe {
 position: absolute;
-
+/* display: none; */
   height: 1171px;
   width: 335px;
-  /* position: relative; */
+
   top: 600px;
   left: 50%;
   transform: translate(-50%, -50%);
   
   border-radius: 15px;
   background: #FFF;
-  /* overflow-y: auto;  */
+
   
 }
+
 .close-recipe-svg {
  position: absolute;
  top: 16px;
@@ -148,19 +146,15 @@ border: 1px solid rgba(5, 5, 5, 0.20);
   display: flex;
 }
 
-/* .recipe-item span {
-  margin-right: 10px; 
-}
- */
+
+ 
  .recipe-item {
 justify-content: space-between;
 margin-right: 20px;
 
 }
 
-/* .ingredient-name {
-  margin-right: 100px; 
-} */
+
 
 .measure-content {
   color: rgba(5, 5, 5, 0.50);
@@ -172,7 +166,7 @@ margin-right: 20px;
 }
 .recipe-description {
   text-overflow: ellipsis; /* Добавление многоточия, если описание слишком длинное */
-
+margin-right: 20px;
   max-height: 300px; 
   overflow-y: auto;
   margin-left: 20px;
@@ -207,15 +201,15 @@ margin-right: 20px;
 }
 
 .btn-add-favourite:active,
-.btn-add-favourite.favourite { /* Добавляем стиль для кнопки в состоянии "add to favourite" */
+.btn-add-favourite.favourite-popup-recipe { /* Добавляем стиль для кнопки в состоянии "add to favourite" */
   background-color: transparent; /* Красный фон при нажатии и в состоянии "add to favourite" */
   color: red;
   border-color: red;
   border: 1px solid red; /* Белый текст и красная рамка при нажатии и в состоянии "add to favourite" */
 }
 
-.btn-add-favourite.favourite:hover,
-.btn-add-favourite.favourite:focus {
+.btn-add-favourite.favourite-popup-recipe:hover,
+.btn-add-favourite.favourite-popup-recipe:focus {
   /* Красный фон с темным оттенком при ховере и фокусе в состоянии "add to favourite" */
   color: #F8F8F8;
   background-color: red;  /* Белый текст при ховере и фокусе в состоянии "add to favourite" */
