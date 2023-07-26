@@ -160,6 +160,7 @@
 
 .pagination__list {
   display: flex;
+  
   list-style-type: none; 
   width:340px;
   overflow-x: auto; 
@@ -171,7 +172,13 @@
   cursor: pointer;
 }
 
-.pagination__item--active {
-  font-weight: 800;
-  color: gold;
+
+.pagination__item:hover,
+.pagination__item:focus{
+  background-color:var(--accent-color);
+  color:var(--secondary-text-color)
+}
+.activated{
+  background-color:var(--accent-color);
+  color:var(--secondary-text-color)
 }

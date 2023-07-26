@@ -226,9 +226,24 @@ catBtnEl.addEventListener('click',(evt)=>{
 paginListEl.addEventListener('click',(evt)=>{
   if (!evt.target.classList.contains('pagination__item')) {
     return;
+  }if (lastClickedBtn) {
+    lastClickedBtn.classList.remove('activated');
   }
+  // searchInput.value = '';
+  // time.selectedIndex = 0;
+  // area.selectedIndex = 0;
+  // ingredients.selectedIndex = 0;
+  catBtnEl.classList.remove('activated');
+  evt.target.classList.add('activated');
+  lastClickedBtn = evt.target;
   
   currentPage = evt.target.textContent;
+  const hasActiveLi = ulCatEl.querySelector('.cat-opt.is-active');
+  if(hasActiveLi){
+    let catName = hasActiveLi.textContent;
+    fetchReceptByCategory(catName,currentPage,setLimit).then(data=>{
+      UlCardEl.innerHTML = makeCardMark(data)})
+  }else{
   fetchAllRecept(currentPage,setLimit).then(data=>{
     UlCardEl.innerHTML = makeCardMark(data);
     
@@ -236,5 +251,5 @@ paginListEl.addEventListener('click',(evt)=>{
     console.error("Произошла ошибка:", error);
   
   });
-
+}
 })
