@@ -66,36 +66,76 @@ margin-bottom: 32px;
 
 .recipe-list {
 display: flex;
-gap: 10px;
+gap: 16px;
 flex-wrap: wrap;
-justify-content: space-evenly
+justify-content: flex-start;
 }
 
 .recipe-list-item {
-   max-width: 258px;
+   position: relative;
+   width: 258px;
    min-height: 287px;
-   
+   border-radius: 9px;
+   background: linear-gradient(1deg, #05050599 0%, #05050500 100%);
 }
 
 .recipe-card-img {
+   position: absolute;
    border-radius: 8px;
+   /* max-width: 258px; */
+   height: 100%;
+   max-width: 258px;
+   background: linear-gradient(1deg, rgba(5, 5, 5, 0.60) 0%, rgba(5, 5, 5, 0.00) 100%);
+   /* filter: brightness(80%); */
+   display: block;
+   object-fit: cover;
    width: 100%;
+   height: 100%;
+   z-index: -1;
 }
 
+.on-favorite-button {
+   width: 22px;
+   height: 22px;
+   position: absolute;
+   padding: 0;
+   top: 16px;
+   right: 16px;
+   border: none;
+   background-color: transparent;
+}
+
+.icon-heart:hover {
+   stroke: yellow;
+}
+
+
 .recipe-card-title {
-   color: red;
+   position: absolute;
+   top: 166px;
+   left: 16px;
+   color: white;
    font-family: Inter;
    font-size: 14px;
    font-weight: 600;
    line-height: 18px;
    text-transform: uppercase;
+   white-space: normal;
+   -webkit-line-clamp: 1;
+   display: -webkit-box;
+   -webkit-box-orient: vertical;
+   overflow: hidden;
+   text-overflow: ellipsis;
 }  
    
 .recipe-card-descr{
+   position: absolute;
+   top: 192px;
+   left: 16px;
 width: 226px;
    height: 32px;
    flex-shrink: 0;
-   color: red;
+   color: white;
    white-space: normal;
    -webkit-line-clamp: 2;
    display: -webkit-box;
@@ -109,7 +149,10 @@ width: 226px;
    text-overflow: ellipsis;
 } 
 
-recipe-card-rating {
+.recipe-card-rating {
+position: absolute;
+left: 16px;
+bottom: 22px;
 color: #F8F8F8;
 font-family: Inter;
 font-size: 14px;
@@ -119,6 +162,9 @@ line-height: 18px;
 }
 
 .see-recipe-button {
+   position: absolute;
+   right: 16px;
+   bottom: 16px;
 padding: 8px 16px;
 justify-content: center;
 align-items: center;

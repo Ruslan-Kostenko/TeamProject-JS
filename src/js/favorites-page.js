@@ -84,8 +84,7 @@
 // // Викликаємо функцію для отримання даних та відмалювання галереї
 // fetchDataFromBackend();
 
-// Отримання збережених даних з локального сховища
-const savedRecipes = localStorage.getItem('selectedRecipes');
+let savedRecipes = localStorage.getItem('selectedRecipes');
 
 // Перевірка, чи є дані в local storage або чи порожній масив улюблених рецептів
 if (!savedRecipes || JSON.parse(savedRecipes).length === 0) {
@@ -99,7 +98,7 @@ if (!savedRecipes || JSON.parse(savedRecipes).length === 0) {
   document.getElementById('empty-favorites').style.display = 'none';
 
   // Парсимо рядок JSON у JavaScript об'єкт
-  const favoriteRecipes = JSON.parse(savedRecipes);
+  let favoriteRecipes = JSON.parse(savedRecipes);
 
   // Отримання унікальних категорій з об'єктів рецептів
   const uniqueCategories = [
@@ -122,7 +121,11 @@ if (!savedRecipes || JSON.parse(savedRecipes).length === 0) {
       return `
             <li class="recipe-list-item">
               <img class="recipe-card-img" src="${recipe.preview}" alt="${recipe.title}" />
-              <button class="on-favorite-button" data-recipe-id="${recipe._id}" type="button">icon</button>
+              <button class="on-favorite-button" data-recipe-id="${recipe._id}" type="button">
+              <svg class="icon-heart" xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 22 22" fill="none">
+                <path fill-rule="evenodd" clip-rule="evenodd" d="M10.9939 4.70783C9.16115 2.5652 6.10493 1.98884 3.80863 3.95085C1.51234 5.91285 1.18905 9.19323 2.99234 11.5137C4.49166 13.443 9.02912 17.5121 10.5163 18.8291C10.6826 18.9764 10.7658 19.0501 10.8629 19.0791C10.9475 19.1043 11.0402 19.1043 11.1249 19.0791C11.2219 19.0501 11.3051 18.9764 11.4715 18.8291C12.9586 17.5121 17.4961 13.443 18.9954 11.5137C20.7987 9.19323 20.5149 5.89221 18.1791 3.95085C15.8434 2.00948 12.8266 2.5652 10.9939 4.70783Z" fill="white"/>
+              </svg>
+              </button>
               <h3 class="recipe-card-title">${recipe.title}</h3>
               <p class="recipe-card-descr">${recipe.description}</p>
               <div>
@@ -135,6 +138,23 @@ if (!savedRecipes || JSON.parse(savedRecipes).length === 0) {
 
     // Додавання згенерованих карток до списку
     recipeList.innerHTML = recipeCards.join('');
+
+    // Додаємо обробник подій до кнопок "on-favorite-button" (видалення зі списку)
+    const onFavoriteButtons =
+      document.getElementsByClassName('on-favorite-button');
+    for (const button of onFavoriteButtons) {
+      button.addEventListener('click', handleOnFavoriteButtonClick);
+    }
+  }
+
+  // Функція для видалення рецепту зі списку улюблених
+  function handleOnFavoriteButtonClick(event) {
+    const recipeId = event.target.dataset.recipeId;
+    favoriteRecipes = favoriteRecipes.filter(recipe => recipe._id !== recipeId);
+    // Збереження оновленого списку улюблених рецептів у локальне сховище
+    localStorage.setItem('selectedRecipes', JSON.stringify(favoriteRecipes));
+    // Оновлення списку рецептів після видалення
+    updateRecipeList();
   }
 
   // Функція для обробки кліку на кнопці "All categories"
