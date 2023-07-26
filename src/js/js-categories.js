@@ -135,7 +135,10 @@ function fetchReceptByCategory(catName,currentPage,setLimit){
 }
 
 
+<<<<<<< Updated upstream
 let lastClickedBtn = null;
+=======
+>>>>>>> Stashed changes
 ulCatEl.addEventListener('click',(event)=>{
   if (!event.target.classList.contains('cat-opt')) {
     return;
@@ -151,6 +154,7 @@ ulCatEl.addEventListener('click',(event)=>{
   });
 });
 
+<<<<<<< Updated upstream
 catBtnEl.addEventListener('click',(evt)=>{
   fetchAllRecept(currentPage,setLimit).then(data=>{
     removeAllActive();
@@ -159,3 +163,6 @@ catBtnEl.addEventListener('click',(evt)=>{
   })
 }
 )
+=======
+
+>>>>>>> Stashed changes
