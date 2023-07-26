@@ -1,6 +1,5 @@
-
 .backdrop-popup-recipe {
- /* display: none; */
+  display: none;
   position: fixed;
   top: 0;
   left: 0;
@@ -9,34 +8,32 @@
   background-color: rgba(0, 0, 0, 0.6);
   /* display: flex; */
   justify-content: center;
- /* Выравнивание по нижнему краю */
-  overflow-y: auto; 
+  /* Выравнивание по нижнему краю */
+  overflow-y: auto;
   z-index: 9999;
 }
 .show-modal {
   display: block;
 }
 .pop-up-recipe {
-position: absolute;
-/* display: none; */
+  position: absolute;
+  display: none;
   height: 1171px;
   width: 335px;
 
   top: 600px;
   left: 50%;
   transform: translate(-50%, -50%);
-  
-  border-radius: 15px;
-  background: #FFF;
 
-  
+  border-radius: 15px;
+  background: #fff;
 }
 
 .close-recipe-svg {
- position: absolute;
- top: 16px;
+  position: absolute;
+  top: 16px;
 
- left: 290px;
+  left: 290px;
 }
 .pop-up-recipe-header {
   position: absolute;
@@ -44,41 +41,40 @@ position: absolute;
   margin-bottom: 16px;
   position: relative;
   color: #050505;
-margin-top: 32px;
-margin-left: 20px;
-font-size: 18px;
-font-style: normal;
-font-weight: 600;
-line-height: 1.33; 
-text-transform: uppercase;
+  margin-top: 32px;
+  margin-left: 20px;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 1.33;
+  text-transform: uppercase;
 }
 #video-container {
- 
   margin-top: 40px;
   order: 1;
   margin-left: 20px;
   width: 295px;
-height: 295px;
-flex-shrink: 0;
-border-radius: 8px;
+  height: 295px;
+  flex-shrink: 0;
+  border-radius: 8px;
 }
 .pop-up-recipe-rating {
   margin-left: 20px;
-color: rgba(5, 5, 5, 0.50);
-font-size: 14px;
-font-style: normal;
-font-weight: 500;
-line-height: 1.28;
+  color: rgba(5, 5, 5, 0.5);
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 1.28;
 }
 .pop-up-recipe-rating {
   display: flex;
- 
+
   align-items: center; /* Выравнивание элементов по вертикали по центру */
 }
 .pop-up-time {
   margin-left: 175px;
   margin-top: -17px;
-  color: rgba(5, 5, 5, 0.50);
+  color: rgba(5, 5, 5, 0.5);
 
   font-size: 14px;
   font-style: normal;
@@ -94,12 +90,10 @@ line-height: 1.28;
 }
 
 .start-pop-recipe-svg-grey {
- 
   fill: grey;
   margin-right: 2px; /* Добавить некоторое расстояние между звездами */
 }
 .tags-buttons {
- 
   margin-top: 40px;
   margin-bottom: 24px;
   margin-left: 20px;
@@ -109,7 +103,7 @@ line-height: 1.28;
   display: none;
 }
 .tag-btn {
-margin-right: 8px;
+  margin-right: 8px;
   padding: 8px 16px;
   justify-content: center;
   align-items: center;
@@ -118,14 +112,14 @@ margin-right: 8px;
   font-style: normal;
   font-weight: 500;
   line-height: 1.16;
-background-color: transparent;
-cursor: pointer;
+  background-color: transparent;
+  cursor: pointer;
   border-radius: 35px;
-border: 1px solid rgba(5, 5, 5, 0.20);
+  border: 1px solid rgba(5, 5, 5, 0.2);
 }
 .recipe-list {
   width: 300px;
-  max-height: 200px; 
+  max-height: 200px;
   overflow-y: auto;
   justify-content: flex-end;
   margin-left: 20px;
@@ -142,22 +136,17 @@ border: 1px solid rgba(5, 5, 5, 0.20);
   font-weight: 400;
   line-height: 1.28;
   list-style: none;
-  border-bottom: 1px solid rgba(5, 5, 5, 0.10);
+  border-bottom: 1px solid rgba(5, 5, 5, 0.1);
   display: flex;
 }
 
-
- 
- .recipe-item {
-justify-content: space-between;
-margin-right: 20px;
-
+.recipe-item {
+  justify-content: space-between;
+  margin-right: 20px;
 }
 
-
-
 .measure-content {
-  color: rgba(5, 5, 5, 0.50);
+  color: rgba(5, 5, 5, 0.5);
   font-size: 14px;
   font-style: normal;
   font-weight: 400;
@@ -166,8 +155,8 @@ margin-right: 20px;
 }
 .recipe-description {
   text-overflow: ellipsis; /* Добавление многоточия, если описание слишком длинное */
-margin-right: 20px;
-  max-height: 300px; 
+  margin-right: 20px;
+  max-height: 300px;
   overflow-y: auto;
   margin-left: 20px;
   width: 300px;
@@ -180,7 +169,7 @@ margin-right: 20px;
   /* margin-top: 40px; */
   margin-bottom: 32px;
   margin-left: 20px;
-  color: #F8F8F8;
+  color: #f8f8f8;
   font-size: 14px;
   font-style: normal;
   font-weight: 500;
@@ -190,18 +179,19 @@ margin-right: 20px;
   justify-content: center;
   align-items: center;
   border-radius: 15px;
-  background: #9BB537;
+  background: #9bb537;
   transition: background-color 0.3s, color 0.3s, border-color 0.3s; /* Анимация для изменения цвета фона, текста и рамки */
 }
 
 .btn-add-favourite:hover,
 .btn-add-favourite:focus {
-  background-color: #9BB537;
+  background-color: #9bb537;
   color: #050505;
 }
 
 .btn-add-favourite:active,
-.btn-add-favourite.favourite-popup-recipe { /* Добавляем стиль для кнопки в состоянии "add to favourite" */
+.btn-add-favourite.favourite-popup-recipe {
+  /* Добавляем стиль для кнопки в состоянии "add to favourite" */
   background-color: transparent; /* Красный фон при нажатии и в состоянии "add to favourite" */
   color: red;
   border-color: red;
@@ -211,98 +201,87 @@ margin-right: 20px;
 .btn-add-favourite.favourite-popup-recipe:hover,
 .btn-add-favourite.favourite-popup-recipe:focus {
   /* Красный фон с темным оттенком при ховере и фокусе в состоянии "add to favourite" */
-  color: #F8F8F8;
-  background-color: red;  /* Белый текст при ховере и фокусе в состоянии "add to favourite" */
+  color: #f8f8f8;
+  background-color: red; /* Белый текст при ховере и фокусе в состоянии "add to favourite" */
 }
-
 
 /* ======Tablet============= */
 @media screen and (min-width: 768px) {
- 
-.pop-up-recipe {
-position: absolute;
-width: 531px;
-height: 905px;
-top: 480px;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  .pop-up-recipe {
+    position: absolute;
+    width: 531px;
+    height: 905px;
+    top: 480px;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  .close-recipe-svg {
+    width: 20px;
+    left: 490px;
+  }
+  .pop-up-recipe-header {
+    margin-left: 32px;
+    position: absolute;
+    bottom: 840px;
+    line-height: 1.22;
+  }
+  #video-container {
+    margin-left: 32px;
+    margin-top: 70px;
+    width: 467px;
+    height: 250px;
+  }
+  .pop-up-recipe-rating {
+    margin-left: 300px;
+    margin-top: 20px;
+    display: flex;
+    align-items: center;
+  }
 
+  .rating-value {
+    margin-right: 8px;
+    margin-top: 3px;
+    /* Подстроить отступ по необходимости, чтобы выровнять значение рейтинга и звезды */
+  }
 
+  .start-pop-recipe-svg-grey {
+    fill: grey;
+    margin-right: 2px; /* Добавить некоторое расстояние между звездами */
+  }
+  .pop-up-time {
+    margin-left: 450px;
+    margin-top: -17px;
+    color: rgba(5, 5, 5, 0.5);
 
-}
-.close-recipe-svg {
-  width: 20px;
-  left: 490px;
-}
-.pop-up-recipe-header {
-margin-left: 32px;
-position: absolute;
-bottom: 840px;
-  line-height: 1.22; 
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 1.28;
+  }
 
-}
-#video-container {
-  margin-left: 32px;
-margin-top: 70px;
-  width: 467px;
-  height: 250px;
-
-}
-.pop-up-recipe-rating {
-margin-left: 300px;
-margin-top: 20px;
-display: flex;
-align-items: center; 
-}
-
-
-.rating-value {
-margin-right: 8px;
-margin-top: 3px;
- /* Подстроить отступ по необходимости, чтобы выровнять значение рейтинга и звезды */
-}
-
-.start-pop-recipe-svg-grey {
-
-fill: grey;
-margin-right: 2px; /* Добавить некоторое расстояние между звездами */
-}
-.pop-up-time {
-margin-left: 450px ;
-margin-top: -17px;
-color: rgba(5, 5, 5, 0.50);
-
-font-size: 14px;
-font-style: normal;
-font-weight: 500;
-line-height: 1.28;
-}
-
-.tags-buttons {
-  position: absolute;
-  top: 300px;
-  margin-left: 32px;
-}
-.recipe-list {
-  width: 480px;
-  margin-top: 30px;
-  margin-left: 32px;
-}
-.recipe-item .ingredient-id {
-  margin-right: 170px; /* Увеличиваем отступ для id */
-}
-.recipe-description {
-  max-height: 200px;
-  width: 480px;
-  margin-left: 32px;
-}
-.btn-add-favourite {
-  position: absolute;
-  top: 830px;
-  /* margin-top: 20px; */
-  margin-left: 32px;
-  padding: 14px 28px;
-}
-
-
+  .tags-buttons {
+    position: absolute;
+    top: 300px;
+    margin-left: 32px;
+  }
+  .recipe-list {
+    width: 480px;
+    margin-top: 30px;
+    margin-left: 32px;
+  }
+  .recipe-item .ingredient-id {
+    margin-right: 170px; /* Увеличиваем отступ для id */
+  }
+  .recipe-description {
+    max-height: 200px;
+    width: 480px;
+    margin-left: 32px;
+  }
+  .btn-add-favourite {
+    position: absolute;
+    top: 830px;
+    /* margin-top: 20px; */
+    margin-left: 32px;
+    padding: 14px 28px;
+  }
 }
