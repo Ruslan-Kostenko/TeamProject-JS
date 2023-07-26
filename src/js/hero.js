@@ -55,6 +55,8 @@ const swiper = new Swiper('.swiper', {
     delay: 5000,
   },
 
+  disableOnInteraction: false,
+
   direction: 'horizontal',
   loop: true,
 
@@ -85,4 +87,10 @@ const swiper = new Swiper('.swiper', {
     }
   }
 
+});
+
+swiper.on('slideChange', () => {
+  setTimeout(() => {
+    swiper.autoplay.start();
+  }, 0);
 });
