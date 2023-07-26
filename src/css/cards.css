@@ -151,3 +151,27 @@
     height: 31px;
   }
 }
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  
+}
+
+.pagination__list {
+  display: flex;
+  list-style-type: none; 
+  width:340px;
+  overflow-x: auto; 
+}
+
+.pagination__item {
+  padding: 8px;
+  margin: 8px;
+  cursor: pointer;
+}
+
+.pagination__item--active {
+  font-weight: 800;
+  color: gold;
+}
