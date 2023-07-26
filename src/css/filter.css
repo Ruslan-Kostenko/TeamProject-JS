@@ -41,7 +41,7 @@
   display: inline-block;
   width: 100%;
   height: 48px;
-  padding: 14px 122px 14px 48px;
+  padding: 14px 14px 14px 48px;
   align-items: flex-start;
   gap: 32px;
   border-radius: 15px;
@@ -276,4 +276,8 @@
 
 .search_input:focus + .svg-search {
   stroke: var(--accent-color);
+}
+
+.search_input:focus + .label_span {
+  color: var(--accent-color);
 }

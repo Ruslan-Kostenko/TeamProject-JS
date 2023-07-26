@@ -70,6 +70,10 @@ body.dark-theme {
   background-color: var(--dark-theme-text-color-02);
 }
 
+.dark-theme .cat-list::-webkit-scrollbar-thumb:hover {
+  background-color: var(--accent-color);
+}
+
 /* ---- POPULAR RECIPE ---- */
 
 .dark-theme .pop-header {
