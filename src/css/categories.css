@@ -1,5 +1,7 @@
-.categories {
-  padding-bottom: 40px;
+
+.categories-sec{
+    padding-bottom:40px;
+    padding-top:26px ;
 }
 .cat-list {
   height: 195px;
@@ -16,80 +18,98 @@
   font-weight: 500;
   line-height: 1.28;
 }
-.cat-opt {
-  border: none;
-  background-color: transparent;
-  padding: 0;
-  border: none;
-  color: rgba(5, 5, 5, 0.3);
-  transition: color 200ms linear;
+
+.cat-opt{
+    border:none;
+    background-color: transparent;
+    padding: 0;
+    border:none;
+    color:var(--primary-text-color-03);
+    transition:  color 200ms linear;
 }
+.catopt.is-active,
 .cat-opt:hover,
-.cat-opt:focus {
-  color: #9bb537;
-}
-.cat-btn {
-  color: rgba(5, 5, 5, 0.5);
-  font-weight: 500;
-  font-size: 18px;
-  line-height: 1.21;
-  border-radius: 15px;
-  border: 1px solid rgba(5, 5, 5, 0.2);
-  padding: 14px 29px 14px 29px;
-  margin-bottom: 24px;
-  background-color: transparent;
-  transition: background-color, color 200ms linear;
-}
-.cat-btn:hover,
-.cat-btn:focus {
-  background-color: #9bb537;
-  color: #f8f8f8;
-}
-.cat-list::-webkit-scrollbar {
-  /* Ширина бегунка скролла */
-  width: 8px;
-}
-.cat-list::-webkit-scrollbar-track {
-  /* Цвет фона для трека (фон за бегунком) */
-  background-color: #f1f1f1;
-}
-.cat-list::-webkit-scrollbar-thumb {
-  background: rgba(5, 5, 5, 0.18); /* цвет бегунка */
-  border-radius: 20px;
-  /* округлось бегунка */
-  /* отступ вокруг бегунка */
-}
-.cat-list::-webkit-scrollbar-thumb:hover {
-  /* Изменяем стиль бегунка при наведении */
-  background-color: #555;
-  cursor: pointer;
-}
-@media screen and (min-width: 768px) {
-  .categories {
-    padding-bottom: 64px;
-  }
-  .cat-btn {
-    margin-bottom: 30px;
-    padding: 14px 28px;
-  }
-  .cat-list {
-    gap: 24px;
 
-    width: 176px;
-    height: 416px;
-
-    font-size: 16px;
-    font-style: normal;
+.cat-opt:focus{
+    color:var(--accent-color);
+}
+.cat-btn{
+    color:var(--primary-text-color-05);
     font-weight: 500;
-    line-height: 1.25;
-  }
-}
-@media screen and (min-width: 1280px) {
-  .cat-btn {
-    margin-bottom: 42px;
-  }
-  .cat-list {
-    width: 235px;
-    height: 416px;
-  }
-}
+    font-size: 18px;
+    line-height:1.21;
+    border-radius:15px;
+    border: 1px solid var(--primary-text-color-02);
+    padding:14px 29px 14px 29px;
+    margin-bottom:24px ;
+    background-color: transparent;
+    transition: background-color, color 200ms linear;
+    }
+    .cat-btn.is-active,
+    .cat-btn:hover,
+    .cat-btn:focus{
+        background-color:var(--accent-color);
+        color:var(--light-text-color);
+    }
+    .cat-list::-webkit-scrollbar {
+        /* Ширина бегунка скролла */
+        width: 8px;
+        
+      }
+      .cat-list::-webkit-scrollbar-track {
+        /* Цвет фона для трека (фон за бегунком) */
+        background-color: var( --light-background-color);
+      }  
+    .cat-list::-webkit-scrollbar-thumb {
+        background: rgba(5, 5, 5, 0.18);    /* цвет бегунка */
+        border-radius: 20px;  
+            /* округлось бегунка */
+          /* отступ вокруг бегунка */
+      }
+      .cat-list::-webkit-scrollbar-thumb:hover {
+        /* Изменяем стиль бегунка при наведении */
+        background-color: #555;
+      }
+      .is-active{
+        
+      }
+      @media screen and (min-width:768px){
+      
+        .categories{
+            padding-bottom: 64px;
+        }
+        .cat-btn{
+            margin-bottom:30px;
+            padding:14px 28px;
+        }
+        .cat-list{
+            
+            gap:24px;
+            
+            
+            width:176px;
+            height: 416px;
+        
+            font-size: 16px;
+            font-style: normal;
+            font-weight: 500;
+            line-height: 1.25;
+            
+    }
+ 
+   
+        
+    }
+    @media screen and (min-width:1280px){
+       
+        .cat-btn{
+            margin-bottom:42px;
+            
+        }
+        .cat-list{
+            width:235px;
+            height: 416px;
+        }
+        
+    }
+

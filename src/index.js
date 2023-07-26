@@ -7,6 +7,8 @@ import './js/popular-recipe';
 import './js/hero';
 import './js/js-categories';
 import './js/js-popular';
+import './js/favorites-page';
+import './js/pagination';
 
 import './js/modal-order-now';
 
