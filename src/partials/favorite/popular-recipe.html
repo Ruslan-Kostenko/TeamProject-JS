@@ -1,0 +1,49 @@
+<!-- Кнопки фільтру -->
+<div class="container">
+  <div class="fav-favorite-button-container" id="category-filter-container"></div>
+</div>
+
+<!-- Галерея з улюбленими рецептами -->
+<div class="container">
+  <ul class="fav-recipe-list" id="fav-recipe-list">
+    <li class="fav-recipe-list-item">
+      <img class="fav-recipe-card-img" src="#" alt="" />
+      <button class="fav-on-favorite-button" type="button">
+        <svg
+          class="icon-heart"
+          xmlns="http://www.w3.org/2000/svg"
+          width="22"
+          height="22"
+          viewBox="0 0 22 22"
+          fill="red"
+        >
+          <path
+            fill-rule="evenodd"
+            clip-rule="evenodd"
+            d="M10.9939 4.70783C9.16115 2.5652 6.10493 1.98884 3.80863 3.95085C1.51234 5.91285 1.18905 9.19323 2.99234 11.5137C4.49166 13.443 9.02912 17.5121 10.5163 18.8291C10.6826 18.9764 10.7658 19.0501 10.8629 19.0791C10.9475 19.1043 11.0402 19.1043 11.1249 19.0791C11.2219 19.0501 11.3051 18.9764 11.4715 18.8291C12.9586 17.5121 17.4961 13.443 18.9954 11.5137C20.7987 9.19323 20.5149 5.89221 18.1791 3.95085C15.8434 2.00948 12.8266 2.5652 10.9939 4.70783Z"
+            fill="red"
+          />
+        </svg>
+      </button>
+      <h3 class="fav-recipe-card-title"></h3>
+      <p class="fav-recipe-card-descr"></p>
+      <div>
+        <p class="fav-recipe-card-rating"></p>
+        <button class="fav-see-recipe-button" type="button">See recipe</button>
+      </div>
+    </li>
+  </ul>
+  <!-- Повідомлення про відсутність улюблених рецептів -->
+  <div class="empty-favorites" id="empty-favorites" style="display: none">
+    <img
+      class="fav-no-cards-img"
+      src="./images/favorite-images/no-card-img.png"
+      alt="Empty Favorites"
+    />
+    <p class="no-cards-text">
+      It appears that you haven't added any recipes to your favorites yet. To
+      get started, you can add recipes that you like to your favorites for
+      easier access in the future.
+    </p>
+  </div>
+</div>

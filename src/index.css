@@ -12,7 +12,8 @@
 /* Favorite page */
 @import url(./css/favorite/header-favorite.css);
 @import url(./css/favorite/hero-favorite.css);
-/* @import url(./css/favorite/popular-recipe.css); */
+@import url(./css/favorite/favorite-page.css);
+@import url(./css/favorite/popular-recipe.css);
 /* ================================================================ */
 :root {
   --accent-color: #9bb537;
@@ -25,6 +26,7 @@
   --dark-theme-text-color-08: rgba(255, 255, 255, 0.8);
   --dark-theme-text-color-05: rgba(255, 255, 255, 0.5);
   --dark-theme-text-color-03: rgba(255, 255, 255, 0.3);
+  --dark-theme-text-color-02: rgba(255, 255, 255, 0.2);
   --light-text-color: #f8f8f8;
   --switch-bg-off-color: #cecdcd;
   --light-background-color: #f8f8f8;

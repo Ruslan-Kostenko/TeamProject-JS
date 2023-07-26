@@ -1,24 +1,24 @@
+
 .categories-sec{
     padding-bottom:40px;
     padding-top:26px ;
 }
-.cat-list{
-    height: 195px;
-    display: flex;
-    flex-direction: column;
-    gap:18px;
-    
-    
-    overflow-y: scroll;
-  /* Убираем стандартный бегунок скролла */
-    scrollbar-width: none;
+.cat-list {
+  height: 195px;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
 
-    font-size: 14px;
-    font-style: normal;
-    font-weight: 500;
-    line-height: 1.28;
-   
+  overflow-y: scroll;
+  /* Убираем стандартный бегунок скролла */
+  scrollbar-width: none;
+
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 1.28;
 }
+
 .cat-opt{
     border:none;
     background-color: transparent;
@@ -29,6 +29,7 @@
 }
 .catopt.is-active,
 .cat-opt:hover,
+
 .cat-opt:focus{
     color:var(--accent-color);
 }
@@ -112,9 +113,3 @@
         
     }
 
-
-
-
-
-
-    
