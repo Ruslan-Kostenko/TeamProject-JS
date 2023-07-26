@@ -1,14 +1,11 @@
 const catBtnEl = document.querySelector('.cat-btn');
 const ulCatEl = document.querySelector('.cat-list');
 const BASE_URL = 'https://tasty-treats-backend.p.goit.global/api/';
-const UlCardEl =document.querySelector('.card_list');
-const catOptEl= document.querySelector('.cat-opt');
-import {pagination} from "./pagination";
-
+const UlCardEl = document.querySelector('.card_list');
+const catOptEl = document.querySelector('.cat-opt');
+import { pagination } from './pagination';
 
 const currentPage = pagination.getCurrentPage();
-
-
 
 let setLimit = 0;
 function setLimitValue() {
@@ -21,42 +18,40 @@ function setLimitValue() {
   }
 }
 setLimitValue();
-console.log(setLimit)
+console.log(setLimit);
 
 function getCurrentPage() {
   return pagination._currentPage;
 }
-console.log(getCurrentPage())
+console.log(getCurrentPage());
 
+console.log(pagination);
 
-console.log(pagination)
+fetchCatItem()
+  .then(data => {
+    ulCatEl.innerHTML = makeCatItem(data);
+  })
+  .catch(error => {
+    console.error('Произошла ошибка:', error);
+  });
 
+fetchAllRecept(currentPage, setLimit)
+  .then(data => {
+    UlCardEl.innerHTML = makeCardMark(data);
+    pagination._options.totalItems = data.totalPages * 9;
+  })
+  .catch(error => {
+    console.error('Произошла ошибка:', error);
+  });
 
-
-fetchCatItem().then(data => {
-  ulCatEl.innerHTML = makeCatItem(data);
-}).catch(error=>{
-  console.error("Произошла ошибка:", error);
-});
-
-fetchAllRecept(currentPage,setLimit).then(data=>{
-  UlCardEl.innerHTML = makeCardMark(data);
-  pagination._options.totalItems = data.totalPages * 9;
-}).catch(error=>{
-  console.error("Произошла ошибка:", error);
-})
-
-
-
-function removeAllActive(){
- const allCatOptEl = document.querySelectorAll('.cat-opt');
- allCatOptEl.forEach(catOpt=>{
-  catOpt.classList.remove('is-active');
-  console.log(catOpt)
- });
-
+function removeAllActive() {
+  const allCatOptEl = document.querySelectorAll('.cat-opt');
+  allCatOptEl.forEach(catOpt => {
+    catOpt.classList.remove('is-active');
+    console.log(catOpt);
+  });
 }
-function addActive(a){
+function addActive(a) {
   return a.classList.add('isActive');
 }
 function makeCatItem(arr) {
@@ -66,12 +61,13 @@ function makeCatItem(arr) {
         `<li class="cat-item"><button class="cat-opt" value="${b._id}">${b.name}</button></li>`
     )
     .join('');
-};
+}
 
-function makeCardMark(info){
-  
-  return info.results.map((g)=>
-`<li class="card_item">
+function makeCardMark(info) {
+  return info.results
+    .map(
+      g =>
+        `<li class="card_item">
 <img src="${g.thumb}" alt="${g.title}" class="card_img" />
 <button class="card_fav">
   <svg
@@ -104,7 +100,8 @@ function makeCardMark(info){
   </div>
 </div>
 </li>`
-).join('');
+    )
+    .join('');
 }
 
 function fetchCatItem() {
@@ -115,7 +112,7 @@ function fetchCatItem() {
     return resp.json();
   });
 }
-function fetchAllRecept(page,limit) {
+function fetchAllRecept(page, limit) {
   return fetch(`${BASE_URL}recipes?page=${page}&limit=${limit}`).then(resp => {
     if (!resp.ok) {
       throw new Error(resp.statusText);
@@ -124,40 +121,38 @@ function fetchAllRecept(page,limit) {
   });
 }
 
-function fetchReceptByCategory(catName,currentPage,setLimit){
-  return fetch(`${BASE_URL}recipes?page=${currentPage}&limit=${setLimit}&category=${catName}`).then(resp=>{
-
-    if(!resp.ok){
+function fetchReceptByCategory(catName, currentPage, setLimit) {
+  return fetch(
+    `${BASE_URL}recipes?page=${currentPage}&limit=${setLimit}&category=${catName}`
+  ).then(resp => {
+    if (!resp.ok) {
       throw new Error(resp.statusText);
     }
     return resp.json();
   });
 }
 
-
 let lastClickedBtn = null;
-ulCatEl.addEventListener('click',(event)=>{
+ulCatEl.addEventListener('click', event => {
   if (!event.target.classList.contains('cat-opt')) {
     return;
-  }if (lastClickedBtn) {
+  }
+  if (lastClickedBtn) {
     lastClickedBtn.classList.remove('is-active');
   }
   catBtnEl.classList.remove('is-active');
   event.target.classList.add('is-active');
   lastClickedBtn = event.target;
-  const catName= event.target.textContent;
-  fetchReceptByCategory(catName,currentPage,setLimit).then(data=>{
+  const catName = event.target.textContent;
+  fetchReceptByCategory(catName, currentPage, setLimit).then(data => {
     UlCardEl.innerHTML = makeCardMark(data);
   });
 });
 
-
-catBtnEl.addEventListener('click',(evt)=>{
-  fetchAllRecept(currentPage,setLimit).then(data=>{
+catBtnEl.addEventListener('click', evt => {
+  fetchAllRecept(currentPage, setLimit).then(data => {
     removeAllActive();
     catBtnEl.classList.add('is-active');
     UlCardEl.innerHTML = makeCardMark(data);
-  })
-}
-)
-
+  });
+});

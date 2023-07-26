@@ -8,8 +8,8 @@ import './js/header-mobile-menu';
 import './js/hero';
 import './js/js-categories';
 import './js/js-popular';
-import './js/favorites-page';
-import './js/pagination';
+// import './js/favorites-page';
+// import './js/pagination';
 
-import './js/popular-recipe';
 import './js/modal-order-now';
+import './js/popular-recipe';
