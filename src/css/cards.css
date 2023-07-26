@@ -151,3 +151,34 @@
     height: 31px;
   }
 }
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  
+}
+
+.pagination__list {
+  display: flex;
+  
+  list-style-type: none; 
+  width:340px;
+  overflow-x: auto; 
+}
+
+.pagination__item {
+  padding: 8px;
+  margin: 8px;
+  cursor: pointer;
+}
+
+
+.pagination__item:hover,
+.pagination__item:focus{
+  background-color:var(--accent-color);
+  color:var(--secondary-text-color)
+}
+.activated{
+  background-color:var(--accent-color);
+  color:var(--secondary-text-color)
+}
