@@ -93,7 +93,8 @@ body.show-modal-order-now .order-now-backdrop {
   height: 43px;
 }
 
-.order-now-modal-form input::placeholder {
+.order-now-modal-form input::placeholder,
+.order-now-modal-form textarea::placeholder {
   color: var(--primary-text-color-02);
   font-size: 16px;
   font-style: normal;
