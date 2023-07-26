@@ -168,14 +168,14 @@ function onFavouriteBtnClick() {
     favouriteBtn.textContent = 'Remove from favorite';
   }
 }
-const seeRecipe = document.querySelector('.recipe_desc_btn');
+// const seeRecipe = document.querySelector('.recipe_desc_btn');
 
-seeRecipe.addEventListener('click', onClickRecipeDescrBtn);
-function onClickRecipeDescrBtn() {
-  // Toggle the visibility of the modal and backdrop using classes
-  popUpRecipe.classList.add('show-modal');
-  backdropPopupRecipe.classList.add('show-modal');
-}
+// seeRecipe.addEventListener('click', onClickRecipeDescrBtn);
+// function onClickRecipeDescrBtn() {
+//   // Toggle the visibility of the modal and backdrop using classes
+//   popUpRecipe.classList.add('show-modal');
+//   backdropPopupRecipe.classList.add('show-modal');
+// }
 
 fetchRecipeData();
 
