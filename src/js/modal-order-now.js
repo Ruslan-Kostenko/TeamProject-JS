@@ -1,6 +1,5 @@
 import { refs } from './js-refs';
 
-console.log(refs.modalOrderNowForm.elements);
 
 if (refs.openButtonHeroEl) {
   refs.openButtonHeroEl.addEventListener('click', onModalOpen);
@@ -36,28 +35,7 @@ function onEscKeyPress(event) {
   }
 }
 
-// function extractFormData(form) {
-//   let formData = {};
-//   const inputsEl = form.elements;
-
-//   formData.name = inputsEl.name.value;
-//   formData.phone = inputsEl.phone.value;
-//   formData.email = inputsEl.email.value;
-//   formData.comment = inputsEl.comment.value;
-
-//   return formData;
-// }
-
-// function onSubmitForm(e) {
-//   e.preventDefault();
-
-//   const formData = extractFormData(refs.modalOrderNowForm);
-//   console.log(formData);
-
-//   refs.modalOrderNowForm.reset();
-// }
-
-function onSubmitForm(e) {
+async function onSubmitForm(e) {
   e.preventDefault();
 
   const formData = extractFormData(refs.modalOrderNowForm);
@@ -65,7 +43,28 @@ function onSubmitForm(e) {
 
   onModalRemove();
   refs.modalOrderNowForm.reset();
+
+  try {
+    const response = await fetch('https://tasty-treats-backend.p.goit.global/api/orders/add', {
+      method: 'POST',
+      headers: {
+        'accept': 'application/json',
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(formData),
+    });
+
+    if (!response.ok) {
+      throw new Error('Network response was not ok');
+    }
+
+    const data = await response.json();
+    console.log('Дані успішно відправлені на бекенд:', data.message);
+  } catch (error) {
+    console.error('Помилка при відправленні даних на бекенд:', error);
+  }
 }
+
 
 function extractFormData(form) {
   let formData = {};
