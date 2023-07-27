@@ -25,6 +25,7 @@
 }
 
 .fav-category-filter-button {
+   white-space: nowrap;
    justify-content: center;
    padding: 14px 18px;
    align-items: center;
@@ -53,11 +54,17 @@
 }
 
 .fav-favorite-button-container {
+   overflow-x: auto;
+   white-space: nowrap;
+   scrollbar-width: none;  
 display: flex;
 gap: 18px;
-flex-wrap: wrap;
-justify-content: center;
+justify-content: flex-start;
 margin-bottom: 32px;
+}
+
+.fav-favorite-button-container::-webkit-scrollbar {
+   display: none;
 }
 
 .fav-recipe-list {
