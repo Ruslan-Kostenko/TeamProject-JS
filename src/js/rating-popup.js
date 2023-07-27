@@ -9,7 +9,7 @@ function toggleModal() {
 
 // ---------------------FOR MODAL JAVASCRIPT---------------------------
 const getData = document.getElementById('add');
-const inputEl = document.querySelector('.form-input');
+const input = document.querySelector('.form-input');
 const btnSend = document.querySelector('.submit-btn');
 const ratings = document.querySelectorAll('.rating');
 if (ratings.length > 0) {
@@ -52,8 +52,8 @@ function initRatings() {
       });
       ratingItem.addEventListener('click', function (e) {
         initRatingVars(rating);
-        // if (rating.data.ajax) {
-        //   setRatingValue(ratingItem.value, rating);
+        // if (rating.dataset.ajax) {
+        //
         // } else {
         ratingValue.innerHTML = index + 1;
         setRatingValue(ratingItem.value, rating);
@@ -64,11 +64,6 @@ function initRatings() {
       });
     }
   }
-  //   btnSend.addEventListener('click', handlerAddToBack);
-  //   function handlerAddToBack(e) {
-  //     e.preventDefault();
-
-  //  }
 
   // const options =  {
   //       method: 'PATCH',
@@ -91,17 +86,40 @@ function initRatings() {
   //   .then(data => console.log(data))
   // .catch(err=>console.log(err))
 
-  async function setRatingValue(value, rating) {
+  async function setRatingValue(value, mail) {
+    // const options = {
+    //   method: 'PATCH',
+    //   body: JSON.stringify({
+    //     userRating: value,
+    //   }),
+    //   headers: {
+    //     'Content-Type': 'application/json',
+    //   },
+    // };
+
+    // return fetch(
+    //   'https://tasty-treats-backend.p.goit.global/api/recipes/{id}/rating',
+    //   options
+    // )
+    //   .then(resp => {
+    //     if (!resp.ok) {
+    //       throw new Error(resp.statusText);
+    //     }
+    //     return resp.json();
+    //   })
+    //   .then(data => console.log(data))
+    //   .catch(err => console.log(err));
+    //  ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
     // if (!rating.classList.add('rating-sending')) {
     //   rating.classList.add('rating-sending');
     let response = await fetch(
-      'https://tasty-treats-backend.p.goit.global/api/recipes/',
+      'https://tasty-treats-backend.p.goit.global/api/recipes',
       {
-        method: 'PATCH',
+        method: 'POST',
         body: JSON.stringify({
-          id: recipeID,
           userRating: value,
-          userMail: getInputData,
+          emailUser: mail,
+          // userMail: getInputData,
         }),
         headers: {
           'Content-Type': 'application/json',

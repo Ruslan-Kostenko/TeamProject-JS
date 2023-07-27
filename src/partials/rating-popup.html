@@ -26,21 +26,21 @@
         />
       </svg>
     </button>
-    <div class="popup-text">Rating</div>
-    <div data-ajax="true" class="rating rating-set">
-      <div class="rating-body">
-        <div class="rating-active"></div>
-        <div class="rating-items">
-          <input type="radio" class="rating-item" name="rating" value="1" />
-          <input type="radio" class="rating-item" name="rating" value="2" />
-          <input type="radio" class="rating-item" name="rating" value="3" />
-          <input type="radio" class="rating-item" name="rating" value="4" />
-          <input type="radio" class="rating-item" name="rating" value="5" />
+    <form action="#" class="rating-modal-form" autocomplete="on">
+      <div class="popup-text">Rating</div>
+      <div data-ajax="true" class="rating rating-set">
+        <div class="rating-body">
+          <div class="rating-active"></div>
+          <div class="rating-items">
+            <input type="radio" class="rating-item" name="rating" value="1" />
+            <input type="radio" class="rating-item" name="rating" value="2" />
+            <input type="radio" class="rating-item" name="rating" value="3" />
+            <input type="radio" class="rating-item" name="rating" value="4" />
+            <input type="radio" class="rating-item" name="rating" value="5" />
+          </div>
         </div>
+        <div class="rating-value" name="body">0.0</div>
       </div>
-      <div class="rating-value">0.0</div>
-    </div>
-    <form autocomplete="off">
       <input
         type="email"
         name="email"
