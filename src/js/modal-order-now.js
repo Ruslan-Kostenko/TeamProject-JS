@@ -63,6 +63,7 @@ function onSubmitForm(e) {
   const formData = extractFormData(refs.modalOrderNowForm);
   console.log(formData);
 
+  onModalRemove();
   refs.modalOrderNowForm.reset();
 }
 
