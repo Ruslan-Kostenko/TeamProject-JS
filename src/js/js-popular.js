@@ -19,10 +19,11 @@ function makePopMarckap(arr) {
           <a href="#" class="pop-img-link">
             <img class="pop-img" src="${c.preview}" alt="a">
           </a>
-    <div class="pop-info">
-    <h3>${c.title}</h3>
-      <p>${c.description}</p>
-    </div>`
+          
+          <div class="pop-info">
+            <h3>${c.title}</h3>
+            <p>${c.description}</p>
+          </div>`
     )
     .join('');
 }
