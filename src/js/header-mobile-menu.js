@@ -23,3 +23,16 @@ const bodyScrollLock = require('body-scroll-lock');
     bodyScrollLock.enableBodyScroll(document.body);
   });
 })();
+
+// const onBodyClickClose = e => {
+//   if (
+//     refs.mobileMenu.classList.contains('is-open') &&
+//     e.currentTarget === e.target
+//   ) {
+//     refs.mobileMenu.classList.remove('is-open');
+//     refs.openMenuBtn.setAttribute('aria-expanded', false);
+//     bodyScrollLock.enableBodyScroll(document.body);
+//   }
+// };
+
+// onBodyClickClose();

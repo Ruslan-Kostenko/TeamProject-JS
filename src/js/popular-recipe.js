@@ -4,15 +4,17 @@ const popUp = document.querySelector('.pop-up-recipe');
 const videoContainer = document.querySelector('#video-container');
 let player;
 
-const BASE_URL_POPUP = 'https://tasty-treats-backend.p.goit.global/api/recipes/';
+const BASE_URL_POPUP =
+  'https://tasty-treats-backend.p.goit.global/api/recipes/';
 const SECOND_URL = 'https://tasty-treats-backend.p.goit.global/api/ingredients';
 const API_KEY = 'AIzaSyAX44YCtOJPGkNiZtRXagJevTZUvVOUYVc';
 
 function getRandomIndex(max) {
-    return Math.floor(Math.random() * max);
+  return Math.floor(Math.random() * max);
 }
 
 function fetchRecipeData() {
+
     Promise.all([fetch(BASE_URL_POPUP), fetch(SECOND_URL)])
         .then(responses => Promise.all(responses.map(response => response.json())))
         .then(data => {
@@ -92,64 +94,65 @@ const videoSrc = `https://www.youtube.com/embed/${videoId}?enablejsapi=1&origin=
 closeSVG.addEventListener('click', onClickSVG);
 
 function onClickSVG() {
-    stopVideoAndCloseModal();
+  stopVideoAndCloseModal();
 }
 
 backDrop.addEventListener('click', onClickBackDrop);
 
 function onClickBackDrop(event) {
-    if (event.target === backDrop) {
-        stopVideoAndCloseModal();
-    }
+  if (event.target === backDrop) {
+    stopVideoAndCloseModal();
+  }
 }
 
 document.addEventListener('keydown', onDocumentKeyDown);
 
 function onDocumentKeyDown(event) {
-    if (event.key === 'Escape') {
+  if (event.key === 'Escape') {
     popUp.style.display = 'none';
     backDrop.style.display = 'none';
-    }
+  }
 }
 
 function stopVideoAndCloseModal() {
-   
-    if (typeof player !== 'undefined' && typeof player.stopVideo === 'function') {
-        player.stopVideo(); 
-    }
+  if (typeof player !== 'undefined' && typeof player.stopVideo === 'function') {
+    player.stopVideo();
+  }
 
-
-    popUp.style.display = 'none';
-    backDrop.style.display = 'none';
+  popUp.style.display = 'none';
+  backDrop.style.display = 'none';
 }
 
-
 function createYouTubePlayer(videoSrc) {
-    player = new YT.Player('video-container', {
-        videoId: getYouTubeVideoId(videoSrc),
-        playerVars: {
-            // Дополнительные параметры плеера, если нужно
-            // Например, autoplay: 1 (1 - включить автовоспроизведение, 0 - выключить)
-        },
-        events: {
-            onStateChange: onPlayerStateChange
-        }
-    });
+  player = new YT.Player('video-container', {
+    videoId: getYouTubeVideoId(videoSrc),
+    playerVars: {
+      // Дополнительные параметры плеера, если нужно
+      // Например, autoplay: 1 (1 - включить автовоспроизведение, 0 - выключить)
+    },
+    events: {
+      onStateChange: onPlayerStateChange,
+    },
+  });
 }
 
 function onPlayerStateChange(event) {
-    if (event.data === YT.PlayerState.PLAYING) {
-        player.getIframe().contentWindow.addEventListener('keydown', onPlayerKeyDown);
-    } else {
-        player.getIframe().contentWindow.removeEventListener('keydown', onPlayerKeyDown);
-    }
+  if (event.data === YT.PlayerState.PLAYING) {
+    player
+      .getIframe()
+      .contentWindow.addEventListener('keydown', onPlayerKeyDown);
+  } else {
+    player
+      .getIframe()
+      .contentWindow.removeEventListener('keydown', onPlayerKeyDown);
+  }
 }
 
 function getYouTubeVideoId(videoSrc) {
-    const videoIdMatch = videoSrc.match(/(?:\?v=|\/embed\/|\.be\/)([\w\-]{11})/);
-    return videoIdMatch ? videoIdMatch[1] : null;
+  const videoIdMatch = videoSrc.match(/(?:\?v=|\/embed\/|\.be\/)([\w\-]{11})/);
+  return videoIdMatch ? videoIdMatch[1] : null;
 }
- 
+
 
 
 
@@ -167,10 +170,13 @@ function onFavouriteBtnClick() {
     favouriteBtn.textContent = 'Add to Favorite';
   }
 }
+// const seeRecipe = document.querySelector('.recipe_desc_btn');
+
 
 // Добавляем слушатель на кнопку
 favouriteBtn.addEventListener('click', onFavouriteBtnClick);
 
 
 fetchRecipeData();
+
 

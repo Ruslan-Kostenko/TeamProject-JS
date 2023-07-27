@@ -110,7 +110,16 @@
 }
 
 .card_rating {
-  display: none;
+  display: flex;
+  align-items: center;
+  width: 18px;
+
+  color: #f8f8f8;
+  font-family: Inter;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 1.28;
 }
 
 .recipe_desc_btn {
@@ -121,7 +130,7 @@
   background: #9bb537;
   border: none;
   color: #f8f8f8;
-  margin-left: auto;
+  /* margin-left: auto; */
 }
 
 .card_info {
@@ -141,4 +150,35 @@
     width: 218px;
     height: 31px;
   }
+}
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  
+}
+
+.pagination__list {
+  display: flex;
+  
+  list-style-type: none; 
+  width:340px;
+  overflow-x: auto; 
+}
+
+.pagination__item {
+  padding: 8px;
+  margin: 8px;
+  cursor: pointer;
+}
+
+
+.pagination__item:hover,
+.pagination__item:focus{
+  background-color:var(--accent-color);
+  color:var(--secondary-text-color)
+}
+.activated{
+  background-color:var(--accent-color);
+  color:var(--secondary-text-color)
 }
