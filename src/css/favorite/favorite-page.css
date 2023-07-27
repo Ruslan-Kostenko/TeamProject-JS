@@ -8,8 +8,6 @@
 
 }
 
-
-
 .no-cards-text {
    max-width: 481px;
    color: var(--primary-text-color);
@@ -123,9 +121,6 @@ margin-bottom: 32px;
    z-index: -1;
 }
 
-
-
-
 .fav-on-favorite-button {
    width: 22px;
    height: 22px;
@@ -141,6 +136,9 @@ margin-bottom: 32px;
    pointer-events: none;
 }
 
+.fav-on-favorite-button:hover .icon-heart {
+   stroke: var(--accent-color);
+}
 
 .fav-recipe-card-title {
    position: absolute;
@@ -182,26 +180,41 @@ margin-bottom: 32px;
    text-overflow: ellipsis;
 } 
 
-.fav-recipe-card-rating {
+.favorite-card-rating-value {
 position: absolute;
 left: 16px;
 bottom: 22px;
-color: var(--light-background-color);
-font-family: Inter;
-font-size: 14px;
-font-style: normal;
-font-weight: 500;
-line-height: 18px;
+max-width: 100px;
+}
+
+.favorite-card-rating-body {
+   position: absolute;
+   left: 45px;
+   top: 296.5px;
+}
+
+@media screen and (min-width: 768px) {
+   .favorite-card-rating-body {
+      left: 45px;
+      top: 205px;
+   }
+}
+
+@media screen and (min-width: 1280px) {
+   .favorite-card-rating-body {
+      left: 45px;
+      top: 248px;
+   }
 }
 
 .fav-see-recipe-button {
-   position: absolute;
-   right: 16px;
-   bottom: 16px;
+position: absolute;
+right: 16px;
+bottom: 16px;
 padding: 8px 16px;
 justify-content: center;
 align-items: center;
-color: --light-background-color;
+color: var(--light-background-color);
 font-family: Inter;
 font-size: 12px;
 font-style: normal;
@@ -235,4 +248,63 @@ color: var(--primary-text-color);
    .fav-recipe-card-descr {
       top: 192px;
    }
+}
+
+
+.favorite-card-rating {
+display: flex;
+align-items: flex-start;
+font-size: 16px;
+line-height: 0.75;
+color: white;
+}
+
+
+
+.favorite-card-rating-body::before {
+   content: "★★★★★";
+   display: block;
+}
+
+.favorite-card-rating-active {
+position: absolute;
+width: 0%;
+height: 100%;
+top: 0;
+left: 0;
+overflow: hidden;
+}
+
+.favorite-card-rating-active::before {
+   content: "★★★★★";
+   position: absolute;
+   width: 100%;
+   height: 100%;
+   top: 0;
+   left: 0;
+   color: #EEA10C;
+}
+
+.favorite-card-rating-items {
+display: flex;
+position: absolute;
+width: 100%;
+height: 100%;
+top: 0;
+left: 0;
+}
+
+.favorite-card-rating-item {
+flex: 0 0 20%;
+height: 100%;
+opacity: 0;
+}
+
+.favorite-card-rating-value {
+color: #F8F8F8;
+   font-family: Inter;
+   font-size: 12px;
+   font-style: normal;
+   font-weight: 500;
+   line-height: 18px;
 }
