@@ -37,13 +37,15 @@ const handleSearchForm = function (event) {
       res.title.toLowerCase().includes(searchQuery.trim().toLowerCase())
     );
 
+    //  RENDER
+
     function renderSearch(arrData, rowPerPage, page) {
       page--;
       const start = rowPerPage * page;
       const end = start + rowPerPage;
       const paginatedData = arrData.slice(start, end);
 
-      totalPages = filteredItems.length / setLimit;
+      totalPages = Math.ceil(filteredItems.length / setLimit);
       paginListEl.innerHTML = '';
       creatPaginMarkup(totalPages);
 
@@ -52,7 +54,16 @@ const handleSearchForm = function (event) {
 
     renderSearch(filteredItems, setLimit, currentPage);
 
-    //  SEE RECIPE
+    paginListEl.addEventListener('click', evt => {
+      if (!evt.target.classList.contains('pagination__item')) {
+        return;
+      }
+      currentPage = evt.target.textContent;
+      refs.UlCardEl.innerHTML = '';
+      renderSearch(filteredItems, setLimit, currentPage);
+    });
+
+    //  SEE RECIPE - ALEX
 
     refs.UlCardEl.addEventListener('click', event => {
       if (!event.target.classList.contains('recipe_desc_btn')) {
@@ -71,7 +82,6 @@ const handleSearchForm = function (event) {
         backdropPopupRecipe.style.display = 'block';
       }
     });
-    return filteredItems;
   });
 };
 
@@ -94,27 +104,6 @@ function displayPaginationBtn(page) {
   return paginItemEl;
 }
 
-paginListEl.addEventListener('click', evt => {
-  if (!evt.target.classList.contains('pagination__item')) {
-    return;
-  }
-
-  currentPage = evt.target.textContent;
-  fetchAllRecept(currentPage, setLimit)
-    .then(data => {
-      refs.UlCardEl.innerHTML = makeCardMark(data.results);
-    })
-    .catch(error => {
-      console.error('Произошла ошибка:', error);
-    });
-});
-
-//
-
-//
-
-//
-
 // RESET BUTTON
 
 const resetAllFilters = () => {
@@ -132,7 +121,7 @@ const resetAllFilters = () => {
   });
 };
 
-// FCN and MARKAP
+// FNC and MARKUP
 
 refs.claerBtn.addEventListener('click', resetAllFilters);
 refs.searchInput.addEventListener('input', debounce(handleSearchForm, 500));
