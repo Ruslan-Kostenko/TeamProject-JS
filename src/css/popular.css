@@ -1,10 +1,13 @@
 .popular-sec {
   padding-bottom: 40px;
 }
-.pop-item {
+.pop-img-link{
   display: flex;
   gap: 16px;
   height: 67px;
+  padding: 0;
+  border: none;
+  background-color: transparent;
 }
 
 .pop-img{
@@ -64,8 +67,18 @@
   -webkit-box-orient: vertical;
 }
 
+@media screen and (max-width: 767px) {
+  .popular{
+    height: 200px;
+    overflow: hidden;
+  }
+
+}
+
+
+
 @media screen and (min-width: 768px) {
-  .pop-item {
+  .pop-img-link {
     gap: 8px;
   }
   .pop-info > p {
@@ -103,7 +116,7 @@
     width: 64px;
     height: 64px;
   }
-  .pop-item {
+  .pop-img-link {
     gap: 16px;
   }
 }
