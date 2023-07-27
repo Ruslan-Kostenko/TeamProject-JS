@@ -105,8 +105,8 @@ justify-content: flex-start;
    background-color: transparent;
 }
 
-.icon-heart:hover {
-   stroke: #EEA10C;
+.icon-heart {
+   pointer-events: none;
 }
 
 
