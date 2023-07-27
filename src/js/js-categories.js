@@ -304,3 +304,123 @@ paginListEl.addEventListener('click',(evt)=>{
   });
 }
 })
+upPaginEl.addEventListener('click', evt=>{
+  currentPage = parseInt(currentPage) + 1;
+  console.log(currentPage)
+  const activePages = document.querySelectorAll('.pagination__item')
+  const activetedPage =document.querySelector('.activated');
+  activePages.forEach(activePage=>{
+    if(activetedPage){
+      activetedPage.classList.remove('activated');
+    }
+    if(activePage.textContent == currentPage){
+      
+      activePage.classList.add('activated');
+    }
+  })
+  const hasActiveLi = ulCatEl.querySelector('.cat-opt.is-active');
+  if(hasActiveLi){
+    let catName = hasActiveLi.textContent;
+    fetchReceptByCategory(catName,currentPage,setLimit).then(data=>{
+      UlCardEl.innerHTML = makeCardMark(data)})
+  }else{
+  fetchAllRecept(currentPage,setLimit).then(data=>{
+    UlCardEl.innerHTML = makeCardMark(data);
+    
+  }).catch(error=>{
+    console.error("Произошла ошибка:", error);
+  
+  });
+}
+})
+
+
+
+
+downPaginEl.addEventListener('click', evt=>{
+  currentPage = parseInt(currentPage) - 1;
+  console.log(currentPage)
+  const activePages = document.querySelectorAll('.pagination__item')
+  const activetedPage =document.querySelector('.activated');
+  activePages.forEach(activePage=>{
+    if(activetedPage){
+      activetedPage.classList.remove('activated');
+    }
+    if(activePage.textContent == currentPage){
+      
+      activePage.classList.add('activated');
+    }
+  })
+  const hasActiveLi = ulCatEl.querySelector('.cat-opt.is-active');
+  if(hasActiveLi){
+    let catName = hasActiveLi.textContent;
+    fetchReceptByCategory(catName,currentPage,setLimit).then(data=>{
+      UlCardEl.innerHTML = makeCardMark(data)})
+  }else{
+  fetchAllRecept(currentPage,setLimit).then(data=>{
+    UlCardEl.innerHTML = makeCardMark(data);
+    
+  }).catch(error=>{
+    console.error("Произошла ошибка:", error);
+  
+  });
+}
+})
+
+doublUpEl.addEventListener('click',evt=>{
+ const activePages = document.querySelectorAll('.pagination__item')
+  const activetedPage =document.querySelector('.activated');
+  activePages.forEach(activePage=>{
+    if(activetedPage){
+      activetedPage.classList.remove('activated');
+    }
+    if(activePage.textContent == currentPage){
+      
+      activePage.classList.add('activated');
+    }
+  })
+  currentPage = activePages.length;
+  const hasActiveLi = ulCatEl.querySelector('.cat-opt.is-active');
+  if(hasActiveLi){
+    let catName = hasActiveLi.textContent;
+    fetchReceptByCategory(catName,currentPage,setLimit).then(data=>{
+      UlCardEl.innerHTML = makeCardMark(data)})
+  }else{
+  fetchAllRecept(currentPage,setLimit).then(data=>{
+    UlCardEl.innerHTML = makeCardMark(data);
+    
+  }).catch(error=>{
+    console.error("Произошла ошибка:", error);
+  
+  });
+}
+})
+
+doublDownEl.addEventListener('click',evt=>{
+  const activePages = document.querySelectorAll('.pagination__item')
+   const activetedPage =document.querySelector('.activated');
+   activePages.forEach(activePage=>{
+     if(activetedPage){
+       activetedPage.classList.remove('activated');
+     }
+     if(activePage.textContent == currentPage){
+       
+       activePage.classList.add('activated');
+     }
+   })
+   
+   const hasActiveLi = ulCatEl.querySelector('.cat-opt.is-active');
+   if(hasActiveLi){
+     let catName = hasActiveLi.textContent;
+     fetchReceptByCategory(catName,currentPage,setLimit).then(data=>{
+       UlCardEl.innerHTML = makeCardMark(data)})
+   }else{
+   fetchAllRecept(currentPage,setLimit).then(data=>{
+     UlCardEl.innerHTML = makeCardMark(data);
+     
+   }).catch(error=>{
+     console.error("Произошла ошибка:", error);
+   
+   });
+ }
+ })
