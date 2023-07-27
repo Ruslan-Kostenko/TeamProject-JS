@@ -1,15 +1,13 @@
 
 .backdrop-popup-recipe {
- /* display: none; */
+ display: none;
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
   background-color: rgba(0, 0, 0, 0.6);
-  /* display: flex; */
   justify-content: center;
- /* Выравнивание по нижнему краю */
   overflow-y: auto; 
   z-index: 9999;
 }
@@ -19,7 +17,7 @@
 }
 .pop-up-recipe {
 position: absolute;
-/* display: none; */
+display: none;
   height: 1171px;
   width: 335px;
 
@@ -163,10 +161,10 @@ margin-right: 20px;
   font-style: normal;
   font-weight: 400;
   line-height: 18px;
-  margin-top: 5px; /* Adjust this value as needed to control the distance between name and measure */
+  margin-top: 5px; 
 }
 .recipe-description {
-  text-overflow: ellipsis; /* Добавление многоточия, если описание слишком длинное */
+  text-overflow: ellipsis; 
 margin-right: 20px;
   max-height: 300px; 
   overflow-y: auto;
@@ -174,11 +172,13 @@ margin-right: 20px;
   width: 300px;
   margin-top: 20px;
 }
-.btn-add-favourite {
+.btn-add-recipe-favourite {
+  display: flex;
   position: absolute;
   top: 1100px;
-  cursor: pointer;
-  /* margin-top: 40px; */
+width: 154px;
+height: 41px;
+white-space: nowrap;
   margin-bottom: 32px;
   margin-left: 20px;
   color: #F8F8F8;
@@ -191,29 +191,56 @@ margin-right: 20px;
   justify-content: center;
   align-items: center;
   border-radius: 15px;
-  background: #9BB537;
-  transition: background-color 0.3s, color 0.3s, border-color 0.3s; /* Анимация для изменения цвета фона, текста и рамки */
+  background-color: #9BB537;
+  transition: background-color var(--animation-set);
 }
 
-.btn-add-favourite:hover,
-.btn-add-favourite:focus {
+.btn-add-recipe-favourite:hover,
+.btn-add-recipe-favourite:focus {
   background-color: #9BB537;
   color: #050505;
 }
-
-.btn-add-favourite:active,
-.btn-add-favourite.favourite-popup-recipe { /* Добавляем стиль для кнопки в состоянии "add to favourite" */
-  background-color: transparent; /* Красный фон при нажатии и в состоянии "add to favourite" */
-  color: red;
-  border-color: red;
-  border: 1px solid red; /* Белый текст и красная рамка при нажатии и в состоянии "add to favourite" */
+.btn-add-recipe-favourite.active {
+  border-color: #FF0000;
+  border: 1px solid;
+  background-color: transparent; 
+  color:#FF0000 ;
+  transform: scale(1.0); 
+}
+.btn-add-recipe-favourite.active:hover,
+.btn-add-recipe-favourite.active:focus {
+  background-color: #FF0000; 
+  color: #F8F8F8;
 }
 
-.btn-add-favourite.favourite-popup-recipe:hover,
-.btn-add-favourite.favourite-popup-recipe:focus {
-  /* Красный фон с темным оттенком при ховере и фокусе в состоянии "add to favourite" */
+.btn-give-rating-recipe {
+  display: flex;
+  position: absolute;
+  top: 1100px;
+ left: 170px;
+ width: 133px;
+ height: 41px ;
+ white-space: nowrap;
+ border-color:#9BB537;
+ border: 1px solid #9BB537;
+  margin-bottom: 32px;
+  margin-left: 20px;
+  color: #050505;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  padding: 12px 24px;
+  justify-content: center;
+  align-items: center;
+  border-radius: 15px;
+  background-color: transparent;
+  transition: background-color var(--animation-set);
+}
+.btn-give-rating-recipe:hover,
+.btn-give-rating-recipe:focus {
+  background-color: #9BB537;
   color: #F8F8F8;
-  background-color: red;  /* Белый текст при ховере и фокусе в состоянии "add to favourite" */
 }
 
 
@@ -260,13 +287,13 @@ align-items: center;
 .rating-value {
 margin-right: 8px;
 margin-top: 3px;
- /* Подстроить отступ по необходимости, чтобы выровнять значение рейтинга и звезды */
+ 
 }
 
 .start-pop-recipe-svg-grey {
 
 fill: grey;
-margin-right: 2px; /* Добавить некоторое расстояние между звездами */
+margin-right: 2px; 
 }
 .pop-up-time {
 margin-left: 450px ;
@@ -290,20 +317,27 @@ line-height: 1.28;
   margin-left: 32px;
 }
 .recipe-item .ingredient-id {
-  margin-right: 170px; /* Увеличиваем отступ для id */
+  margin-right: 170px; 
 }
 .recipe-description {
   max-height: 200px;
   width: 480px;
   margin-left: 32px;
 }
-.btn-add-favourite {
-  position: absolute;
+.btn-add-recipe-favourite {
+
   top: 830px;
-  /* margin-top: 20px; */
+ 
   margin-left: 32px;
   padding: 14px 28px;
 }
+.btn-give-rating-recipe {
+padding: 14px 28px;
+top: 830px;
+left: 190px;
+}
+
+
 
 
 }

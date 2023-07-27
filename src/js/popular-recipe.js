@@ -34,7 +34,7 @@ function fetchRecipeData() {
             const title = recipe.title;
             const videoId = getYouTubeVideoId(recipe.youtube);
 const videoSrc = `https://www.youtube.com/embed/${videoId}?enablejsapi=1&origin=https://your-origin.com&modestbranding=1&rel=0&autoplay=1&showinfo=0&controls=1&mute=0&loop=0&iv_load_policy=3&cc_load_policy=1&start=0&theme=light&color=white&fs=1&autohide=2&enablejsapi=1`;
-            const description = recipe.instructions;
+            const descriptionPopup = recipe.instructions;
             const tags = recipe.tags;
             const ingredients = recipe.ingredients;
             const ratingValue = recipe.rating;
@@ -43,7 +43,7 @@ const videoSrc = `https://www.youtube.com/embed/${videoId}?enablejsapi=1&origin=
             recipeRatingElement.textContent = ratingValue;
             recipeTime.textContent = `${timeValue} min`;
 
-            recipeDescription.textContent = description;
+            recipeDescription.textContent = descriptionPopup;
 
             recipeHeader.textContent = title;
 
@@ -151,30 +151,26 @@ function getYouTubeVideoId(videoSrc) {
 }
  
 
-document.querySelector('.btn-add-favourite').addEventListener('click', onFavouriteBtnClick);
+
+
+const favouriteBtn = document.querySelector('.btn-add-recipe-favourite');
+let isFavorite = false;
 
 function onFavouriteBtnClick() {
-    const favouriteBtn = document.querySelector('.btn-add-favourite');
-    if (favouriteBtn.classList.contains('favourite-popup-recipe')) {
-        favouriteBtn.classList.remove('favourite-popup-recipe');
-        favouriteBtn.textContent = 'Add to Favorite';
-    } else {
-        favouriteBtn.classList.add('favourite-popup-recipe');
-        favouriteBtn.textContent = 'Remove from favorite';
-    }
+  isFavorite = !isFavorite; // Инвертируем состояние при каждом клике
+
+  if (isFavorite) {
+    favouriteBtn.classList.add('active');
+    favouriteBtn.textContent = 'Remove from favorite';
+  } else {
+    favouriteBtn.classList.remove('active');
+    favouriteBtn.textContent = 'Add to Favorite';
+  }
 }
-const seeRecipe = document.querySelector('.recipe_desc_btn');
 
-seeRecipe.addEventListener('click', onClickRecipeDescrBtn);
+// Добавляем слушатель на кнопку
+favouriteBtn.addEventListener('click', onFavouriteBtnClick);
 
-function onClickRecipeDescrBtn() {
-    // Toggle the display of the modal and backdrop
-    const popUpRecipe = document.querySelector('.pop-up-recipe');
-    const backdropPopupRecipe = document.querySelector('.backdrop-popup-recipe');
-
-    // Toggle the visibility of the modal and backdrop using classes
-    popUpRecipe.style.display = 'block';
-    backdropPopupRecipe.style.display = 'block';
-}
 
 fetchRecipeData();
+
