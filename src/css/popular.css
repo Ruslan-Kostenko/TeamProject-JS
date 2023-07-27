@@ -6,10 +6,11 @@
   gap: 16px;
   height: 67px;
 }
-.pop-img {
-  width: 64px;
-  height: 64px;
-  border-radius: 8px;
+
+.pop-img{
+    width:64px;
+    height:64px;
+    border-radius: 8px;
 }
 
 .pop-header {
