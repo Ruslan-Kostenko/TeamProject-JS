@@ -1,5 +1,7 @@
 import { refs } from './js-refs';
 
+console.log(refs.modalOrderNowForm.elements);
+
 if (refs.openButtonHeroEl) {
   refs.openButtonHeroEl.addEventListener('click', onModalOpen);
 }
@@ -34,6 +36,27 @@ function onEscKeyPress(event) {
   }
 }
 
+// function extractFormData(form) {
+//   let formData = {};
+//   const inputsEl = form.elements;
+
+//   formData.name = inputsEl.name.value;
+//   formData.phone = inputsEl.phone.value;
+//   formData.email = inputsEl.email.value;
+//   formData.comment = inputsEl.comment.value;
+
+//   return formData;
+// }
+
+// function onSubmitForm(e) {
+//   e.preventDefault();
+
+//   const formData = extractFormData(refs.modalOrderNowForm);
+//   console.log(formData);
+
+//   refs.modalOrderNowForm.reset();
+// }
+
 function onSubmitForm(e) {
   e.preventDefault();
 
@@ -44,13 +67,12 @@ function onSubmitForm(e) {
 }
 
 function extractFormData(form) {
-  const formData = {};
-  const inputsEl = form.elements;
+  let formData = {};
 
-  formData.name = inputsEl.name.value;
-  formData.phone = inputsEl.phone.value;
-  formData.email = inputsEl.email.value;
-  formData.comment = inputsEl.comment.value;
+  formData.name = form.querySelector('input[name="name"]').value;
+  formData.phone = form.querySelector('input[name="phone"]').value;
+  formData.email = form.querySelector('input[name="email"]').value;
+  formData.comment = form.querySelector('textarea[name="comment"]').value;
 
   return formData;
 }
