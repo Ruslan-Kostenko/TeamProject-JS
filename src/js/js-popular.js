@@ -23,7 +23,8 @@ function makePopMarckap(arr) {
           <div class="pop-info">
             <h3>${c.title}</h3>
             <p>${c.description}</p>
-          </div>`
+          </div>
+          </li>`
     )
     .join('');
 }
