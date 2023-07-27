@@ -84,9 +84,24 @@
 // // Викликаємо функцію для отримання даних та відмалювання галереї
 // fetchDataFromBackend();
 
-let savedRecipes = localStorage.getItem('selectedRecipes');
+// Функція для видалення рецепту зі списку улюблених
+function removeRecipeFromFavorites(recipeId) {
+  let savedRecipes = localStorage.getItem('selectedRecipes');
+  let favoriteRecipes = JSON.parse(savedRecipes) || [];
+
+  // Фільтруємо масив улюблених рецептів, залишаючи ті, що не мають співпадаючого recipeId
+  favoriteRecipes = favoriteRecipes.filter(recipe => recipe._id !== recipeId);
+
+  // Зберігаємо оновлений масив у localStorage під тим же ключем 'selectedRecipes'
+  localStorage.setItem('selectedRecipes', JSON.stringify(favoriteRecipes));
+
+  // Оновлюємо список рецептів після видалення
+  updateRecipeList();
+}
 
 // Перевірка, чи є дані в local storage або чи порожній масив улюблених рецептів
+let savedRecipes = localStorage.getItem('selectedRecipes');
+
 if (!savedRecipes || JSON.parse(savedRecipes).length === 0) {
   // Приховуємо список рецептів
   document.getElementById('fav-recipe-list').classList.add('fav-hide');
@@ -106,9 +121,7 @@ if (!savedRecipes || JSON.parse(savedRecipes).length === 0) {
   ];
 
   // Отримання контейнера для блоку з кнопками фільтрів
-  const categoryFilterContainer = document.getElementById(
-    'category-filter-container'
-  );
+  const categoryFilterContainer = document.getElementById('category-filter-container');
 
   // Функція для оновлення списку рецептів з урахуванням фільтру
   function updateRecipeList(selectedCategory) {
@@ -119,30 +132,28 @@ if (!savedRecipes || JSON.parse(savedRecipes).length === 0) {
     const recipeList = document.getElementById('fav-recipe-list');
     const recipeCards = filteredRecipes.map(recipe => {
       return `
-            <li class="fav-recipe-list-item">
-              <img class="fav-recipe-card-img" src="${recipe.preview}" alt="${recipe.title}" />
-              <button class="fav-on-favorite-button" data-recipe-id="${recipe._id}" type="button">
-              <svg class="icon-heart" xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 22 22" fill="none">
-                <path fill-rule="evenodd" clip-rule="evenodd" d="M10.9939 4.70783C9.16115 2.5652 6.10493 1.98884 3.80863 3.95085C1.51234 5.91285 1.18905 9.19323 2.99234 11.5137C4.49166 13.443 9.02912 17.5121 10.5163 18.8291C10.6826 18.9764 10.7658 19.0501 10.8629 19.0791C10.9475 19.1043 11.0402 19.1043 11.1249 19.0791C11.2219 19.0501 11.3051 18.9764 11.4715 18.8291C12.9586 17.5121 17.4961 13.443 18.9954 11.5137C20.7987 9.19323 20.5149 5.89221 18.1791 3.95085C15.8434 2.00948 12.8266 2.5652 10.9939 4.70783Z" fill="white"/>
-              </svg>
-              </button>
-              <h3 class="fav-recipe-card-title">${recipe.title}</h3>
-              <p class="fav-recipe-card-descr">${recipe.description}</p>
-              <div>
-                <p class="fav-recipe-card-rating">${recipe.rating}</p>
-                <button class="fav-see-recipe-button" type="button">See recipe</button>
-              </div>
-            </li>
-          `;
+        <li class="fav-recipe-list-item">
+          <img class="fav-recipe-card-img" src="${recipe.preview}" alt="${recipe.title}" />
+          <button class="fav-on-favorite-button" data-recipe-id="${recipe._id}" type="button">
+            <svg class="icon-heart" xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 22 22" fill="none">
+              <path fill-rule="evenodd" clip-rule="evenodd" d="M10.9939 4.70783C9.16115 2.5652 6.10493 1.98884 3.80863 3.95085C1.51234 5.91285 1.18905 9.19323 2.99234 11.5137C4.49166 13.443 9.02912 17.5121 10.5163 18.8291C10.6826 18.9764 10.7658 19.0501 10.8629 19.0791C10.9475 19.1043 11.0402 19.1043 11.1249 19.0791C11.2219 19.0501 11.3051 18.9764 11.4715 18.8291C12.9586 17.5121 17.4961 13.443 18.9954 11.5137C20.7987 9.19323 20.5149 5.89221 18.1791 3.95085C15.8434 2.00948 12.8266 2.56520 10.9939 4.70783Z" fill="white"/>
+            </svg>
+          </button>
+          <h3 class="fav-recipe-card-title">${recipe.title}</h3>
+          <p class="fav-recipe-card-descr">${recipe.description}</p>
+          <div>
+            <p class="fav-recipe-card-rating">${recipe.rating}</p>
+            <button class="fav-see-recipe-button" type="button">See recipe</button>
+          </div>
+        </li>
+      `;
     });
 
     // Додавання згенерованих карток до списку
     recipeList.innerHTML = recipeCards.join('');
 
     // Додаємо обробник подій до кнопок "fav-on-favorite-button" (видалення зі списку)
-    const onFavoriteButtons = document.getElementsByClassName(
-      'fav-on-favorite-button'
-    );
+    const onFavoriteButtons = document.getElementsByClassName('fav-on-favorite-button');
     for (const button of onFavoriteButtons) {
       button.addEventListener('click', handleOnFavoriteButtonClick);
     }
@@ -151,25 +162,7 @@ if (!savedRecipes || JSON.parse(savedRecipes).length === 0) {
   // Функція для видалення рецепту зі списку улюблених
   function handleOnFavoriteButtonClick(event) {
     const recipeId = event.target.dataset.recipeId;
-    favoriteRecipes = favoriteRecipes.filter(recipe => recipe._id !== recipeId);
-    // Збереження оновленого списку улюблених рецептів у локальне сховище
-    localStorage.setItem('selectedRecipes', JSON.stringify(favoriteRecipes));
-    // Оновлення списку рецептів після видалення
-    updateRecipeList();
-  }
-
-  // Функція для обробки кліку на кнопці "All categories"
-  function handleAllCategoriesClick() {
-    // Видаляємо клас "active" у всіх кнопок фільтрування
-    const categoryFilterButtons = document.getElementsByClassName(
-      'fav-category-filter-button'
-    );
-    for (const button of categoryFilterButtons) {
-      button.classList.remove('active');
-    }
-
-    // Оновлюємо список рецептів без фільтрування
-    updateRecipeList();
+    removeRecipeFromFavorites(recipeId);
   }
 
   // Функція для відмалювання кнопок фільтрів
@@ -182,26 +175,19 @@ if (!savedRecipes || JSON.parse(savedRecipes).length === 0) {
     categoryFilterContainer.appendChild(allCategoriesButton);
 
     // Додаємо інші кнопки фільтрів
-    const filtersHTML = uniqueCategories
-      .map(
-        category => `
-          <button class="fav-category-filter-button" data-category="${category}">${category}</button>
-        `
-      )
-      .join('');
+    const filtersHTML = uniqueCategories.map(
+      category => `
+        <button class="fav-category-filter-button" data-category="${category}">${category}</button>
+      `
+    ).join('');
 
     categoryFilterContainer.innerHTML += filtersHTML;
   }
 
-  // Виклик функції для відмалювання початкових кнопок фільтрів
-  renderCategoryFilters();
-
   // Обробник події при кліку на кнопку фільтру
   function handleCategoryFilterClick(event) {
     // Видаляємо клас "active" у всіх кнопок фільтрування
-    const categoryFilterButtons = document.getElementsByClassName(
-      'fav-category-filter-button'
-    );
+    const categoryFilterButtons = document.getElementsByClassName('fav-category-filter-button');
     for (const button of categoryFilterButtons) {
       button.classList.remove('active');
     }
@@ -214,10 +200,23 @@ if (!savedRecipes || JSON.parse(savedRecipes).length === 0) {
     updateRecipeList(selectedCategory);
   }
 
+  // Функція для обробки кліку на кнопці "All categories"
+  function handleAllCategoriesClick() {
+    // Видаляємо клас "active" у всіх кнопок фільтрування
+    const categoryFilterButtons = document.getElementsByClassName('fav-category-filter-button');
+    for (const button of categoryFilterButtons) {
+      button.classList.remove('active');
+    }
+
+    // Оновлюємо список рецептів без фільтрування
+    updateRecipeList();
+  }
+
+  // Виклик функції для відмалювання початкових кнопок фільтрів
+  renderCategoryFilters();
+
   // Додаємо обробник подій до кожної кнопки фільтрування
-  const categoryFilterButtons = document.getElementsByClassName(
-    'fav-category-filter-button'
-  );
+  const categoryFilterButtons = document.getElementsByClassName('fav-category-filter-button');
   for (const button of categoryFilterButtons) {
     button.addEventListener('click', handleCategoryFilterClick);
   }
@@ -225,3 +224,4 @@ if (!savedRecipes || JSON.parse(savedRecipes).length === 0) {
   // Виклик функції для оновлення списку рецептів (при завантаженні сторінки)
   updateRecipeList();
 }
+
