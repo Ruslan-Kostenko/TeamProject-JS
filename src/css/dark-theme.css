@@ -242,3 +242,23 @@ body.dark-theme {
   color: var(--secondary-text-color);
   border-color: var(--dark-theme-text-color-02);
 }
+
+.dark-theme .btn-give-rating-recipe {
+  color: var(--secondary-text-color);
+}
+
+.dark-theme .pop-up-time,
+.dark-theme .rating-value {
+  color: var(--dark-theme-text-color-05);
+}
+
+.dark-theme .tag-btn {
+  color: var(--secondary-text-color);
+  border-color: var(--dark-theme-text-color-02);
+}
+
+.dark-theme .measure-content {
+  color: var(--dark-theme-text-color-05);
+}
+
+/* ---- POP-UP RAITING ---- */
