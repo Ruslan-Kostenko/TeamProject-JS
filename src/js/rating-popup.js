@@ -4,7 +4,7 @@ refs.openModalBtn.addEventListener('click', toggleModal);
 refs.closeModalBtn.addEventListener('click', toggleModal);
 
 function toggleModal() {
-  refs.modal.classList.toggle('is-hidden');
+  refs.modal.classList.toggle('is-visibility-raiting');
 }
 
 // ---------------------FOR MODAL JAVASCRIPT---------------------------
@@ -52,66 +52,85 @@ function initRatings() {
       });
       ratingItem.addEventListener('click', function (e) {
         initRatingVars(rating);
-        // if (rating.dataset.ajax) {
+        // if (rating.data.ajax) {
         //   setRatingValue(ratingItem.value, rating);
         // } else {
         ratingValue.innerHTML = index + 1;
+        setRatingValue(ratingItem.value, rating);
         setRatingActiveWidth();
+
+        console.log(ratingItem.value);
         // }
       });
     }
   }
+  //   btnSend.addEventListener('click', handlerAddToBack);
+  //   function handlerAddToBack(e) {
+  //     e.preventDefault();
 
-  getData.addEventListener('click', getValue);
+  //  }
 
-  function getValue() {
-    var getInputData = document.getElementById('get_data').value;
-    inputEl.value = '';
-    if (getInputData == '') {
-      alert('Enter you email, please');
-      return;
-    }
-    // refs.modal.classList.toggle('is-hidden');
-    console.log(getInputData);
-  }
-
-  // function closeModal() {
-  //   refs.modal.classList.toggle('is-hidden');
+  // const options =  {
+  //       method: 'PATCH',
+  //       body: JSON.stringify({
+  //         userRating: value,
+  //         userMail: getInputData,
+  //       }),
+  //       headers: {
+  //         'Content-Type': 'application/json',
+  //       },
   // }
-  // async function setRatingValue(value, rating) {
-  //   if (!rating.classList.add('rating-sending')) {
-  //     rating.classList.add('rating-sending');
-  //     let response = await fetch(
-  //       'https://tasty-treats-backend.p.goit.global/api/recipes',
-  //       {
-  //         method: 'PATCH',
-  //         body: JSON.stringify({
-  //           userRating: value,
-  //         }),
-  //         headers: {
-  //           'Content-Type': 'application/json',
-  //         },
-  //       }
-  //     );
-  //     if (response.ok) {
-  //       const result = await response.json();
-  //       const newRating = result.newRating;
-  //       ratingValue.innerHTML = newRating;
-  //       setRatingActiveWidth();
-  //       rating.classList.remove('rating-sending');
-  //     } else {
-  //       alert('False');
-  //       PerformanceResourceTiming.classList.remove('rating-sending');
+
+  // return fetch('https://tasty-treats-backend.p.goit.global/api/recipes/', options)
+  //   .then(resp => {
+  //     if (!resp.ok) {
+  //       throw new Error(resp.statusText)
   //     }
-  //   }
-  // }
-}
-const modalBack = document.querySelector('.backdrop');
-document.addEventListener('click', function (e) {
-  if (e.currentTarget == e.target) {
-    refs.modal.classList.toggle('is-hidden');
+  //     return resp.json()
+  //   })
+  //   .then(data => console.log(data))
+  // .catch(err=>console.log(err))
+
+  async function setRatingValue(value, rating) {
+    // if (!rating.classList.add('rating-sending')) {
+    //   rating.classList.add('rating-sending');
+    let response = await fetch(
+      'https://tasty-treats-backend.p.goit.global/api/recipes/',
+      {
+        method: 'PATCH',
+        body: JSON.stringify({
+          id: recipeID,
+          userRating: value,
+          userMail: getInputData,
+        }),
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      }
+    );
+    if (response.ok) {
+      const result = await response.json();
+      const newRating = result.newRating;
+      ratingValue.innerHTML = newRating;
+      setRatingActiveWidth();
+    } else {
+      alert('False');
+    }
+    // }
   }
-});
+}
+
+const modalBack = document.querySelector('.backdrop');
+
+// const modalEl = document.querySelector('.modal');
+// document.addEventListener('click', function (e) {
+//   const click = e.composedPath().includes('is-hidden');
+//   if (!click) {
+//     // refs.modal.classList.toggle('is-hidden');
+//     modalEl.style.display = 'none';
+//   }
+//   console.log(click);
+// });
 
 document.addEventListener('keydown', function (e) {
   if (e.code === 'Escape') {
