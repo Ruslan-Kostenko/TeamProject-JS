@@ -9,9 +9,7 @@
 
 <!-- Галерея з улюбленими рецептами -->
 <div class="container">
-  <ul class="fav-recipe-list" id="fav-recipe-list">
-    
-  </ul>
+  <ul class="fav-recipe-list" id="fav-recipe-list"></ul>
   <!-- Повідомлення про відсутність улюблених рецептів -->
   <div class="empty-favorites" id="empty-favorites" style="display: none">
     <img
@@ -26,3 +24,58 @@
     </p>
   </div>
 </div>
+
+
+
+
+
+
+
+
+<!-- <li class="fav-recipe-list-item">
+  <img
+    class="fav-recipe-card-img"
+    src="${recipe.preview}"
+    alt="${recipe.title}"
+  />
+  <button
+    class="fav-on-favorite-button"
+    data-recipe-id="${recipe._id}"
+    type="button"
+  >
+    <svg
+      class="icon-heart"
+      xmlns="http://www.w3.org/2000/svg"
+      width="22"
+      height="22"
+      viewBox="0 0 22 22"
+      fill="none"
+    >
+      <path
+        fill-rule="evenodd"
+        clip-rule="evenodd"
+        d="M10.9939 4.70783C9.16115 2.5652 6.10493 1.98884 3.80863 3.95085C1.51234 5.91285 1.18905 9.19323 2.99234 11.5137C4.49166 13.443 9.02912 17.5121 10.5163 18.8291C10.6826 18.9764 10.7658 19.0501 10.8629 19.0791C10.9475 19.1043 11.0402 19.1043 11.1249 19.0791C11.2219 19.0501 11.3051 18.9764 11.4715 18.8291C12.9586 17.5121 17.4961 13.443 18.9954 11.5137C20.7987 9.19323 20.5149 5.89221 18.1791 3.95085C15.8434 2.00948 12.8266 2.5652 10.9939 4.70783Z"
+        fill="white"
+      />
+    </svg>
+  </button>
+  <h3 class="fav-recipe-card-title">${recipe.title}</h3>
+  <p class="fav-recipe-card-descr">${recipe.description}</p>
+  <div>
+    <div class="favorite-card-rating">
+      <div class="favorite-card-rating-body">
+        <div class="favorite-card-rating-active"></div>
+        <div class="favorite-card-rating-items">
+          <input type="radio" class="favorite-card-rating-item" value="1" name="rating">
+          <input type="radio" class="favorite-card-rating-item" value="2" name="rating">
+          <input type="radio" class="favorite-card-rating-item" value="3" name="rating">
+          <input type="radio" class="favorite-card-rating-item" value="4" name="rating">
+          <input type="radio" class="favorite-card-rating-item" value="5" name="rating">
+        </div>
+      </div>
+      <div class="favorite-card-rating-value">${recipe.rating}</div>
+    </div>
+    <p class="fav-recipe-card-rating">${recipe.rating}</p>
+    <button class="fav-see-recipe-button" type="button">See recipe</button>
+  </div>
+</li> -->
