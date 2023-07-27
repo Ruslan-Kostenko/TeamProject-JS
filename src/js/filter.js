@@ -32,61 +32,50 @@ const handleSearchForm = function (event) {
 
   searchQuery = event.target.value.trim();
 
-  const resultArra = fetchAllRecept(currentPage, 288)
-    .then(data => {
-      console.log(data.results);
+  const resultArra = fetchAllRecept(currentPage, 288).then(data => {
+    filteredItems = data.results.filter(res =>
+      res.title.toLowerCase().includes(searchQuery.trim().toLowerCase())
+    );
 
-      filteredItems = data.results.filter(res =>
-        res.title.toLowerCase().includes(searchQuery.trim().toLowerCase())
-      );
+    function renderSearch(arrData, rowPerPage, page) {
+      page--;
+      const start = rowPerPage * page;
+      const end = start + rowPerPage;
+      const paginatedData = arrData.slice(start, end);
 
       totalPages = filteredItems.length / setLimit;
-
       paginListEl.innerHTML = '';
       creatPaginMarkup(totalPages);
-      return filteredItems;
-    })
-    .then(arr => {
-      console.log(filteredItems);
-      refs.UlCardEl.innerHTML = makeCardMark(arr);
 
-      refs.UlCardEl.addEventListener('click', event => {
-        if (!event.target.classList.contains('recipe_desc_btn')) {
-          return;
-        }
-        const seeRecipe = document.querySelectorAll('.recipe_desc_btn');
-        onClickRecipeDescrBtn();
+      return (refs.UlCardEl.innerHTML = makeCardMark(paginatedData));
+    }
 
-        function onClickRecipeDescrBtn() {
-          const popUpRecipe = document.querySelector('.pop-up-recipe');
-          const backdropPopupRecipe = document.querySelector(
-            '.backdrop-popup-recipe'
-          );
+    renderSearch(filteredItems, setLimit, currentPage);
 
-          popUpRecipe.style.display = 'block';
-          backdropPopupRecipe.style.display = 'block';
-        }
-      });
+    //  SEE RECIPE
+
+    refs.UlCardEl.addEventListener('click', event => {
+      if (!event.target.classList.contains('recipe_desc_btn')) {
+        return;
+      }
+      const seeRecipe = document.querySelectorAll('.recipe_desc_btn');
+      onClickRecipeDescrBtn();
+
+      function onClickRecipeDescrBtn() {
+        const popUpRecipe = document.querySelector('.pop-up-recipe');
+        const backdropPopupRecipe = document.querySelector(
+          '.backdrop-popup-recipe'
+        );
+
+        popUpRecipe.style.display = 'block';
+        backdropPopupRecipe.style.display = 'block';
+      }
     });
-};
-
-// RESET BUTTON
-
-const resetAllFilters = () => {
-  refs.searchInput.value = '';
-  refs.time.selectedIndex = 0;
-  refs.area.selectedIndex = 0;
-  refs.ingredients.selectedIndex = 0;
-  currentPage = 1;
-
-  fetchAllRecept(currentPage, setLimit).then(data => {
-    refs.UlCardEl.innerHTML = '';
-    paginListEl.innerHTML = '';
-    creatPaginMarkup(data.totalPages);
-    return (refs.UlCardEl.innerHTML = makeCardMark(data.results));
+    return filteredItems;
   });
 };
 
+//
 // PAGINATION
 
 const paginListEl = document.querySelector('.pagination__list');
@@ -119,6 +108,29 @@ paginListEl.addEventListener('click', evt => {
       console.error('Произошла ошибка:', error);
     });
 });
+
+//
+
+//
+
+//
+
+// RESET BUTTON
+
+const resetAllFilters = () => {
+  refs.searchInput.value = '';
+  refs.time.selectedIndex = 0;
+  refs.area.selectedIndex = 0;
+  refs.ingredients.selectedIndex = 0;
+  currentPage = 1;
+
+  fetchAllRecept(currentPage, setLimit).then(data => {
+    refs.UlCardEl.innerHTML = '';
+    paginListEl.innerHTML = '';
+    creatPaginMarkup(data.totalPages);
+    return (refs.UlCardEl.innerHTML = makeCardMark(data.results));
+  });
+};
 
 // FCN and MARKAP
 
