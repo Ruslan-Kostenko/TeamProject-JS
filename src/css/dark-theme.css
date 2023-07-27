@@ -177,6 +177,12 @@ body.dark-theme {
   color: var(--secondary-text-color);
 }
 
+.dark-theme .fav-category-filter-button {
+background-color: var(--dark-background-color);
+border-color: var(--dark-theme-text-color-03);
+color: var(--dark-theme-text-color-03);
+}
+
 /* ---- MODAL ORDER NOW ---- */
 
 .dark-theme .order-now-modal-close__img path {
