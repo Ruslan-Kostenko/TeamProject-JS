@@ -48,6 +48,23 @@ ulCatEl.addEventListener('click',(event)=>{
   currentPage = 1;
   fetchReceptByCategory(catName,currentPage,setLimit).then(data=>{
      UlCardEl.innerHTML = makeCardMark(data);
+     UlCardEl.addEventListener('click', event => {
+      if (!event.target.classList.contains('recipe_desc_btn')) {
+        return;
+      }
+      const seeRecipe = document.querySelectorAll('.recipe_desc_btn');
+      onClickRecipeDescrBtn();
+
+      function onClickRecipeDescrBtn() {
+        const popUpRecipe = document.querySelector('.pop-up-recipe');
+        const backdropPopupRecipe = document.querySelector(
+          '.backdrop-popup-recipe'
+        );
+
+        popUpRecipe.style.display = 'block';
+        backdropPopupRecipe.style.display = 'block';
+      }
+    });
     return data.totalPages
   }).then(data=>{
     paginListEl.innerHTML = '';
@@ -67,6 +84,23 @@ fetchCatItem().then(data => {
 
 fetchAllRecept(currentPage,setLimit).then(data=>{
   UlCardEl.innerHTML = makeCardMark(data);
+  UlCardEl.addEventListener('click', event => {
+    if (!event.target.classList.contains('recipe_desc_btn')) {
+      return;
+    }
+    const seeRecipe = document.querySelectorAll('.recipe_desc_btn');
+    onClickRecipeDescrBtn();
+
+    function onClickRecipeDescrBtn() {
+      const popUpRecipe = document.querySelector('.pop-up-recipe');
+      const backdropPopupRecipe = document.querySelector(
+        '.backdrop-popup-recipe'
+      );
+
+      popUpRecipe.style.display = 'block';
+      backdropPopupRecipe.style.display = 'block';
+    }
+  });
   return data.totalPages})
   .then(data=>{
     paginListEl.innerHTML = '';
@@ -177,6 +211,23 @@ catBtnEl.addEventListener('click',(evt)=>{
     searchInput.value = '';
     catBtnEl.classList.add('is-active');
     UlCardEl.innerHTML = makeCardMark(data);
+    UlCardEl.addEventListener('click', event => {
+      if (!event.target.classList.contains('recipe_desc_btn')) {
+        return;
+      }
+      const seeRecipe = document.querySelectorAll('.recipe_desc_btn');
+      onClickRecipeDescrBtn();
+
+      function onClickRecipeDescrBtn() {
+        const popUpRecipe = document.querySelector('.pop-up-recipe');
+        const backdropPopupRecipe = document.querySelector(
+          '.backdrop-popup-recipe'
+        );
+
+        popUpRecipe.style.display = 'block';
+        backdropPopupRecipe.style.display = 'block';
+      }
+    });
     return data.totalPages
   }).then(data=>{
     paginListEl.innerHTML = '';
