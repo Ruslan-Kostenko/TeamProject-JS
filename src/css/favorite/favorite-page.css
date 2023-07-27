@@ -109,10 +109,6 @@ justify-content: flex-start;
    pointer-events: none;
 }
 
-.icon-heart:hover {
-   stroke: #EEA10C;
-}
-
 
 .fav-recipe-card-title {
    position: absolute;
