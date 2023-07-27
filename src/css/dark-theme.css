@@ -217,3 +217,28 @@ body.dark-theme {
 .dark-theme .order-now-modal-form textarea::placeholder {
   color: var(--dark-theme-text-color-02);
 }
+
+/* ---- POP-UP RECIPE ---- */
+
+.dark-theme .pop-up-recipe {
+  background-color: var(--primary-text-color);
+}
+
+.dark-theme .pop-up-recipe-header {
+  color: var(--secondary-text-color);
+}
+
+.dark-theme .close-recipe-svg {
+  fill: var(--secondary-text-color);
+}
+
+.dark-theme .close-recipe-svg:hover,
+.dark-theme .close-recipe-svg:focus {
+  fill: #9bb537;
+  transition: fill var(--animation-set);
+}
+
+.dark-theme .recipe-item {
+  color: var(--secondary-text-color);
+  border-color: var(--dark-theme-text-color-02);
+}

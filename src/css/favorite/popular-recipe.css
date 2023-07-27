@@ -34,6 +34,14 @@
   top: 16px;
 
   left: 290px;
+
+  cursor: pointer;
+}
+
+.close-recipe-svg:hover,
+.close-recipe-svg:focus {
+  fill: #9bb537;
+  transition: fill var(--animation-set);
 }
 .pop-up-recipe-header {
   position: absolute;
