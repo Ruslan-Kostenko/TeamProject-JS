@@ -58,7 +58,6 @@ ulCatEl.addEventListener('click', event => {
         if (!event.target.classList.contains('recipe_desc_btn')) {
           return;
         }
-     
 
         const seeRecipe = document.querySelectorAll('.recipe_desc_btn');
         onClickRecipeDescrBtn();
@@ -91,13 +90,6 @@ fetchCatItem()
     console.error('Произошла ошибка:', error);
   });
 
-
-
-
-
-
-
-
 fetchAllRecept(currentPage, setLimit)
   .then(data => {
     UlCardEl.innerHTML = makeCardMark(data);
@@ -105,34 +97,33 @@ fetchAllRecept(currentPage, setLimit)
       if (!event.target.classList.contains('recipe_desc_btn')) {
         return;
       }
-      const iddd=event.target.value;
+      const iddd = event.target.value;
       console.log(iddd);
-      console.log(BASE_URL+'recipes/'+`${iddd}`);
+      console.log(BASE_URL + 'recipes/' + `${iddd}`);
 
-     
-     fetchReceptByID(iddd).then(data=>{
-      console.log(data)
-      const popUpEl2 = document.querySelector('.pop-up-recipe')
-      popUpEl2.innerHTML=createMarkupPop(data);
-      const favouriteBtn = document.querySelector('.btn-add-recipe-favourite');
-      let setings={};
-      favouriteBtn.addEventListener('click', ((evt)=> localStorage.setItem('id',`${data._id}`)
+      fetchReceptByID(iddd).then(data => {
+        console.log(data);
+        const popUpEl2 = document.querySelector('.pop-up-recipe');
+        popUpEl2.innerHTML = createMarkupPop(data);
+        const favouriteBtn = document.querySelector(
+          '.btn-add-recipe-favourite'
+        );
+        let setings = {};
+        favouriteBtn.addEventListener('click', evt =>
+          localStorage.setItem('id', `${data._id}`)
+        );
+      });
 
-      ));
-     })
-     
-     
-     
-      function fetchReceptByID(iddd){
-        return fetch(BASE_URL+'recipes/'+`${iddd}`).then(resp => {
+      function fetchReceptByID(iddd) {
+        return fetch(BASE_URL + 'recipes/' + `${iddd}`).then(resp => {
           if (!resp.ok) {
             throw new Error(resp.statusText);
           }
           return resp.json();
         });
-        }
+      }
 
-      function createMarkupPop(data){
+      function createMarkupPop(data) {
         return `<svg class="close-recipe-svg" width="18" height="18" data-menu-close>
         <use href="./images/favicon/symbol-defs.svg#icon-closeblack"></use>
       </svg>
@@ -179,10 +170,8 @@ fetchAllRecept(currentPage, setLimit)
         </div>
         
         
-        `
+        `;
       }
-
-
 
       const seeRecipe = document.querySelectorAll('.recipe_desc_btn');
       onClickRecipeDescrBtn();
@@ -196,6 +185,18 @@ fetchAllRecept(currentPage, setLimit)
         popUpRecipe.style.display = 'block';
         backdropPopupRecipe.style.display = 'block';
       }
+
+      const closeSVG = document.querySelector('.close-recipe-svg');
+      const backDrop = document.querySelector('.backdrop-popup-recipe');
+
+      document.addEventListener('keydown', onDocumentKeyDown);
+
+      function onDocumentKeyDown(event) {
+        if (event.key === 'Escape') {
+          popUp.style.display = 'none';
+          backDrop.style.display = 'none';
+        }
+      }
     });
     return data.totalPages;
   })
@@ -206,20 +207,6 @@ fetchAllRecept(currentPage, setLimit)
   .catch(error => {
     console.error('Произошла ошибка:', error);
   });
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 function removeAllActive() {
   const allCatOptEl = document.querySelectorAll('.cat-opt');

@@ -1,4 +1,4 @@
-const closeSVG = document.querySelector('.close-recipe-svg');
+// const closeSVG = document.querySelector('.close-recipe-svg');
 const backDrop = document.querySelector('.backdrop-popup-recipe');
 const popUp = document.querySelector('.pop-up-recipe');
 const videoContainer = document.querySelector('#video-container');
@@ -91,7 +91,7 @@ const API_KEY = 'AIzaSyAX44YCtOJPGkNiZtRXagJevTZUvVOUYVc';
 //         })
 //         .catch(error => console.log(error.message));
 // }
-closeSVG.addEventListener('click', onClickSVG);
+// closeSVG.addEventListener('click', onClickSVG);
 
 function onClickSVG() {
   stopVideoAndCloseModal();
@@ -101,6 +101,8 @@ backDrop.addEventListener('click', onClickBackDrop);
 
 function onClickBackDrop(event) {
   if (event.target === backDrop) {
+    popUp.style.display = 'none';
+    backDrop.style.display = 'none';
     stopVideoAndCloseModal();
   }
 }
@@ -170,6 +172,6 @@ function onFavouriteBtnClick() {
 // const seeRecipe = document.querySelector('.recipe_desc_btn');
 
 // Добавляем слушатель на кнопку
-favouriteBtn.addEventListener('click', onFavouriteBtnClick);
+// favouriteBtn.addEventListener('click', onFavouriteBtnClick);
 
 // fetchRecipeData();
