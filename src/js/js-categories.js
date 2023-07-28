@@ -497,7 +497,7 @@ claerBtn.addEventListener('click', resetAllFilters);
 
 const handleSearchForm = function (event) {
   event.preventDefault();
-  searchQuery = event.target.value.trim();
+  const searchQuery = event.target.value.trim();
   pagin.style.display = 'none';
 
   if (searchQuery.length === 0) {
