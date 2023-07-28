@@ -36,7 +36,7 @@ function makePopMarckap(arr) {
       c =>
         `<li class="pop-item">
           <button value="${c._id}" class="pop-img-link">
-            <img class="pop-img" src="${c.preview}" alt="a">
+            <img class="pop-img" src="${c.preview}" alt="${c.title}">
           <div class="pop-info">
             <h3>${c.title}</h3>
             <p>${c.description}</p>
