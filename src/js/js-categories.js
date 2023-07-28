@@ -58,6 +58,8 @@ ulCatEl.addEventListener('click', event => {
         if (!event.target.classList.contains('recipe_desc_btn')) {
           return;
         }
+     
+
         const seeRecipe = document.querySelectorAll('.recipe_desc_btn');
         onClickRecipeDescrBtn();
 
@@ -89,6 +91,13 @@ fetchCatItem()
     console.error('Произошла ошибка:', error);
   });
 
+
+
+
+
+
+
+
 fetchAllRecept(currentPage, setLimit)
   .then(data => {
     UlCardEl.innerHTML = makeCardMark(data);
@@ -96,6 +105,85 @@ fetchAllRecept(currentPage, setLimit)
       if (!event.target.classList.contains('recipe_desc_btn')) {
         return;
       }
+      const iddd=event.target.value;
+      console.log(iddd);
+      console.log(BASE_URL+'recipes/'+`${iddd}`);
+
+     
+     fetchReceptByID(iddd).then(data=>{
+      console.log(data)
+      const popUpEl2 = document.querySelector('.pop-up-recipe')
+      popUpEl2.innerHTML=createMarkupPop(data);
+      const favouriteBtn = document.querySelector('.btn-add-recipe-favourite');
+      let setings={};
+      favouriteBtn.addEventListener('click', ((evt)=> localStorage.setItem('id',`${data._id}`)
+
+      ));
+     })
+     
+     
+     
+      function fetchReceptByID(iddd){
+        return fetch(BASE_URL+'recipes/'+`${iddd}`).then(resp => {
+          if (!resp.ok) {
+            throw new Error(resp.statusText);
+          }
+          return resp.json();
+        });
+        }
+
+      function createMarkupPop(data){
+        return `<svg class="close-recipe-svg" width="18" height="18" data-menu-close>
+        <use href="./images/favicon/symbol-defs.svg#icon-closeblack"></use>
+      </svg>
+      <img id="video-container" src='${data.thumb}'/>
+      <h2 class="pop-up-recipe-header">${data.title}</h2>
+
+      <div class="pop-up-recipe-rating">
+        <span class="rating-value">${data.rating}</span>
+     
+        <svg class="start-pop-recipe-svg" width="18" height="18">
+          <use
+            href="./images/favorite-images/symbol-defs-star.svg#icon-star"
+          ></use>
+        </svg>
+        <svg class="start-pop-recipe-svg" width="18" height="18">
+        <use href="./images/favorite-images/symbol-defs-star.svg#icon-star"></use>
+        </svg> <svg class="start-pop-recipe-svg" width="18" height="18">
+          <use href="./images/favorite-images/symbol-defs-star.svg#icon-star"></use>
+        </svg> <svg class="start-pop-recipe-svg" width="18" height="18">
+          <use href="./images/favorite-images/symbol-defs-star.svg#icon-star"></use>
+        </svg> <svg class="start-pop-recipe-svg-grey" width="18" height="18">
+          <use href="./images/favorite-images/symbol-defs-grey-star.svg#icon-grey-star"></use>
+        </svg></div>
+        <div class="pop-up-time"><span class="span-time"></span></div>
+        <ul class="recipe-list list">
+          <li class="recipe-item"><div>${data.ingredients[0].name}</div><div>${data.ingredients[0].measure}</div></li>
+          <li class="recipe-item"><div>${data.ingredients[1].name}</div><div>${data.ingredients[1].measure}</div></li>
+          <li class="recipe-item"><div>${data.ingredients[2].name}</div><div>${data.ingredients[2].measure}</div></li>
+          <li class="recipe-item"><div>${data.ingredients[3].name}</div><div>${data.ingredients[3].measure}</div></li>
+          <li class="recipe-item"><div>${data.ingredients[4].name}</div><div>${data.ingredients[4].measure}</div></li>
+          <li class="recipe-item"><div>${data.ingredients[5].name}</div><div>${data.ingredients[5].measure}</div></li>
+        </ul>
+        <div class="tags-buttons list">
+          <button class="tag-btn" type="button">${data.tags[0]}</button>
+          <button class="tag-btn" type="button">${data.tags[1]}</button>
+          <button class="tag-btn" type="button">${data.tags[2]}</button>
+        </div>
+        <p class="recipe-description">
+        ${data.instructions}
+         
+        </p>
+        <button type="button" class="btn-add-recipe-favourite">Add to Favorite</button>
+        <button type="button" class="btn-give-rating-recipe">Give a rating</button>
+        </div>
+        
+        
+        `
+      }
+
+
+
       const seeRecipe = document.querySelectorAll('.recipe_desc_btn');
       onClickRecipeDescrBtn();
 
@@ -118,6 +206,20 @@ fetchAllRecept(currentPage, setLimit)
   .catch(error => {
     console.error('Произошла ошибка:', error);
   });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 function removeAllActive() {
   const allCatOptEl = document.querySelectorAll('.cat-opt');
