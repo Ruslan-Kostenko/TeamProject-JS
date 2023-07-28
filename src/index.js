@@ -13,3 +13,4 @@ import './js/js-popular';
 
 import './js/modal-order-now';
 import './js/popular-recipe';
+import './js/rating-popup';

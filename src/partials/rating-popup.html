@@ -1,0 +1,55 @@
+<a class="open-popup popup-link" data-modal-open>Give a rating</a>
+<div class="backdrop is-visibility-raiting" data-modal>
+  <div class="modal">
+    <button type="button" class="modal-close-btn" data-modal-close>
+      <svg
+        class="rating-modal-close"
+        width="20"
+        height="20"
+        viewBox="0 0 20 20"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M15 5L5 15"
+          stroke="#050505"
+          stroke-width="1.8"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        />
+        <path
+          d="M5 5L15 15"
+          stroke="#050505"
+          stroke-width="1.8"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        />
+      </svg>
+    </button>
+    <form action="#" class="rating-modal-form" autocomplete="on">
+      <div class="popup-text">Rating</div>
+      <div data-ajax="true" class="rating rating-set">
+        <div class="rating-body">
+          <div class="rating-active"></div>
+          <div class="rating-items">
+            <input type="radio" class="rating-item" name="rating" value="1" />
+            <input type="radio" class="rating-item" name="rating" value="2" />
+            <input type="radio" class="rating-item" name="rating" value="3" />
+            <input type="radio" class="rating-item" name="rating" value="4" />
+            <input type="radio" class="rating-item" name="rating" value="5" />
+          </div>
+        </div>
+        <div class="rating-value" name="body">0.0</div>
+      </div>
+      <input
+        type="email"
+        name="email"
+        required
+        id="get_data"
+        placeholder="Enter email"
+        class="form-input"
+      />
+      <button id="add" type="submit" class="submit-btn">Send</button>
+    </form>
+  </div>
+</div>
