@@ -67,7 +67,9 @@ ulCatEl.addEventListener('click',(event)=>{
     return data.totalPages
   }).then(data=>{
     paginListEl.innerHTML = '';
-    creatPaginMarkup(data)
+    creatPaginMarkup(data);
+    const actpag = document.querySelector('.pagination__item');
+    actpag.classList.add('activated');
   })
 });
 
@@ -205,8 +207,11 @@ catBtnEl.addEventListener('click',(evt)=>{
   time.selectedIndex = 0;
   area.selectedIndex = 0;
   ingredients.selectedIndex = 0;
+  currentPage = 1;
   fetchAllRecept(currentPage,setLimit).then(data=>{
     removeAllActive();
+   
+    
     searchInput.value = '';
     catBtnEl.classList.add('is-active');
     UlCardEl.innerHTML = makeCardMark(data);
@@ -231,6 +236,8 @@ catBtnEl.addEventListener('click',(evt)=>{
   }).then(data=>{
     paginListEl.innerHTML = '';
     creatPaginMarkup(data)
+    const actpag = document.querySelector('.pagination__item');
+    actpag.classList.add('activated');
   })
   
 }
