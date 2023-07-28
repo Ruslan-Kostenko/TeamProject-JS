@@ -56,36 +56,36 @@ const API_KEY = 'AIzaSyAX44YCtOJPGkNiZtRXagJevTZUvVOUYVc';
 //                 }
 //             });
 
-            // ingredients.forEach(ingredient => {
-            //     const ingredientItem = document.createElement('li');
-            //     const ingredientName = document.createElement('span');
-            //     ingredientName.textContent = ingredient.name;
-            //     ingredientName.classList.add('ingredient-name');
+// ingredients.forEach(ingredient => {
+//     const ingredientItem = document.createElement('li');
+//     const ingredientName = document.createElement('span');
+//     ingredientName.textContent = ingredient.name;
+//     ingredientName.classList.add('ingredient-name');
 
-            //     const measureContent = document.createElement('span');
-            //     measureContent.textContent = ingredient.measure;
-            //     measureContent.classList.add('measure-content');
+//     const measureContent = document.createElement('span');
+//     measureContent.textContent = ingredient.measure;
+//     measureContent.classList.add('measure-content');
 
-            //     ingredientItem.classList.add('recipe-item');
-            //     ingredientItem.appendChild(ingredientName);
-            //     ingredientItem.appendChild(measureContent);
+//     ingredientItem.classList.add('recipe-item');
+//     ingredientItem.appendChild(ingredientName);
+//     ingredientItem.appendChild(measureContent);
 
-            //     recipeIngredients.appendChild(ingredientItem);
-            // });
+//     recipeIngredients.appendChild(ingredientItem);
+// });
 
-            // if (tags.length > 0) {
-            //     tags.forEach(tag => {
-            //         const tagBtn = document.createElement('button');
-            //         tagBtn.textContent = `#${tag}`;
-            //         tagBtn.classList.add('tag-btn');
-            //         tagsList.appendChild(tagBtn);
-            //     });
+// if (tags.length > 0) {
+//     tags.forEach(tag => {
+//         const tagBtn = document.createElement('button');
+//         tagBtn.textContent = `#${tag}`;
+//         tagBtn.classList.add('tag-btn');
+//         tagsList.appendChild(tagBtn);
+//     });
 
-            //     const tagButtons = document.querySelectorAll('.tags-buttons .tag-btn');
-            //     tagButtons.forEach(button => {
-            //         button.style.display = 'inline-block';
-            //     });
-            // }
+//     const tagButtons = document.querySelectorAll('.tags-buttons .tag-btn');
+//     tagButtons.forEach(button => {
+//         button.style.display = 'inline-block';
+//     });
+// }
 
 //             createYouTubePlayer(videoSrc);
 //         })
@@ -99,11 +99,11 @@ function onClickSVG() {
 
 backDrop.addEventListener('click', onClickBackDrop);
 
-// function onClickBackDrop(event) {
-//   if (event.target === backDrop) {
-//     stopVideoAndCloseModal();
-//   }
-// }
+function onClickBackDrop(event) {
+  if (event.target === backDrop) {
+    stopVideoAndCloseModal();
+  }
+}
 
 document.addEventListener('keydown', onDocumentKeyDown);
 
@@ -153,9 +153,6 @@ function stopVideoAndCloseModal() {
 //   return videoIdMatch ? videoIdMatch[1] : null;
 // }
 
-
-
-
 const favouriteBtn = document.querySelector('.btn-add-recipe-favourite');
 let isFavorite = false;
 
@@ -172,11 +169,7 @@ function onFavouriteBtnClick() {
 }
 // const seeRecipe = document.querySelector('.recipe_desc_btn');
 
-
 // Добавляем слушатель на кнопку
 favouriteBtn.addEventListener('click', onFavouriteBtnClick);
 
-
 // fetchRecipeData();
-
-
