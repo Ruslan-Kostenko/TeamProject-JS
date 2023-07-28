@@ -57,6 +57,18 @@ body.dark-theme {
   color: var(--dark-theme-text-color-03);
 }
 
+.dark-theme .cat-opt.is-active,
+.dark-theme .cat-opt:hover,
+.dark-theme .cat-opt:focus {
+  color: var(--accent-color);
+}
+
+.dark-theme .cat-btn.is-active,
+.dark-theme .cat-btn:hover,
+.dark-theme .cat-btn:focus {
+  color: var(--secondary-text-color);
+}
+
 .dark-theme .cat-btn {
   color: var(--dark-theme-text-color-05);
   border-color: var(--dark-theme-text-color-02);
@@ -94,6 +106,10 @@ body.dark-theme {
   background-color: transparent;
   color: var(--dark-theme-text-color-08);
   border-color: var(--dark-theme-text-color-02);
+}
+
+.dark-theme .search_input:focus {
+  border-color: var(--accent-color);
 }
 
 .dark-theme .search_input::placeholder {
@@ -161,10 +177,21 @@ body.dark-theme {
   color: var(--secondary-text-color);
 }
 
+.dark-theme .fav-category-filter-button {
+  background-color: var(--dark-background-color);
+  border-color: var(--dark-theme-text-color-03);
+  color: var(--dark-theme-text-color-03);
+}
+
 /* ---- MODAL ORDER NOW ---- */
 
 .dark-theme .order-now-modal-close__img path {
   stroke: var(--secondary-text-color);
+  transition: stroke var(--animation-set);
+}
+
+.dark-theme .order-now-modal-close__img:hover path {
+  stroke: var(--accent-color);
   transition: stroke var(--animation-set);
 }
 
@@ -183,6 +210,11 @@ body.dark-theme {
   color: var(--dark-theme-text-color-08);
 }
 
+.dark-theme .order-now-modal-form input:focus,
+.dark-theme .order-now-modal-form textarea:focus {
+  border-color: var(--accent-color);
+}
+
 .dark-theme .order-now-modal-form span {
   color: var(--dark-theme-text-color-05);
 }
@@ -191,3 +223,48 @@ body.dark-theme {
 .dark-theme .order-now-modal-form textarea::placeholder {
   color: var(--dark-theme-text-color-02);
 }
+
+/* ---- POP-UP RECIPE ---- */
+
+.dark-theme .pop-up-recipe {
+  background-color: var(--primary-text-color);
+}
+
+.dark-theme .pop-up-recipe-header {
+  color: var(--secondary-text-color);
+}
+
+.dark-theme .close-recipe-svg {
+  fill: var(--secondary-text-color);
+}
+
+.dark-theme .close-recipe-svg:hover,
+.dark-theme .close-recipe-svg:focus {
+  fill: #9bb537;
+  transition: fill var(--animation-set);
+}
+
+.dark-theme .recipe-item {
+  color: var(--secondary-text-color);
+  border-color: var(--dark-theme-text-color-02);
+}
+
+.dark-theme .btn-give-rating-recipe {
+  color: var(--secondary-text-color);
+}
+
+.dark-theme .pop-up-time,
+.dark-theme .rating-value {
+  color: var(--dark-theme-text-color-05);
+}
+
+.dark-theme .tag-btn {
+  color: var(--secondary-text-color);
+  border-color: var(--dark-theme-text-color-02);
+}
+
+.dark-theme .measure-content {
+  color: var(--dark-theme-text-color-05);
+}
+
+/* ---- POP-UP RAITING ---- */

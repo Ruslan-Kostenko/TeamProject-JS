@@ -34,23 +34,45 @@ function onEscKeyPress(event) {
   }
 }
 
-function onSubmitForm(e) {
+async function onSubmitForm(e) {
   e.preventDefault();
 
   const formData = extractFormData(refs.modalOrderNowForm);
-  console.log(formData);
 
+  try {
+    const response = await fetch(
+      'https://tasty-treats-backend.p.goit.global/api/orders/add',
+      {
+        method: 'POST',
+        headers: {
+          accept: 'application/json',
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      }
+    );
+
+    if (!response.ok) {
+      throw new Error('Network response was not ok');
+    }
+
+    const data = await response.json();
+    console.log('Дані успішно відправлені на бекенд:', data.message);
+  } catch (error) {
+    console.error('Помилка при відправленні даних на бекенд:', error);
+  }
+
+  onModalRemove();
   refs.modalOrderNowForm.reset();
 }
 
 function extractFormData(form) {
-  const formData = {};
-  const inputsEl = form.elements;
+  let formData = {};
 
-  formData.name = inputsEl.name.value;
-  formData.phone = inputsEl.phone.value;
-  formData.email = inputsEl.email.value;
-  formData.comment = inputsEl.comment.value;
+  formData.name = form.querySelector('input[name="name"]').value;
+  formData.phone = form.querySelector('input[name="phone"]').value;
+  formData.email = form.querySelector('input[name="email"]').value;
+  formData.comment = form.querySelector('textarea[name="comment"]').value;
 
   return formData;
 }

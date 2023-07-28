@@ -151,3 +151,88 @@
     height: 31px;
   }
 }
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  
+  
+}
+
+.pagination__list {
+  display: flex;
+  
+  list-style-type: none; 
+  width:264;
+  overflow-x: scroll; 
+  
+  /* Убираем стандартный бегунок скролла */
+  scrollbar-width: none;
+}
+.pagination__list::-webkit-scrollbar {
+  /* Ширина бегунка скролла */
+  width: 8px;
+}
+.pagination__list::-webkit-scrollbar-track {
+  /* Цвет фона для трека (фон за бегунком) */
+  background-color: var(--light-background-color);
+}
+.pagination__list::-webkit-scrollbar-thumb {
+  background: rgba(5, 5, 5, 0.18); /* цвет бегунка */
+  border-radius: 20px;
+  /* округлось бегунка */
+  /* отступ вокруг бегунка */
+}
+.pagination__list::-webkit-scrollbar-thumb:hover {
+  /* Изменяем стиль бегунка при наведении */
+  background-color: var(--accent-color);;
+}
+
+
+
+.up-pagination,
+.down-pagination,
+.doubl-down,
+.doubl-up{
+  padding: 11px 18px;
+  margin: 10px 0;
+  cursor: pointer;
+  width: 44px;
+  height: 44px;
+  text-align: center;
+  border-radius: 50%;
+  display:flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.pagination__item {
+  padding: 11px 18px;
+  margin:10px;
+  cursor: pointer;
+  width: 44px;
+  height: 44px;
+  text-align: center;
+  border-radius: 50%;
+  display:flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.up-pagination:hover,
+.down-pagination:hover,
+.doubl-down:hover,
+.doubl-up:hover,
+.up-pagination:focus,
+.down-pagination:focus,
+.doubl-down:focus,
+.doubl-up:focus,
+.pagination__item:hover,
+.pagination__item:focus{
+  background-color:var(--accent-color);
+  color:var(--secondary-text-color)
+}
+.activated{
+  background-color:var(--accent-color);
+  color:var(--secondary-text-color)
+}
