@@ -7,6 +7,7 @@ fetchPopItem().then(data => {
     if (!popImgLink) {
       return;
     }
+    
     const seeRecipe = popImgLink.querySelectorAll('.recipe_desc_btn');
     onClickRecipeDescrBtn();
   
