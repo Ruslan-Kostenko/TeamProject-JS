@@ -46,6 +46,7 @@
   color: rgba(5, 5, 5, 0.8);
   overflow: hidden;
   text-overflow: ellipsis;
+  text-align: start;
 }
 
 .pop-info > h3 {
@@ -58,7 +59,7 @@
   line-height: 1.28;
   text-transform: uppercase;
   display: -webkit-box;
-
+text-align: start;
   overflow: hidden;
   /* white-space: nowrap; */
   text-overflow: ellipsis;
