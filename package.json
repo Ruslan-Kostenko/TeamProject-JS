@@ -2,10 +2,10 @@
   "name": "parcel-project-template",
   "version": "2.0.0",
   "description": "",
-  "homepage": "https://ljuzifer.github.io/the-rolling-testy-treats/",
+  "homepage": "https://Ruslan-Kostenko.github.io/TeamProject-JS/",
   "scripts": {
     "start": "parcel src/*.html",
-    "build": "parcel build src/*.html --public-url /the-rolling-testy-treats/"
+    "build": "parcel build src/*.html --public-url /TeamProject-JS/"
   },
   "repository": {
     "type": "git",
